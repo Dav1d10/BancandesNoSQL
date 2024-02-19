@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FBD3F758-6E65-69C2-816D-DECD0BA53FD5" name="Cuenta">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D41D0BE7-56E5-AECA-D994-0EEEE1DE73C5</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroCuenta" id="B0E44FC2-1D7C-5B8D-7145-A04928688C54">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B0BDF382-581F-87DF-A517-09774402EB3C</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="saldo" id="3CE7C8A1-EA78-61AD-3965-8CA66D1858EA">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C8F5947A-5952-504F-1D4B-CC6944E37AFD</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FechaUltimaTransaccion" id="07FD8D7B-E9AF-CE82-6D3A-81EEDF96440E">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>73928806-C789-6D84-ED5E-D9D2F91C2D95</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="C55F69B7-765F-5B0A-0E9E-4C81569DE6FC">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C4093F1A-9150-F938-1661-D1D324F813B0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<listOfValues>
+<valueDef value="ACTIVA" description=""/>
+<valueDef value="CERRADA" description=""/>
+<valueDef value="DESACTIVADA" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="3D5C5D04-58F9-0D18-333F-B09C7202B3DF">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>8EBDCF87-292F-B795-84E6-60FD5DE460A0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<listOfValues>
+<valueDef value="AFC" description=""/>
+<valueDef value="AHORROS" description=""/>
+<valueDef value="CORRIENTE" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_idCliente" id="40F60399-C06B-8702-8D49-9D99D0379E48">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D5D1106B-236D-8C3A-5F55-E95C85CF6B57</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1354C18F-724F-2028-5947-4EFB86DF72BA" referredColumn="AFEB9FAD-9E97-BDF5-0003-FC289AB09C53"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="10859B35-BC8E-79BE-47E3-25400227CD99" name="Cuenta_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>EC95B5A2-25B4-DDC1-2E11-8678407099EF</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0E44FC2-1D7C-5B8D-7145-A04928688C54"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D31DC0C1-F4FA-91A5-11BA-67B6B5F5D6D8" name="Cuenta_Cliente_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>76F57B7A-877A-CCA3-AA0F-38E1143A6D26</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40F60399-C06B-8702-8D49-9D99D0379E48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

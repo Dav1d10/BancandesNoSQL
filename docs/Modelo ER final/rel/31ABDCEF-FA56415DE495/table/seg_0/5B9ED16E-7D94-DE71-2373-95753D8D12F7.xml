@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5B9ED16E-7D94-DE71-2373-95753D8D12F7" name="ATM">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>2CAADFC4-E578-F79D-EB4A-C1A112921165</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idDireccion" id="8DF3C94A-B5E1-EEB8-12D8-15DD14E54CA4">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>F3B9E356-6DFC-B461-7743-268B1709ADB3</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F30A1E0-B3BB-416D-3BB7-4D0CBE4B9E03" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
+</associations>
+</Column>
+<Column name="Oficina_numeroOficina" id="44E425BD-47C8-97FC-E48F-9EB99E3672FD">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A4086982-CE57-DADE-F15E-C2F4CD6A9D1F</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="357D78B9-0A2C-0985-50A3-C28F4EF33F11" referredColumn="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
+</associations>
+</Column>
+<Column name="idATM" id="5342280E-1CA1-DFB6-21C0-FDC8CE0027B7">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>2483D39B-517E-756C-47E4-89BD04191BEC</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="87DE661D-87A3-C7D9-2F4F-F6E20249EDE7" name="ATM_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C6AB01D5-A638-5F17-8FC1-852B4FD42EB0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8DF3C94A-B5E1-EEB8-12D8-15DD14E54CA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B44EF473-200B-CE8A-11DF-8A1A597454A7" name="ATM_PKv1">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>78B736C2-1A11-28AD-0ADC-E5566C79EC17</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5342280E-1CA1-DFB6-21C0-FDC8CE0027B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FBEEC98B-4C28-6560-C413-A775CEA54B08" name="ATM_PuntosDeAtencion_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>948C2B39-A501-1BD5-1471-EFCCC470F7AB</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8DF3C94A-B5E1-EEB8-12D8-15DD14E54CA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B166084F-F93F-CB40-EC72-84747E910CC2" name="ATM_Oficina_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>7CC8CF4A-007C-8992-E94C-410790A2AD67</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="44E425BD-47C8-97FC-E48F-9EB99E3672FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

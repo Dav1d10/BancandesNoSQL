@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A525D530-A434-3346-58C5-46A938B615FB" name="PuntoDeAtencionPersonalizada">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>2D05BC8B-432B-61C9-8551-D6D45EFDD25E</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idDireccion" id="B826CA42-1EB3-483D-AEA9-02E53F7CB499">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>F3B9E356-6DFC-B461-7743-268B1709ADB3</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B29975A7-F80A-5ACC-3DA1-C186F29AC3FD" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
+</associations>
+</Column>
+<Column name="Oficina_numeroOficina" id="022A999C-AF97-44F4-BDD6-D9CBE74D0442">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B4026884-2557-EBB4-2E9A-E918F6E3B487</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E44A633-BA12-DD3D-B10D-EB12975AD641" referredColumn="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
+</associations>
+</Column>
+<Column name="idPuntoDeAtencionPersonalizada" id="CF256F64-3F3D-382D-5EA9-1C710EF10129">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>FE97E7C8-D1CC-E404-9604-8E2342C717AC</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BE6A08CF-4CD2-42E4-CB7E-0BD1559E5104" name="PuntoDeAtencionPersonalizada_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C6AB01D5-A638-5F17-8FC1-852B4FD42EB0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B826CA42-1EB3-483D-AEA9-02E53F7CB499"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="55D36011-0D64-247B-C9A6-F6D891CEA777" name="PuntoDeAtencionPersonalizada_PKv1">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A7576CF0-74B1-484C-D37E-EEC06BE4CEA2</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF256F64-3F3D-382D-5EA9-1C710EF10129"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5613EA0E-B473-44E6-B2FE-378118899F6C" name="PuntoDeAtencionPersonalizada_PuntosDeAtencion_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>5C69E80A-32B3-6B37-C524-4FC4A1626323</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B826CA42-1EB3-483D-AEA9-02E53F7CB499"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4DBE1433-9F07-1F3A-4877-9BA741307AE9" name="PuntoDeAtencionPersonalizada_Oficina_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>DAC2A4E2-D17D-2D6F-DA2F-6C3500302CDB</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="022A999C-AF97-44F4-BDD6-D9CBE74D0442"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2D05BC8B-432B-61C9-8551-D6D45EFDD25E" name="PuntoDeAtencionPersonalizada">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:17:51 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>D6A63CE4-F9AC-20F0-33C1-3AF93DA054EB</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="numeroOficina" id="B4026884-2557-EBB4-2E9A-E918F6E3B487">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:17:51 UTC</createdTime>
+<generatorID>DAC2A4E2-D17D-2D6F-DA2F-6C3500302CDB</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<importedID>12CD6653-4DF8-8A43-778D-10D11E7BBF16</importedID>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<referedAttribute>A90101BB-88D0-9A88-BB62-111F58CD37CB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idPuntoDeAtencionPersonalizada" id="FE97E7C8-D1CC-E404-9604-8E2342C717AC">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:17:51 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<importedID>4354492A-E391-1436-8E52-E3D0D2602ECF</importedID>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A7576CF0-74B1-484C-D37E-EEC06BE4CEA2" name="PuntoDeAtencionPersonalizada PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:17:51 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FE97E7C8-D1CC-E404-9604-8E2342C717AC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

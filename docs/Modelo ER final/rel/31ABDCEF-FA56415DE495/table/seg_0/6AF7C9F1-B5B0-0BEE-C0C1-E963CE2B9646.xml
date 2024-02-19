@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6AF7C9F1-B5B0-0BEE-C0C1-E963CE2B9646" name="GerenteGeneral">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A932ECAA-B00A-CB7B-DC5F-49FD336180DA</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroDocumento" id="9D3FA16C-E133-4906-57FF-384208D27D21">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>86446E9D-033B-9CE0-E1F5-64CADD9FB077</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6A8FA7C5-61F1-1A00-2E67-A27BFA898463" referredColumn="917522AD-044D-D400-38B1-D07CE087FB71"/>
+</associations>
+</Column>
+<Column name="idGerenteGeneral" id="6C1FF7F2-6D21-8DD2-946C-7926E8552587">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A89DB137-02BA-0950-CA66-0C993B6F967B</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FF498ED3-5C6C-D0BC-8CE9-D4588C99DBAB" name="GerenteGeneral_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B6060FB9-8522-EF60-4516-5EEE9D0706B6</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D3FA16C-E133-4906-57FF-384208D27D21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8FC81B6E-D3D3-3B28-8F2C-7F3B9A59B3A8" name="GerenteGeneral_PKv1">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D244040A-367C-231C-A4EB-1F5BF12D8D0A</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6C1FF7F2-6D21-8DD2-946C-7926E8552587"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="097A17FE-B354-DA55-8ABC-FC6B0AFFF276" name="GerenteGeneral_Persona_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>8D052B66-EDE3-F26E-A774-A4A84FEFA046</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D3FA16C-E133-4906-57FF-384208D27D21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA55DAF4-943E-A14F-D950-1421D1EB605F" name="CuentaAhorros">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>28F2BC42-76DE-7D4C-2570-E496AC350D0D</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroCuentaAhorros" id="3809CE08-AD60-450A-85E3-B1760F25FC90">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D8052230-CCFB-2CFF-73A9-47748940D843</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="35E67A31-98D2-751F-6960-162F14C9FD10" name="CuentaAhorros_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>93CFE374-E534-1500-AC4B-8BFA4B00A360</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3809CE08-AD60-450A-85E3-B1760F25FC90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

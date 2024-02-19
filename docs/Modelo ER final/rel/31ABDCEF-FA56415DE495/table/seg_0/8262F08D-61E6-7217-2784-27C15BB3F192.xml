@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8262F08D-61E6-7217-2784-27C15BB3F192" name="Persona">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>DD7FCC74-00F2-1939-4E5D-F0D847D669A5</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroDocumento" id="917522AD-044D-D400-38B1-D07CE087FB71">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>86446E9D-033B-9CE0-E1F5-64CADD9FB077</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="AA4DE658-AC0B-86B2-303F-4BC7672C0BDD">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>247A0571-A6AD-B413-C4AF-C5201DED6584</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="189D172A-CB77-C8B3-2A0F-DA056FB19F03">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>61C9A7A9-95C1-F32C-6856-0118DFBA930A</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nacionalidad" id="DBF0786A-441C-0EA5-DBE3-544EB1AC53FF">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>CF2B3D58-DC72-2842-18A4-696C914E8B89</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccionFisica" id="25FCFBF7-7A37-E45E-181E-62C01541DA91">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>DD8A843B-C925-7179-BC13-65191A5E474A</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccionElectronica" id="713333FC-C4FA-E056-B24E-02A973CFB834">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>74D3E45B-C8D2-0C7C-044E-8A678B98DBF8</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="departamento" id="A139296B-7779-CFED-E984-8A67C25DA373">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>4E7DCC04-085C-8B29-BFBD-2C3843955D0E</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="codigoPostal" id="6FB6F04C-7573-B31E-EF73-F9D2B212905F">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>1F4DE6DD-A387-3A0E-4BB5-D0B450B2CB55</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipoDocumento" id="337AFAAA-E02F-301D-FDD9-30BE19637A4B">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D4512104-3B52-9905-CE6B-272515469DDA</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<listOfValues>
+<valueDef value="CC" description=""/>
+<valueDef value="NIT" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="A8DA4B56-B53F-0B76-63B3-EFB494ABC3C2">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>47D35325-1332-0F22-B8DA-55E2DD960BC5</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<listOfValues>
+<valueDef value="CAJERO" description=""/>
+<valueDef value="CLIENTE" description=""/>
+<valueDef value="GERENTE DE OFICINA" description=""/>
+<valueDef value="GERENTE GENERAL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LogIn_hashUser" id="852F010A-34C8-161E-AA14-F9FAAA2D0224">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>09B86062-1611-796A-48CE-4D774CDF5829</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77A6CAD6-258D-09B9-D21C-B6CA808D9954" referredColumn="D22C1C03-02FC-5226-A5FE-F188DA9D0B6D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="72046BCD-AF92-513A-9ED3-5E323E64B8BE" name="Persona_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B6060FB9-8522-EF60-4516-5EEE9D0706B6</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="917522AD-044D-D400-38B1-D07CE087FB71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F7FD056-5364-3FF7-D3CF-9D3983D24CF4" name="Persona__IDX">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>549CB2F9-8CBF-46B9-E9FB-EEC11E05B08D</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="852F010A-34C8-161E-AA14-F9FAAA2D0224"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C14A6C77-E1D9-82EA-17F3-D5B5EE8D8E68" name="Persona_LogIn_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>549CB2F9-8CBF-46B9-E9FB-EEC11E05B08D</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="852F010A-34C8-161E-AA14-F9FAAA2D0224"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

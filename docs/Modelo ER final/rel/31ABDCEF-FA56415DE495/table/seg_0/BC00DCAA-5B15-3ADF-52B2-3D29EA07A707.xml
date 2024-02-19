@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BC00DCAA-5B15-3ADF-52B2-3D29EA07A707" name="Empleado">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>ADF50D90-C3E0-19C3-E0C1-248F775FD7E8</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Oficina_numeroOficina" id="67EF6A49-52D3-5219-447C-9ACF17238620">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>10B12FE9-4EEF-947A-B19E-D4C046FF0435</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A3327CE-D284-5B93-07CD-42F831291ED1" referredColumn="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
+</associations>
+</Column>
+<Column name="codigoEmpleado" id="53C37B92-7654-AD0C-244F-CD520478C7DF">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>ADA311AB-0A96-F336-E9F3-1F74D6A4ED4D</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F1CC69AD-1404-FC6B-2297-46B97B9C4DC3" name="Empleado_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>1B3484E3-2F9F-FB05-2BEF-9A1EFA58ABF2</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="53C37B92-7654-AD0C-244F-CD520478C7DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DD83A8F8-C142-7A4B-B4C5-1AD8A232B9D2" name="Empleado__IDX">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>A047C755-62C5-7E6C-8D61-42E7747B172A</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="67EF6A49-52D3-5219-447C-9ACF17238620"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E4C5DF5-E5CA-DEF9-9C51-617193D08583" name="Empleado_Oficina_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A047C755-62C5-7E6C-8D61-42E7747B172A</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67EF6A49-52D3-5219-447C-9ACF17238620"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

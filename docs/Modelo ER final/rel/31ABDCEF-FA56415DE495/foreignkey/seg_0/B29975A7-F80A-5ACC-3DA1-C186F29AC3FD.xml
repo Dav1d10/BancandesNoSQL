@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B29975A7-F80A-5ACC-3DA1-C186F29AC3FD" containerWithKeyObject="A525D530-A434-3346-58C5-46A938B615FB" localFKIndex="5613EA0E-B473-44E6-B2FE-378118899F6C" name="PuntoDeAtencionPersonalizada_PuntosDeAtencion_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>5C69E80A-32B3-6B37-C524-4FC4A1626323</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<referredTableLongName>PuntosDeAtencion</referredTableLongName>
+<arc>A6E5AEE0-E045-F838-704E-C5F06D1797EF</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E9D19B05-2FD2-83DE-B120-1594F11C9096</referredTableID>
+<keyObject>88827388-1AE9-22BB-DEB0-E4EBCF6255CA</keyObject>
+<referredKeyID>88827388-1AE9-22BB-DEB0-E4EBCF6255CA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idDireccion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

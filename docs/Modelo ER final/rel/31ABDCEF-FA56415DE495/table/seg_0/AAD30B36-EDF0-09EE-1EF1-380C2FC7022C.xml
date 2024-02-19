@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AAD30B36-EDF0-09EE-1EF1-380C2FC7022C" name="BancAndes">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>82E041D5-9C89-5013-3274-A253BB271ADC</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PuntosDeAtencion_idDireccion" id="9DD8B30D-180B-AF0F-61A5-AADD86FD64D6">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>D63D3E3A-C54D-C459-A679-7A9CB04310C3</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B79427C7-DF13-0391-8249-10B0839123BB" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
+</associations>
+</Column>
+<Column name="BancAndes_ID" id="E8452F59-BC1B-604D-FB29-DC1BAE3317F2">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4255F603-CAD0-F317-3CEF-70683F289CED" name="BancAndes_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="E8452F59-BC1B-604D-FB29-DC1BAE3317F2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2AB0443D-2A32-A11E-5B62-14F461070644" name="BancAndes__IDX">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="9DD8B30D-180B-AF0F-61A5-AADD86FD64D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DEE8546D-E82D-3F04-6A1E-8B840235D15D" name="BancAndes_PuntosDeAtencion_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DD8B30D-180B-AF0F-61A5-AADD86FD64D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

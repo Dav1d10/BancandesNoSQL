@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A131369B-4F34-13A4-9731-2292BD7B5C06" name="PuntoDeAtencionDigital">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>AABF68C7-1C45-D384-C65E-211BFE83149C</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idDireccion" id="B0440340-B5BA-5BB4-D1E9-CFD318CD1ADB">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>F3B9E356-6DFC-B461-7743-268B1709ADB3</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7AFC7241-E6C1-7805-37C3-98CB0F80EA9A" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
+</associations>
+</Column>
+<Column name="idPuntoDeAtencionDigital" id="F3117C6A-69C4-96E2-1542-1E2DF5C1724E">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>65ED730E-4ADF-0E4A-0896-0ED9C16536E4</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CD617883-E8EE-2D4C-5557-CC830013544E" name="PuntoDeAtencionDigital_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C6AB01D5-A638-5F17-8FC1-852B4FD42EB0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0440340-B5BA-5BB4-D1E9-CFD318CD1ADB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E476B70-9C07-EF80-3042-A6AEF6639881" name="PuntoDeAtencionDigital_PKv1">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>E3300F35-4A94-EAED-CDC8-ABB2509AF6F7</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3117C6A-69C4-96E2-1542-1E2DF5C1724E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="69F049D0-C7DE-7DD3-1714-79F773EE66A8" name="PuntoDeAtencionDigital_PuntosDeAtencion_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>231855E3-5EF7-27EB-C689-F6989CEB8555</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0440340-B5BA-5BB4-D1E9-CFD318CD1ADB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

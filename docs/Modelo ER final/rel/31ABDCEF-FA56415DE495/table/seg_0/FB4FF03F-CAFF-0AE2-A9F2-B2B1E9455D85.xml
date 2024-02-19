@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FB4FF03F-CAFF-0AE2-A9F2-B2B1E9455D85" name="Oficina">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>0DA12E80-9E0D-54E0-44EC-366713A418C1</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroOficina" id="805D2724-56C2-C7F9-2A9D-6F1E617BD386">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A90101BB-88D0-9A88-BB62-111F58CD37CB</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="5821129F-4D22-53F0-1585-65A02782114E">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>8B0DE958-F2E5-3A2C-7D47-39B397613395</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="2795BD18-2E32-65B7-83E8-368F87F2DE92">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B0784D61-7E1D-614A-52AF-D71D95D1AE78</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GerenteDeOficina_numeroDocumento" id="196A11C2-A45A-2BBE-D4D3-39F4F2C45E85">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>A1F16F93-9BAC-F7DD-6A00-0F3107C1F5F6</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E6E67DA3-31D4-329C-6E53-C77A87E1DBBA" referredColumn="953353A0-AAD0-D580-9471-7CBFC1A00D14"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E2C285F5-50C8-7226-610E-5EBECECBC975" name="Oficina_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>E64A37FD-5547-1AF7-66B7-718BA4CAD4BE</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0A5BB287-929B-5846-155E-4D4E403C160B" name="Oficina__IDX">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3E431D95-9401-7A37-BD2B-288C4BBEDAB0</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="196A11C2-A45A-2BBE-D4D3-39F4F2C45E85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6D6FE18F-31F3-8D39-42BE-21B3B72A3565" name="Oficina_GerenteDeOficina_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>3E431D95-9401-7A37-BD2B-288C4BBEDAB0</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="196A11C2-A45A-2BBE-D4D3-39F4F2C45E85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

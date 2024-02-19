@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EE9BCC9A-561B-AB6B-E846-F79C65EF18CD" name="Cajero">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>0DF0D302-7366-64D2-7527-26DFE40CC7FE</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numeroDocumento" id="5489D2FF-7C5A-3CEA-201D-CFE7C49097B3">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>86446E9D-033B-9CE0-E1F5-64CADD9FB077</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2FF980C0-D056-F5E1-35CC-306C88E7521E" referredColumn="917522AD-044D-D400-38B1-D07CE087FB71"/>
+</associations>
+</Column>
+<Column name="idCajero" id="B318C3F2-21C2-6A5B-4093-A9E2C1BA0FD8">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>741A5419-DFB3-F789-9157-F25D5C6F3C24</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2A6FB34E-84CC-275B-2DBB-8C81B78D9BE6" name="Cajero_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>B6060FB9-8522-EF60-4516-5EEE9D0706B6</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5489D2FF-7C5A-3CEA-201D-CFE7C49097B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8B41F8E-F567-8AB7-2573-29BD2D0C1F9B" name="Cajero_PKv1">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>F15C95C4-166E-6A4E-C16E-BBA98754CFB4</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B318C3F2-21C2-6A5B-4093-A9E2C1BA0FD8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8FB8BA40-20B8-41E4-5A53-E770F18E8A17" name="Cajero_Persona_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>C8A326E2-DFDB-1367-0499-36E3C9DF040C</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5489D2FF-7C5A-3CEA-201D-CFE7C49097B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="357D78B9-0A2C-0985-50A3-C28F4EF33F11" containerWithKeyObject="5B9ED16E-7D94-DE71-2373-95753D8D12F7" localFKIndex="B166084F-F93F-CB40-EC72-84747E910CC2" name="ATM_Oficina_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<generatorID>7CC8CF4A-007C-8992-E94C-410790A2AD67</generatorID>
+<ownerDesignName>Modelo ER final</ownerDesignName>
+<referredTableLongName>Oficina</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FB4FF03F-CAFF-0AE2-A9F2-B2B1E9455D85</referredTableID>
+<keyObject>E2C285F5-50C8-7226-610E-5EBECECBC975</keyObject>
+<referredKeyID>E2C285F5-50C8-7226-610E-5EBECECBC975</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>numeroOficina</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
