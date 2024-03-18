@@ -8,11 +8,11 @@
 		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>uniandes.edu.co</groupId>
-	<artifactId>parranderos</artifactId>
+	<groupId>com.bancandes</groupId>
+	<artifactId>bancandes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>parranderos</name>
-	<description>Aplicación de prueba para el curso Sistemas Transaccionales</description>
+	<name>bancandes</name>
+	<description>proyecto 1 sistrans</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -54,3 +54,4 @@
 	</build>
 
 </project>
+
