@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>0768A629-C7AD-D825-61B4-41ED4D856960</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,7 +12,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>D40526B3-84AB-0895-5D90-69DA80AE3FFC</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -24,7 +24,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>9F211879-0E61-B502-43B5-9052FE95CC9C</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>

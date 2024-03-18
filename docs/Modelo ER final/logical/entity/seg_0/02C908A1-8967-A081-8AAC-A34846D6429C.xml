@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="02C908A1-8967-A081-8AAC-A34846D6429C" name="GerenteDeOficina">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -20,7 +20,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>3E431D95-9401-7A37-BD2B-288C4BBEDAB0</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>7B4865F1-3668-DEF6-ECED-6770B2A51701</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -33,7 +33,7 @@
 <Attribute name="idGerenteDeOficina" id="9ED04F93-103A-9CB3-BFBB-2554746E31FE">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>CBF920AB-7DD2-DC2B-8AFD-A3EB0EB18192</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -47,7 +47,7 @@
 <identifier id="05C49F02-4C19-13BA-64C2-D6E6078A6AF3" name="GerenteDeOficina PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>

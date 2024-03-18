@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0DA12E80-9E0D-54E0-44EC-366713A418C1" name="Oficina">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="numeroOficina" id="A90101BB-88D0-9A88-BB62-111F58CD37CB">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>2958D521-ECA9-11A1-ADBD-7B7A4962F1FA</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -30,7 +30,7 @@
 <Attribute name="nombre" id="8B0DE958-F2E5-3A2C-7D47-39B397613395">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>0B984EB3-C306-9143-0B9C-838CFC52F548</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -42,7 +42,7 @@
 <Attribute name="direccion" id="B0784D61-7E1D-614A-52AF-D71D95D1AE78">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>35A29E5B-CD85-7E76-3815-211CECB2C27A</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -55,7 +55,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>3E431D95-9401-7A37-BD2B-288C4BBEDAB0</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>F34280AE-1862-280D-2E2C-3D9D344D30F9</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -70,9 +70,10 @@
 <identifier id="E64A37FD-5547-1AF7-66B7-718BA4CAD4BE" name="Oficina PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

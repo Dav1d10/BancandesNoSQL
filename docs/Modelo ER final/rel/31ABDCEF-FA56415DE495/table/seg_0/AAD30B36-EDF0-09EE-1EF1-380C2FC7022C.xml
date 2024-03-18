@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>82E041D5-9C89-5013-3274-A253BB271ADC</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,20 +12,20 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>D63D3E3A-C54D-C459-A679-7A9CB04310C3</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="B79427C7-DF13-0391-8249-10B0839123BB" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
+<colAssociation fkAssociation="9B6F3D09-F8A7-8CC4-4A0E-4B2411170905" referredColumn="EABB6DA1-FB28-45E8-5DAE-184823E25929"/>
 </associations>
 </Column>
 <Column name="BancAndes_ID" id="E8452F59-BC1B-604D-FB29-DC1BAE3317F2">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
@@ -38,7 +38,7 @@
 <ind_PK_UK id="4255F603-CAD0-F317-3CEF-70683F289CED" name="BancAndes_PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <indexColumnUsage>
@@ -48,7 +48,7 @@
 <ind_PK_UK id="2AB0443D-2A32-A11E-5B62-14F461070644" name="BancAndes__IDX">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <relationGeneratorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</relationGeneratorID>
@@ -56,11 +56,11 @@
 <colUsage columnID="9DD8B30D-180B-AF0F-61A5-AADD86FD64D6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="DEE8546D-E82D-3F04-6A1E-8B840235D15D" name="BancAndes_PuntosDeAtencion_FK">
-<createdBy>User</createdBy>
-<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ind_PK_UK id="01233A17-53EF-520B-9D56-D92B7FA537E0" name="BancAndes_PuntosDeAtencion_FK">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 05:20:36 UTC</createdTime>
 <generatorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

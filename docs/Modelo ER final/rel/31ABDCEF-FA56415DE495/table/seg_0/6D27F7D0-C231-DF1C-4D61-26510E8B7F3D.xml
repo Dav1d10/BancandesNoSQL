@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>8BE46983-78C7-3409-F459-1D9249244C13</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,7 +12,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>86446E9D-033B-9CE0-E1F5-64CADD9FB077</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -25,7 +25,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>D86DFEA3-9325-0D09-79D4-4DF58B180FC6</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -37,7 +37,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>B6060FB9-8522-EF60-4516-5EEE9D0706B6</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -49,7 +49,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>C298E63A-6739-5599-6AAC-55287AC91B0E</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -60,7 +60,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>C053BFD7-5DE5-B778-38DE-1BDBADEDC07A</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="236C21F3-318F-35F1-7DB4-DB3AAC635D70" containerWithKeyObject="E9D19B05-2FD2-83DE-B120-1594F11C9096" localFKIndex="47A3D1B6-B82B-740F-74AC-E38AC6A7DC03" name="PuntosDeAtencion_OperacionBancaria_FK">
-<createdBy>User</createdBy>
-<createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<generatorID>52FAE477-F889-E8C5-060A-539335681AC2</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="59821DCA-3428-8597-2E42-84D3A45DEFCB" containerWithKeyObject="FBD3F758-6E65-69C2-816D-DECD0BA53FD5" localFKIndex="4E9C1B3D-5DCB-3FAE-9AE6-E418786ADAE2" name="Cuenta_OperacionBancaria_FK">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 05:20:36 UTC</createdTime>
+<generatorID>F6CA9C78-5022-8A0B-C261-FF95DFAF29DC</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <referredTableLongName>OperacionBancaria</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>AED3E8BA-DB03-8892-15A9-A0D463B31B03</referredTableID>

@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="82E041D5-9C89-5013-3274-A253BB271ADC" name="BancAndes">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -19,7 +19,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>2EDB310F-CDF7-D04E-519B-360A33DAA42D</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>

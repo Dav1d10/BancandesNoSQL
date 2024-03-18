@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0DF0D302-7366-64D2-7527-26DFE40CC7FE" name="Cajero">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -19,7 +19,7 @@
 <Attribute name="idCajero" id="741A5419-DFB3-F789-9157-F25D5C6F3C24">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>702EF355-794B-A1A2-5C4F-C3A5FC019618</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -33,7 +33,7 @@
 <identifier id="F15C95C4-166E-6A4E-C16E-BBA98754CFB4" name="Cajero PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>

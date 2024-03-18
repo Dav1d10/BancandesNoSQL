@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>3E52573E-E016-7DB6-8744-6E94EA170C8F</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,7 +12,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>F4B0F8B6-6771-2F0C-F346-B979C93C8B06</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -22,7 +22,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>50BC7F6D-4839-989A-FA96-830A2B7AFE8C</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -32,7 +32,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>E0668859-36FC-DEE5-8518-245B1A2EA0FA</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -48,7 +48,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>37EB2D40-4E76-D791-943E-BA9DF49126A3</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -59,7 +59,7 @@
 <ind_PK_UK id="6B30D0BE-470B-FC33-6961-66A418C9F256" name="LogIn__IDX">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <relationGeneratorID>549CB2F9-8CBF-46B9-E9FB-EEC11E05B08D</relationGeneratorID>
@@ -71,7 +71,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>549CB2F9-8CBF-46B9-E9FB-EEC11E05B08D</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

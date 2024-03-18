@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D6A63CE4-F9AC-20F0-33C1-3AF93DA054EB" name="PuntosDeAtencion">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="idDireccion" id="F3B9E356-6DFC-B461-7743-268B1709ADB3">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>CFF1967F-FEFF-72D4-C116-B2FBEE9FD469</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -30,7 +30,7 @@
 <Attribute name="localizacionGeografica" id="96B2FA6C-535F-2ABB-6355-5CC399676A30">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>34E2642D-B451-4636-2921-ABDA328F5563</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -42,7 +42,7 @@
 <Attribute name="tipo" id="CBA56D5F-E19E-FE42-64D9-4524E24B521D">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>B55FCD78-F1DC-D222-E7AB-42505BA37757</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -60,7 +60,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>52FAE477-F889-E8C5-060A-539335681AC2</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>F6FEA04C-1800-224F-AC4B-BF0615ACA22E</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -75,9 +75,10 @@
 <identifier id="C6AB01D5-A638-5F17-8FC1-852B4FD42EB0" name="PuntosDeAtencion PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F1C3F729-E66C-FAF2-BB90-E4417A24D31A" name="Prestamo">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="idPrestamo" id="DEA396F6-1A95-3839-CCB8-FF1639C6F8A2">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>BC13B19A-E9FF-27CA-7430-5C56EEFB3FC5</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -30,7 +30,7 @@
 <Attribute name="monto" id="06FB195D-65EB-1F37-CE07-214341A62FD3">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>D8A49380-3F8A-BDB4-5EA5-F9C4EC1523EC</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -42,7 +42,7 @@
 <Attribute name="interes" id="2A2251DD-D4C3-90F1-F07D-A580A043F989">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>D46D5E80-F855-2164-C55E-3A40C3F2E8EB</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -54,7 +54,7 @@
 <Attribute name="numeroCuotas" id="2553CBD5-ED64-569E-B6AF-FADFDC6B771A">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>FB5B4961-162D-A01F-D611-074F58C79045</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -66,7 +66,7 @@
 <Attribute name="valorCuota" id="33675B56-99C4-2CE1-E064-6C9F56348F90">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>745252E6-E5B7-021E-4C17-37F09FC1E85F</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -78,7 +78,7 @@
 <Attribute name="estado" id="04B6AB7B-AB2B-6722-840B-BEE5B05226FF">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>2CE6D821-257C-8130-A03B-40CBC7D0E217</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -97,7 +97,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>9D7C4B47-A0ED-2D8D-0328-7EE550E40BB7</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>5E431096-32B0-2DC4-E5BD-1B444539E8C9</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -113,9 +113,10 @@
 <identifier id="20F08A22-83B5-737A-09A5-5D111D629CBE" name="Prestamo PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ADF50D90-C3E0-19C3-E0C1-248F775FD7E8" name="Empleado">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -19,7 +19,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>A047C755-62C5-7E6C-8D61-42E7747B172A</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>31A7098C-7B80-04EB-E2FA-37DEEC746D67</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -32,7 +32,7 @@
 <Attribute name="codigoEmpleado" id="ADA311AB-0A96-F336-E9F3-1F74D6A4ED4D">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>6FDF1130-0872-72B4-C36A-257CFC6E8348</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -46,9 +46,10 @@
 <identifier id="1B3484E3-2F9F-FB05-2BEF-9A1EFA58ABF2" name="Empleado PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

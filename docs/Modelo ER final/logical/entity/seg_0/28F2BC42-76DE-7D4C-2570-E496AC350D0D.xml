@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="28F2BC42-76DE-7D4C-2570-E496AC350D0D" name="CuentaAhorros">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="numeroCuentaAhorros" id="D8052230-CCFB-2CFF-73A9-47748940D843">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>47E037FC-24DB-EE99-7459-14C92FB57296</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -32,9 +32,10 @@
 <identifier id="93CFE374-E534-1500-AC4B-8BFA4B00A360" name="CuentaAhorros PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

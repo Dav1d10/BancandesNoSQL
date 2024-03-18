@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>2CAADFC4-E578-F79D-EB4A-C1A112921165</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,7 +12,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>F3B9E356-6DFC-B461-7743-268B1709ADB3</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -25,21 +25,21 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>A4086982-CE57-DADE-F15E-C2F4CD6A9D1F</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="357D78B9-0A2C-0985-50A3-C28F4EF33F11" referredColumn="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
+<colAssociation fkAssociation="3F542D1B-A11E-CAE8-43EB-47A467CEEA19" referredColumn="805D2724-56C2-C7F9-2A9D-6F1E617BD386"/>
 </associations>
 </Column>
 <Column name="idATM" id="5342280E-1CA1-DFB6-21C0-FDC8CE0027B7">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>2483D39B-517E-756C-47E4-89BD04191BEC</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -51,7 +51,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>C6AB01D5-A638-5F17-8FC1-852B4FD42EB0</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -63,7 +63,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>78B736C2-1A11-28AD-0ADC-E5566C79EC17</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
@@ -74,18 +74,18 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>948C2B39-A501-1BD5-1471-EFCCC470F7AB</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="8DF3C94A-B5E1-EEB8-12D8-15DD14E54CA4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B166084F-F93F-CB40-EC72-84747E910CC2" name="ATM_Oficina_FK">
-<createdBy>User</createdBy>
-<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ind_PK_UK id="1A2754CB-5644-71CE-7B92-36EA33369BEE" name="ATM_Oficina_FK">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 05:20:36 UTC</createdTime>
 <generatorID>7CC8CF4A-007C-8992-E94C-410790A2AD67</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

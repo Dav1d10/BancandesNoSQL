@@ -3,7 +3,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>D6A63CE4-F9AC-20F0-33C1-3AF93DA054EB</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -12,7 +12,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>F3B9E356-6DFC-B461-7743-268B1709ADB3</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -22,7 +22,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>96B2FA6C-535F-2ABB-6355-5CC399676A30</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -32,7 +32,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>CBA56D5F-E19E-FE42-64D9-4524E24B521D</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <listOfValues>
@@ -47,20 +47,20 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>714AEC78-A48C-D90F-ADFA-93AC40993CA9</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="236C21F3-318F-35F1-7DB4-DB3AAC635D70" referredColumn="8B9F5A92-A68D-D1A7-D900-5A55CCFBB766"/>
+<colAssociation fkAssociation="509247AC-6F0F-154A-AD83-6E00302760BB" referredColumn="8B9F5A92-A68D-D1A7-D900-5A55CCFBB766"/>
 </associations>
 </Column>
 <Column name="BancAndes_BancAndes_ID" id="A219AEEE-A08D-D96D-83FC-D92C750E32EB">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
@@ -75,7 +75,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>C6AB01D5-A638-5F17-8FC1-852B4FD42EB0</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
@@ -86,7 +86,7 @@
 <ind_PK_UK id="033F2731-104F-9CA0-1D54-0840C4C99AB2" name="PuntosDeAtencion__IDX">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <relationGeneratorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</relationGeneratorID>
@@ -97,7 +97,7 @@
 <ind_PK_UK id="CB035DE9-21A7-D698-91B7-D758212682AC" name="PuntosDeAtencion__IDXv1">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <relationGeneratorID>52FAE477-F889-E8C5-060A-539335681AC2</relationGeneratorID>
@@ -109,18 +109,18 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:18:08 UTC</createdTime>
 <generatorID>DEE2AC82-F9BE-C4BB-3929-230DE3002376</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="A219AEEE-A08D-D96D-83FC-D92C750E32EB"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="47A3D1B6-B82B-740F-74AC-E38AC6A7DC03" name="PuntosDeAtencion_OperacionBancaria_FK">
-<createdBy>User</createdBy>
-<createdTime>2024-02-19 05:18:08 UTC</createdTime>
+<ind_PK_UK id="B8B13121-774E-7B8F-AF30-1955FBEACCAC" name="PuntosDeAtencion_OperacionBancaria_FK">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 05:20:36 UTC</createdTime>
 <generatorID>52FAE477-F889-E8C5-060A-539335681AC2</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>

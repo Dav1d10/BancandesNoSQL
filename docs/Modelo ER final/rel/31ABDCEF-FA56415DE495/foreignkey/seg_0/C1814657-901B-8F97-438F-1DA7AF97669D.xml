@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C1814657-901B-8F97-438F-1DA7AF97669D" containerWithKeyObject="AED3E8BA-DB03-8892-15A9-A0D463B31B03" localFKIndex="DAF9FA0A-FF89-89A7-CF34-A60B674F3CCE" name="OperacionBancaria_Prestamo_FK">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 05:20:36 UTC</createdTime>
+<generatorID>837E45AB-07DD-0A8D-4F75-D5F320BFE9F8</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<referredTableLongName>Prestamo</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5A517710-2436-38D1-E941-21921DE17E5F</referredTableID>
+<keyObject>B5154F47-6E0C-C400-C032-807BAAA363B2</keyObject>
+<referredKeyID>B5154F47-6E0C-C400-C032-807BAAA363B2</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idPrestamo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

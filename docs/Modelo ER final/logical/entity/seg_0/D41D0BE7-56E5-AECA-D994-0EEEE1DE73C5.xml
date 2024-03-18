@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D41D0BE7-56E5-AECA-D994-0EEEE1DE73C5" name="Cuenta">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="numeroCuenta" id="B0BDF382-581F-87DF-A517-09774402EB3C">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>75A4066A-207C-3645-BAF3-D0664F27DCAB</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -30,7 +30,7 @@
 <Attribute name="saldo" id="C8F5947A-5952-504F-1D4B-CC6944E37AFD">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>C28D8CAC-C83E-BCC4-2F0A-EF2BD4374911</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -42,7 +42,7 @@
 <Attribute name="FechaUltimaTransaccion" id="73928806-C789-6D84-ED5E-D9D2F91C2D95">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>3EE5DF97-3CDC-F2FC-771F-81227092C1B0</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -54,7 +54,7 @@
 <Attribute name="estado" id="C4093F1A-9150-F938-1661-D1D324F813B0">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>A3EC4E98-56FA-0F10-0AC3-8FA364E92F65</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -71,7 +71,7 @@
 <Attribute name="tipo" id="8EBDCF87-292F-B795-84E6-60FD5DE460A0">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>8316A2F3-5F33-7A4B-51FB-7DF298929513</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -89,7 +89,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>76F57B7A-877A-CCA3-AA0F-38E1143A6D26</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>A93B45E3-29BC-9F93-BD0F-F02E5443B4F0</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -99,14 +99,28 @@
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="idOperacionBancaria" id="119CFFE0-F978-A084-B2D4-5CC8A283FD5E">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 02:16:23 UTC</createdTime>
+<generatorID>F6CA9C78-5022-8A0B-C261-FF95DFAF29DC</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<referedAttribute>4FCB855F-63B5-F9B3-CBBF-00CA1AAC021C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="EC95B5A2-25B4-DDC1-2E11-8678407099EF" name="Cuenta PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -2,7 +2,7 @@
 <Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1889E3AF-3AA2-B697-26FA-6CB99B42EC82" name="OperacionBancaria">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
 </engineerTo>
@@ -18,7 +18,7 @@
 <Attribute name="idOperacionBancaria" id="4FCB855F-63B5-F9B3-CBBF-00CA1AAC021C">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>7A830E01-2E8C-547E-AA03-FBF46899E185</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -30,7 +30,7 @@
 <Attribute name="valor" id="284F13D9-B5A8-CC32-43A0-B2C7CE4D771C">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>CD0E767E-A5EA-7136-3AB0-66D25929DFEF</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -42,7 +42,7 @@
 <Attribute name="hora" id="69AB497A-1BD1-A337-D727-DE3B82E638B7">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>59CAE649-3130-A33E-33F7-F575E01AA22F</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -54,7 +54,7 @@
 <Attribute name="fecha" id="68D600C5-843B-3A93-8A50-2325127952CB">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>92F16CD3-5302-659E-1F98-4C3AF09525DB</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -66,7 +66,7 @@
 <Attribute name="tipoOperacion" id="73B7FB29-731D-8F02-556E-8F35C7C9DED5">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>F0F9BF7C-B704-5AF1-55FC-5787E8A86CB6</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -85,7 +85,7 @@
 <Attribute name="producto" id="9CC2772A-9CC4-F56D-AF4F-C7BFD3AC7327">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>B1692484-81EB-C5B0-9FCD-AEDD6DE87C99</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -103,7 +103,7 @@
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
 <generatorID>52FAE477-F889-E8C5-060A-539335681AC2</generatorID>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
 <importedID>925B0398-E271-BA9D-05DC-6C74BF070CF9</importedID>
 <engineerTo>
 <item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
@@ -113,14 +113,41 @@
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="idCliente" id="A4576AAC-2890-BDB1-E767-9B627C3456D9">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 02:08:32 UTC</createdTime>
+<generatorID>87B7BDA7-F26A-9FE1-6FE2-0C9D3BBA772D</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<referedAttribute>D86DFEA3-9325-0D09-79D4-4DF58B180FC6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idPrestamo" id="D10A957C-9001-765C-B114-D51A04AF82DC">
+<createdBy>David Caro</createdBy>
+<createdTime>2024-03-18 02:38:37 UTC</createdTime>
+<generatorID>837E45AB-07DD-0A8D-4F75-D5F320BFE9F8</generatorID>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<engineerTo>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+</engineerTo>
+<referedAttribute>DEA396F6-1A95-3839-CCB8-FF1639C6F8A2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="96491829-A5E9-8515-0686-467E33BF58B2" name="OperacionBancaria PK">
 <createdBy>User</createdBy>
 <createdTime>2024-02-19 05:17:51 UTC</createdTime>
-<ownerDesignName>Modelo ER final</ownerDesignName>
+<ownerDesignName>Modelo ER Final</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="true"/>
+<item key="31ABDCEF-A26B-A0AB-4DAD-FA56415DE495" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
