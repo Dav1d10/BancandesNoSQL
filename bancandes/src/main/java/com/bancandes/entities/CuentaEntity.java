@@ -3,6 +3,8 @@ package com.bancandes.Entities;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,21 +15,19 @@ public class CuentaEntity {
     private Integer saldo;
     private Date fecha_ultima_transaccion;
     private Date fecha_creacion;
-    private String tipo_cuenta;
-    private String estado_cuenta;
-    private Integer id_cliente;
-    private Integer id_op_bancaria;
+    @Enumerated(EnumType.STRING)
+    private TipoCuenta tipo_cuenta;
+    @Enumerated(EnumType.STRING)
+    private EstadoCuenta estado_cuenta;
 
     public CuentaEntity(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion,
-            String tipo_cuenta, String estado_cuenta, Integer id_cliente, Integer id_op_bancaria) {
+    TipoCuenta tipo_cuenta, EstadoCuenta estado_cuenta, Integer id_cliente, Integer id_op_bancaria) {
         this.numero_cuenta = numero_cuenta;
         this.saldo = saldo;
         this.fecha_ultima_transaccion = fecha_ultima_transaccion;
         this.fecha_creacion = fecha_creacion;
         this.tipo_cuenta = tipo_cuenta;
         this.estado_cuenta = estado_cuenta;
-        this.id_cliente = id_cliente;
-        this.id_op_bancaria = id_op_bancaria;
     }
 
     public Integer getNumero_cuenta() {
@@ -62,36 +62,32 @@ public class CuentaEntity {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public String getTipo_cuenta() {
+    public TipoCuenta getTipo_cuenta() {
         return tipo_cuenta;
     }
 
-    public void setTipo_cuenta(String tipo_cuenta) {
+    public void setTipo_cuenta(TipoCuenta tipo_cuenta) {
         this.tipo_cuenta = tipo_cuenta;
     }
 
-    public String getEstado_cuenta() {
+    public EstadoCuenta getEstado_cuenta() {
         return estado_cuenta;
     }
 
-    public void setEstado_cuenta(String estado_cuenta) {
+    public void setEstado_cuenta(EstadoCuenta estado_cuenta) {
         this.estado_cuenta = estado_cuenta;
     }
 
-    public Integer getId_cliente() {
-        return id_cliente;
+    enum EstadoCuenta {
+        ACTIVA,
+        CERRADA,
+        DESACTIVADA
     }
 
-    public void setId_cliente(Integer id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-    public Integer getId_op_bancaria() {
-        return id_op_bancaria;
-    }
-
-    public void setId_op_bancaria(Integer id_op_bancaria) {
-        this.id_op_bancaria = id_op_bancaria;
+    enum TipoCuenta {
+        AHORROS,
+        CORRIENTE,
+        AFC
     }
 
 }

@@ -3,6 +3,8 @@ package com.bancandes.Entities;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,12 +17,11 @@ public class PrestamoEntity {
     private Integer num_cuotas;
     private Date dia_pago;
     private Integer valor_cuota;
-    private String estado_prestamo;
-    private Integer id_cliente;
-    private Integer id_op_bancaria;
+    @Enumerated(EnumType.STRING)
+    private EstadoPrestamo estado_prestamo;
     
     public PrestamoEntity(Integer id_prestamo, Integer monto, Integer interes, Integer num_cuotas, Date dia_pago,
-            Integer valor_cuota, String estado_prestamo, Integer id_cliente, Integer id_op_bancaria) {
+            Integer valor_cuota, EstadoPrestamo estado_prestamo, Integer id_cliente, Integer id_op_bancaria) {
         this.id_prestamo = id_prestamo;
         this.monto = monto;
         this.interes = interes;
@@ -28,16 +29,10 @@ public class PrestamoEntity {
         this.dia_pago = dia_pago;
         this.valor_cuota = valor_cuota;
         this.estado_prestamo = estado_prestamo;
-        this.id_cliente = id_cliente;
-        this.id_op_bancaria = id_op_bancaria;
     }
 
     public Integer getId_prestamo() {
         return id_prestamo;
-    }
-
-    public void setId_prestamo(Integer id_prestamo) {
-        this.id_prestamo = id_prestamo;
     }
 
     public Integer getMonto() {
@@ -80,28 +75,18 @@ public class PrestamoEntity {
         this.valor_cuota = valor_cuota;
     }
 
-    public String getEstado_prestamo() {
+    public EstadoPrestamo getEstado_prestamo() {
         return estado_prestamo;
     }
 
-    public void setEstado_prestamo(String estado_prestamo) {
+    public void setEstado_prestamo(EstadoPrestamo estado_prestamo) {
         this.estado_prestamo = estado_prestamo;
     }
-
-    public Integer getId_cliente() {
-        return id_cliente;
-    }
-
-    public void setId_cliente(Integer id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-    public Integer getId_op_bancaria() {
-        return id_op_bancaria;
-    }
-
-    public void setId_op_bancaria(Integer id_op_bancaria) {
-        this.id_op_bancaria = id_op_bancaria;
-    }
     
+    enum EstadoPrestamo {
+        SOLICITADO,
+        APROBADO,
+        RECHAZADO,
+        PAGADO
+    }
 }
