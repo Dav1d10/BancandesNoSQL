@@ -12,8 +12,7 @@ import jakarta.persistence.Table;
 @Table(name="personas")
 public class PersonaEntity {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+  
     private Integer numDocumento;
     private String telefono;
     private String nombre;
