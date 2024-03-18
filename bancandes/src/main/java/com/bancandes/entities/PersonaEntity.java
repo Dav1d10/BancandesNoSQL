@@ -3,8 +3,7 @@ package com.bancandes.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Table;
 
 
@@ -22,11 +21,15 @@ public class PersonaEntity {
     private String departamento;
     private String codigoPostal;
     private String ciudad;
-
     @Enumerated(EnumType.STRING)
     private TipoDocumento TipoDocumento;
 
-    public PersonaEntity(String telefono, String nombre, String nacionalidad, String direccionFisica, String direccionElectronica, String departamento, String codigoPostal, String ciudad) {
+    
+
+    public PersonaEntity(Integer numDocumento, String telefono, String nombre, String nacionalidad,
+            String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
+            String ciudad, com.bancandes.entities.TipoDocumento tipoDocumento) {
+        this.numDocumento = numDocumento;
         this.telefono = telefono;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
@@ -35,7 +38,9 @@ public class PersonaEntity {
         this.departamento = departamento;
         this.codigoPostal = codigoPostal;
         this.ciudad = ciudad;
+        TipoDocumento = tipoDocumento;
     }
+
 
     public PersonaEntity() {
         ;
