@@ -1,4 +1,4 @@
-package com.bancandes.Entities;
+package com.bancandes.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="pide")
-public class PideEntity {
+@Table(name="operacion bancaria")
+public class OperacionBancariaEntity {
+
+
     
 }
