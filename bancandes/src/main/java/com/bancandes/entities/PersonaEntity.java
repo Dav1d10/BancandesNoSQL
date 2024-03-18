@@ -1,4 +1,4 @@
-package com.bancandes.entities;
+package com.bancandes.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
