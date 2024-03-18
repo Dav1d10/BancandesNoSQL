@@ -11,8 +11,6 @@ public class OficinaEntity {
     private String nombre;
     private String direccion;
     private Integer puntos_atencion;
-    private Integer id_gerente_ofi;
-    private Integer id_persona;
 
     public OficinaEntity(Integer id_oficina, String nombre, String direccion, Integer puntos_atencion,
             Integer id_gerente_ofi, Integer id_persona) {
@@ -20,8 +18,6 @@ public class OficinaEntity {
         this.nombre = nombre;
         this.direccion = direccion;
         this.puntos_atencion = puntos_atencion;
-        this.id_gerente_ofi = id_gerente_ofi;
-        this.id_persona = id_persona;
     }
 
     public Integer getId_oficina() {
@@ -54,22 +50,6 @@ public class OficinaEntity {
 
     public void setPuntos_atencion(Integer puntos_atencion) {
         this.puntos_atencion = puntos_atencion;
-    }
-
-    public Integer getId_gerente_ofi() {
-        return id_gerente_ofi;
-    }
-
-    public void setId_gerente_ofi(Integer id_gerente_ofi) {
-        this.id_gerente_ofi = id_gerente_ofi;
-    }
-
-    public Integer getId_persona() {
-        return id_persona;
-    }
-
-    public void setId_persona(Integer id_persona) {
-        this.id_persona = id_persona;
     }
     
 }
