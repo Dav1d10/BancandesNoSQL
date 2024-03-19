@@ -50,7 +50,7 @@ public class PuntoAtencionEntity {
         this.tipo_punto_atencion = tipo_punto_atencion;
     }
 
-    enum TipoPuntoAtencion {
+    public enum TipoPuntoAtencion {
         ATENCION_PERSONALIZADA,
         CAJERO_AUTOMATICO,
         PUNTO_DE_ATENCION_DIGITAL

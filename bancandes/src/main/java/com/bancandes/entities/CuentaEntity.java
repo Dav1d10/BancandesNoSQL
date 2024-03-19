@@ -27,7 +27,7 @@ public class CuentaEntity {
     private EstadoCuenta estado_cuenta;
 
     public CuentaEntity(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion,
-    TipoCuenta tipo_cuenta, EstadoCuenta estado_cuenta, Integer id_cliente, Integer id_op_bancaria) {
+    TipoCuenta tipo_cuenta, EstadoCuenta estado_cuenta) {
         this.numero_cuenta = numero_cuenta;
         this.saldo = saldo;
         this.fecha_ultima_transaccion = fecha_ultima_transaccion;
@@ -87,13 +87,13 @@ public class CuentaEntity {
         this.estado_cuenta = estado_cuenta;
     }
 
-    enum EstadoCuenta {
+    public enum EstadoCuenta {
         ACTIVA,
         CERRADA,
         DESACTIVADA
     }
 
-    enum TipoCuenta {
+    public enum TipoCuenta {
         AHORROS,
         CORRIENTE,
         AFC
