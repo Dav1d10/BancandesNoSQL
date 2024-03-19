@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.bancandes.entities.OperacionBancariaEntity;
 import com.bancandes.entities.PrestamoEntity;
 import com.bancandes.repository.PrestamoRepository;
 
