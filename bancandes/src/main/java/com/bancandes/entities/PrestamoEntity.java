@@ -27,7 +27,7 @@ public class PrestamoEntity {
     private EstadoPrestamo estado_prestamo;
     
     public PrestamoEntity(Integer id_prestamo, Integer monto, Integer interes, Integer num_cuotas, Date dia_pago,
-            Integer valor_cuota, EstadoPrestamo estado_prestamo, Integer id_cliente, Integer id_op_bancaria) {
+            Integer valor_cuota, EstadoPrestamo estado_prestamo) {
         this.id_prestamo = id_prestamo;
         this.monto = monto;
         this.interes = interes;
@@ -92,7 +92,7 @@ public class PrestamoEntity {
         this.estado_prestamo = estado_prestamo;
     }
     
-    enum EstadoPrestamo {
+    public enum EstadoPrestamo {
         SOLICITADO,
         APROBADO,
         RECHAZADO,
