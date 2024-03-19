@@ -5,11 +5,17 @@ import java.util.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="prestamos")
 public class PrestamoEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     
     private Integer id_prestamo;
     private Integer monto;
@@ -30,6 +36,9 @@ public class PrestamoEntity {
         this.valor_cuota = valor_cuota;
         this.estado_prestamo = estado_prestamo;
     }
+
+    public PrestamoEntity()
+    {;}
 
     public Integer getId_prestamo() {
         return id_prestamo;
