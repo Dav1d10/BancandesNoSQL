@@ -3,11 +3,17 @@ package com.bancandes.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="puntos_de_atencion")
 public class PuntoAtencionEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id_punto_atencion;
     private String localizacion;
@@ -20,6 +26,9 @@ public class PuntoAtencionEntity {
         this.localizacion = localizacion;
         this.tipo_punto_atencion = tipo_punto_atencion;
     }
+
+    public PuntoAtencionEntity()
+    {;}
 
     public Integer getId_punto_atencion() {
         return id_punto_atencion;
