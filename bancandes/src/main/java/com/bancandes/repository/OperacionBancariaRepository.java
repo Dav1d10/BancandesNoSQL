@@ -12,15 +12,15 @@ import com.bancandes.entities.OperacionBancariaEntity;
 
 public interface OperacionBancariaRepository extends JpaRepository<OperacionBancariaEntity, Integer> {
     
-    @Query(value = "SELECT * FROM OperacionBancaria", nativeQuery = true)
+    @Query(value = "SELECT * FROM OPERACION_BANCARIA", nativeQuery = true)
     Collection<OperacionBancariaEntity> darOperacionesBancarias();
 
-    @Query(value = "SELECT * FROM OperacionBancaria WHERE id= :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM OPERACION_BANCARIA WHERE id= :id", nativeQuery = true)
     OperacionBancariaEntity darOperacionBancaria(@Param("id") int id);
 
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO OperacionBancaria (id, valor, hora, fecha, producto, tipo) VALUES(bancandes_sequence.nextval, :valor, :hora, :fecha, :producto, :tipo)", nativeQuery =true)
+    @Query(value = "INSERT INTO OPERACION_BANCARIA (id, valor, hora, fecha, producto, tipo) VALUES(bancandes_sequence.nextval, :valor, :hora, :fecha, :producto, :tipo)", nativeQuery =true)
     void insertarOperacionBancaria(@Param("valor")int valor, @Param("hora")String hora, @Param("fecha")String fecha, @Param("producto")OperacionBancariaEntity.Producto producto, @Param("tipo")OperacionBancariaEntity.Tipo tipo );
 }
