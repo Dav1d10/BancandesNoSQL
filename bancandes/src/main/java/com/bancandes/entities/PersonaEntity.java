@@ -28,7 +28,7 @@ public class PersonaEntity {
 
     public PersonaEntity(Integer numDocumento, String telefono, String nombre, String nacionalidad,
             String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
-            String ciudad, com.bancandes.entities.TipoDocumento tipoDocumento) {
+            String ciudad, TipoDocumento tipoDocumento) {
         this.numDocumento = numDocumento;
         this.telefono = telefono;
         this.nombre = nombre;
@@ -38,7 +38,7 @@ public class PersonaEntity {
         this.departamento = departamento;
         this.codigoPostal = codigoPostal;
         this.ciudad = ciudad;
-        TipoDocumento = tipoDocumento;
+        this.TipoDocumento = tipoDocumento;
     }
 
 
@@ -127,7 +127,3 @@ public class PersonaEntity {
     }
 }
 
-enum TipoDocumento {
-    CC,
-    NIT
-}
