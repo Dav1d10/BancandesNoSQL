@@ -40,19 +40,22 @@ public class OperacionBancariaEntity {
     public OperacionBancariaEntity() {
         ;
     }
+
+    public enum Tipo {
+        CONSIGNACION,
+        RETIRO,
+        PEDIR_PRESTAMO,
+        PAGAR_PRESTAMO,
+        CERRAR_PRESTAMO
+    }
+    
+    
+    public enum Producto {
+        CUENTA,
+        CDT
+    }
+
 }
 
 
-enum Tipo {
-    CONSIGNACION,
-    RETIRO,
-    PEDIR_PRESTAMO,
-    PAGAR_PRESTAMO,
-    CERRAR_PRESTAMO
-}
 
-
-enum Producto {
-    CUENTA,
-    CDT
-}
