@@ -1,11 +1,17 @@
 package com.bancandes.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="oficinas")
 public class OficinaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id_oficina;
     private String nombre;
@@ -19,6 +25,9 @@ public class OficinaEntity {
         this.direccion = direccion;
         this.puntos_atencion = puntos_atencion;
     }
+
+    public OficinaEntity()
+    {;}
 
     public Integer getId_oficina() {
         return id_oficina;
