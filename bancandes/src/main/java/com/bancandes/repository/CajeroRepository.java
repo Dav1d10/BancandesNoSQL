@@ -16,7 +16,7 @@ public interface CajeroRepository extends JpaRepository<CajeroEntity,Integer>{
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO cajero (numDocumento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)")
-    void insertarGerenteGeneral(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    void insertarCajero(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
     @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")TipoDocumento tipoDocumento);
 

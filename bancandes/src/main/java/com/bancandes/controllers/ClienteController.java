@@ -8,9 +8,9 @@ import com.bancandes.entities.ClienteEntity;
 import com.bancandes.repository.ClienteRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -24,7 +24,7 @@ public class ClienteController {
 
     @GetMapping("/clientes")
     public String clientes(Model model) {
-        model.addAttribute("clientes", clienteRepository.darClientes())
+        model.addAttribute("clientes", clienteRepository.darClientes());
         return "clientes";
     }
     
