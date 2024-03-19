@@ -41,6 +41,69 @@ public class OperacionBancariaEntity {
         ;
     }
 
+    
+
+    public Integer getId() {
+        return id;
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public int getValor() {
+        return valor;
+    }
+
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+
+    public String getHora() {
+        return hora;
+    }
+
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+
+    public String getFecha() {
+        return fecha;
+    }
+
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+
+
     public enum Tipo {
         CONSIGNACION,
         RETIRO,
