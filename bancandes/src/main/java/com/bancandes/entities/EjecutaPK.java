@@ -7,7 +7,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Embeddable
-public class EjecutaPK implements Serializable{
+public class EjecutaPK implements Serializable {
+
     @ManyToOne
     @JoinColumn(name="idOperacionBancaria", referencedColumnName = "id")
     private OperacionBancariaEntity idOperacionBancaria;

@@ -11,10 +11,10 @@ import jakarta.persistence.OneToMany;
 public class PidePK implements Serializable {
     
     @ManyToOne
-    @JoinColumn(name="id_prestamo", referencedColumnName = "id")
+    @JoinColumn(name="id_prestamo", referencedColumnName = "id_prestamo")
     private PrestamoEntity id_prestamo;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="id_cliente", referencedColumnName = "id")
     private ClienteEntity id_cliente;
 

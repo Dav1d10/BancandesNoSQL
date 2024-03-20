@@ -15,7 +15,7 @@ public class OcurrePK implements Serializable{
     private OperacionBancariaEntity idOperacionBancaria;
 
     @ManyToOne
-    @JoinColumn(name="idPuntoAtencion", referencedColumnName = "id")
+    @JoinColumn(name="idPuntoAtencion", referencedColumnName = "id_punto_atencion")
     private PuntoAtencionEntity idPuntoAtencion;
 
 

@@ -11,10 +11,10 @@ import jakarta.persistence.OneToMany;
 public class TienePK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name="numero_cuenta", referencedColumnName = "id")
+    @JoinColumn(name="numero_cuenta", referencedColumnName = "numero_cuenta")
     private CuentaEntity numero_cuenta;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="id_cliente", referencedColumnName = "id")
     private ClienteEntity id_cliente;
 

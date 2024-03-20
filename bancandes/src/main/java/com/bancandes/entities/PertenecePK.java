@@ -11,11 +11,11 @@ import jakarta.persistence.OneToMany;
 public class PertenecePK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name="id_punto_de_atencion", referencedColumnName = "id")
+    @JoinColumn(name="id_punto_de_atencion", referencedColumnName = "id_punto_atencion")
     private PuntoAtencionEntity id_punto_atencion;
 
-    @OneToMany
-    @JoinColumn(name="id_oficina", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name="id_oficina", referencedColumnName = "id_oficina")
     private OficinaEntity id_oficina;
 
 
