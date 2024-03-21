@@ -14,7 +14,7 @@ public class HacePK implements Serializable{
     private OperacionBancariaEntity idOperacionBancaria;
 
     @ManyToOne
-    @JoinColumn(name="idCuenta", referencedColumnName = "numDocumento")
+    @JoinColumn(name="idCuenta", referencedColumnName = "numero_cuenta")
     private CuentaEntity idCuenta;
 
 
