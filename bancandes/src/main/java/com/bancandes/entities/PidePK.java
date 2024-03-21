@@ -5,7 +5,7 @@ import java.io.Serializable;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+
 
 @Embeddable
 public class PidePK implements Serializable {
@@ -15,7 +15,7 @@ public class PidePK implements Serializable {
     private PrestamoEntity id_prestamo;
 
     @ManyToOne
-    @JoinColumn(name="id_cliente", referencedColumnName = "id")
+    @JoinColumn(name="id_cliente", referencedColumnName = "numDocumento")
     private ClienteEntity id_cliente;
 
 

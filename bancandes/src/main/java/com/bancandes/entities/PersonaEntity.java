@@ -125,5 +125,10 @@ public class PersonaEntity {
     public void setTipoDocumento(TipoDocumento tipoDocumento) {
         TipoDocumento = tipoDocumento;
     }
+
+    public enum TipoDocumento {
+        CC,
+        NIT
+    }
 }
 

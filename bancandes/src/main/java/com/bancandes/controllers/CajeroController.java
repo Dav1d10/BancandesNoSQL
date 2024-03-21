@@ -22,7 +22,7 @@ public class CajeroController {
     
     @GetMapping("/cajeros/new")
     public String cajeroForm(Model model) {
-        model.addAttribute("cajero", new CajeroEntity(null, null, null, null, null, null, null, null, null, null));
+        model.addAttribute("cajero", new CajeroEntity());
         return "cajero";
     }
     

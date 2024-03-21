@@ -18,7 +18,7 @@ public class OficinaController {
 
     @GetMapping("/oficinas/new")
     public String oficinaForm(Model model) {
-        model.addAttribute("oficina", new OficinaEntity(null, null, null, null, null, null));
+        model.addAttribute("oficina", new OficinaEntity());
         return "oficina";
     }
 

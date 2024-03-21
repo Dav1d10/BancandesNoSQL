@@ -18,7 +18,7 @@ public class PuntoAtencionController {
 
     @GetMapping("/puntosAtencion/new")
     public String puntoAtencionForm(Model model) {
-        model.addAttribute("puntoAtencion", new PuntoAtencionEntity(null, null, null, null));
+        model.addAttribute("puntoAtencion", new PuntoAtencionEntity());
         return "puntoAtencion";
     }
 

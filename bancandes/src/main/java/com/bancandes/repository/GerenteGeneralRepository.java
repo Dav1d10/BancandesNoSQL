@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.bancandes.entities.GerenteGeneral;
-import com.bancandes.entities.TipoDocumento;
+
 
 public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral,Integer>{
     
@@ -18,7 +17,7 @@ public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral,I
     @Query(value = "INSERT INTO gerenteGeneral (numDocumento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)")
     void insertarGerenteGeneral(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
-    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")TipoDocumento tipoDocumento);
+    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")GerenteGeneral.TipoDocumento tipoDocumento);
 
 
 }

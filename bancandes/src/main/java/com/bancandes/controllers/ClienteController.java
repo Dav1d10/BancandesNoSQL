@@ -30,7 +30,7 @@ public class ClienteController {
     
     @GetMapping("/clientes/new")
     public String clienteForm(Model model) {
-        model.addAttribute("cliente", new ClienteEntity(null, null, null, null, null, null, null, null, null, null));
+        model.addAttribute("cliente", new ClienteEntity());
         return "cliente";
     }
     

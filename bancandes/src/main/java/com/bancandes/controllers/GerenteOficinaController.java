@@ -20,7 +20,7 @@ public class GerenteOficinaController {
     
     @GetMapping("/gerentesOficinas/new")
     public String cajeroForm(Model model) {
-        model.addAttribute("gerenteOficina", new GerenteOficina(null, null, null, null, null, null, null, null, null, null, 0));
+        model.addAttribute("gerenteOficina", new GerenteOficina());
         return "gerenteOficina";
     }
     

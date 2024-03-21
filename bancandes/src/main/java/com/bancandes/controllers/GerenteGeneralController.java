@@ -20,7 +20,7 @@ public class GerenteGeneralController {
     
     @GetMapping("/gerentesGenerales/new")
     public String cajeroForm(Model model) {
-        model.addAttribute("gerenteGeneral", new GerenteGeneral(null, null, null, null, null, null, null, null, null, null));
+        model.addAttribute("gerenteGeneral", new GerenteGeneral());
         return "gerenteGeneral";
     }
     

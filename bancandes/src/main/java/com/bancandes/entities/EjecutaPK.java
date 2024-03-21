@@ -14,7 +14,7 @@ public class EjecutaPK implements Serializable {
     private OperacionBancariaEntity idOperacionBancaria;
 
     @ManyToOne
-    @JoinColumn(name="idCliente", referencedColumnName = "id")
+    @JoinColumn(name="idCliente", referencedColumnName = "numDocumento")
     private ClienteEntity idCliente;
 
 

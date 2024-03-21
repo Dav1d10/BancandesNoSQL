@@ -18,7 +18,7 @@ public class CuentaController {
 
     @GetMapping("/cuentas/new")
     public String cuentaForm(Model model) {
-        model.addAttribute("cuenta", new CuentaEntity(null, null, null, null, null, null));
+        model.addAttribute("cuenta", new CuentaEntity());
         return "cuenta";
     }
 
