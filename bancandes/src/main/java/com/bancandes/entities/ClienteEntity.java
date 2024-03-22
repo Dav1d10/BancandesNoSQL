@@ -1,10 +1,9 @@
 package com.bancandes.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
 
 @Entity
-@Table(name = "clientes")
 public class ClienteEntity extends PersonaEntity{
 
     public ClienteEntity(Integer numDocumento, String telefono, String nombre, String nacionalidad,
