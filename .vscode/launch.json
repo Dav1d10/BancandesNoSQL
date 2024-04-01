@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BancandesApplication<bancandes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.bancandes.BancandesApplication",
+            "projectName": "bancandes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
