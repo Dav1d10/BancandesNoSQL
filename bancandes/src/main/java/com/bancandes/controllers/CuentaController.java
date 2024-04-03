@@ -6,11 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.repository.CuentaRepository;
 
-@Controller
+@RestController
 public class CuentaController {
     
     @Autowired
@@ -19,7 +20,7 @@ public class CuentaController {
     @GetMapping("/cuentas/new")
     public String cuentaForm(Model model) {
         model.addAttribute("cuenta", new CuentaEntity());
-        return "cuenta";
+        return model.toString();
     }
 
     @PostMapping("/cuentas/new/save")

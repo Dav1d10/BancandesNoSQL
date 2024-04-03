@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ClienteController {
-    
+
 
     @Autowired
     private ClienteRepository clienteRepository;
@@ -27,21 +27,21 @@ public class ClienteController {
         model.addAttribute("clientes", clienteRepository.darClientes());
         return "clientes";
     }
-    
+
     @GetMapping("/clientes/new")
     public String clienteForm(Model model) {
         model.addAttribute("cliente", new ClienteEntity());
         return "cliente";
     }
-    
+
 
     @PostMapping("/clientes/new/save")
     public String clienteGuardar(@ModelAttribute ClienteEntity cliente) {
         clienteRepository.insertarCliente(cliente.getNumDocumento(), cliente.getTelefono(), cliente.getNombre(), 
         cliente.getNacionalidad(), cliente.getDireccionFisica(), cliente.getDireccionElectronica(), cliente.getDepartamento(), cliente.getCodigoPostal(),
         cliente.getCiudad(), cliente.getTipoDocumento());
-        
+
         return "redirect:/clientes";
     }
-    
+
 }
