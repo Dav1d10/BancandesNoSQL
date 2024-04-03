@@ -9,13 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bancandes.entities.GerenteGeneral;
 
 
-public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral,Integer>{
+public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral,String>{
     
 
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO gerenteGeneral (numero_documento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento) VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery = true)
-    void insertarGerenteGeneral(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    void insertarGerenteGeneral(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
     @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")GerenteGeneral.TipoDocumento tipoDocumento);
 

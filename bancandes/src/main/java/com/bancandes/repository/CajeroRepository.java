@@ -10,12 +10,12 @@ import com.bancandes.entities.CajeroEntity;
 
 
 
-public interface CajeroRepository extends JpaRepository<CajeroEntity,Integer>{
+public interface CajeroRepository extends JpaRepository<CajeroEntity,String>{
 
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO cajero (numero_documento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento) VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery =true)
-    void insertarCajero(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    void insertarCajero(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
     @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")CajeroEntity.TipoDocumento tipoDocumento);
 

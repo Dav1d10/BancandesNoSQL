@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 @Entity
 public class GerenteGeneral extends PersonaEntity {
 
-    public GerenteGeneral(Integer numDocumento, String telefono, String nombre, String nacionalidad,
+    public GerenteGeneral(String numDocumento, String telefono, String nombre, String nacionalidad,
             String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
             String ciudad, TipoDocumento tipoDocumento) {
         super(numDocumento, telefono, nombre, nacionalidad, direccionFisica, direccionElectronica, departamento,

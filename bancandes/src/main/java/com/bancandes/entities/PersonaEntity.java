@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class PersonaEntity {
 
     @Id
-    private Integer numDocumento;
+    private String numDocumento;
     private String telefono;
     private String nombre;
     private String nacionalidad;
@@ -26,7 +26,7 @@ public class PersonaEntity {
 
     
 
-    public PersonaEntity(Integer numDocumento, String telefono, String nombre, String nacionalidad,
+    public PersonaEntity(String numDocumento, String telefono, String nombre, String nacionalidad,
             String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
             String ciudad, TipoDocumento tipoDocumento) {
         this.numDocumento = numDocumento;
@@ -46,7 +46,7 @@ public class PersonaEntity {
         ;
     }
 
-    public Integer getNumDocumento() {
+    public String getNumDocumento() {
         return numDocumento;
     }
 
@@ -86,7 +86,7 @@ public class PersonaEntity {
         return TipoDocumento;
     }
 
-    public void setNumDocumento(Integer numDocumento) {
+    public void setNumDocumento(String numDocumento) {
         this.numDocumento = numDocumento;
     }
 

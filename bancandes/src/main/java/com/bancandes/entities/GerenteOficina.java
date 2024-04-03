@@ -7,7 +7,7 @@ public class GerenteOficina extends PersonaEntity {
 
     private int id_oficina;
 
-    public GerenteOficina(Integer numDocumento, String telefono, String nombre, String nacionalidad,
+    public GerenteOficina(String numDocumento, String telefono, String nombre, String nacionalidad,
             String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
             String ciudad, TipoDocumento tipoDocumento, int id_oficina) {
         super(numDocumento, telefono, nombre, nacionalidad, direccionFisica, direccionElectronica, departamento,

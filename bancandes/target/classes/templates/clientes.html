@@ -19,6 +19,7 @@
                         <th>Direccion Fisica</th>
                         <th>Direccion Electronica</th>
                         <th>Departamento</th>
+                        <th>Codigo Postal</th>
                         <th>Ciudad</th>
                         <th>Tipo Documento</th>
                         <th>Acciones</th>
@@ -33,13 +34,14 @@
                         <td th:text="${cliente.direccionFisica}"></td>
                         <td th:text="${cliente.direccionElectronica}"></td>
                         <td th:text="${cliente.departamento}"></td>
+                        <td th:text="${cliente.codigoPostal}"></td>
                         <td th:text="${cliente.ciudad}"></td>
                         <td th:text="${cliente.tipoDocumento}"></td>
                         <td>
-                            <a th:href="@clientes/{numDocumento}/edit(numDocumento=${cliente.documento})">
+                            <a th:href="@clientes/{numDocumento}/edit(numDocumento=${cliente.numDocumento})">
                                 Editar
                             </a>
-                            <a th:href="@clientes/{numDocumento}/delete(numDocumento=${cliente.documento})"
+                            <a th:href="@clientes/{numDocumento}/delete(numDocumento=${cliente.numDocumento})"
                             onclick="return confirm(Esta seguro de borrar este cliente?)">
                                 Borrar
                             </a>
