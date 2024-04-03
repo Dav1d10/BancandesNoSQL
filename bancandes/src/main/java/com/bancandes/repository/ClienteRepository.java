@@ -13,19 +13,19 @@ import com.bancandes.entities.ClienteEntity;
 
 public interface ClienteRepository extends JpaRepository<ClienteEntity,Integer>{
 
-    @Query(value = "SELECT * FROM clientes", nativeQuery = true)
+    @Query(value = "SELECT * FROM cliente", nativeQuery = true)
     Collection<ClienteEntity> darClientes();
 
 
-    @Query(value = "SELECT * FROM clientes WHERE numDocumento = :numDocumento", nativeQuery = true)
-    ClienteEntity darCliente(@Param("numDocumento") int id);
+    @Query(value = "SELECT * FROM cliente WHERE numDocumento = :numDocumento", nativeQuery = true)
+    ClienteEntity darCliente(@Param("numDocumento") int numDocumento);
 
 
 
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO clientes (numDocumento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery =true)
+    @Query(value = "INSERT INTO clientes (numero_documento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery =true)
     void insertarCliente(@Param("numDocumento") Integer numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
     @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")ClienteEntity.TipoDocumento tipoDocumento);
