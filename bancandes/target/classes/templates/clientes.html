@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -25,7 +25,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <th:block th:each="clientes:${cliente}">
+                <th:block th:each="cliente:${clientes}">
                     <tr>
                         <td th:text="${cliente.numDocumento}"></td>
                         <td th:text="${cliente.telefono}"></td>
@@ -38,11 +38,11 @@
                         <td th:text="${cliente.ciudad}"></td>
                         <td th:text="${cliente.tipoDocumento}"></td>
                         <td>
-                            <a th:href="@clientes/{numDocumento}/edit(numDocumento=${cliente.numDocumento})">
+                            <a th:href="@{clientes/{numDocumento}/edit(numDocumento=${cliente.numDocumento})}">
                                 Editar
                             </a>
-                            <a th:href="@clientes/{numDocumento}/delete(numDocumento=${cliente.numDocumento})"
-                            onclick="return confirm(Esta seguro de borrar este cliente?)">
+                            <a th:href="@{clientes/{numDocumento}/delete(numDocumento=${cliente.numDocumento})}"
+                            onclick="return confirm('¿Esta seguro de borrar este cliente?')">
                                 Borrar
                             </a>
                         </td>
