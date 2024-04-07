@@ -26,59 +26,59 @@ VALUES(1234567890, 1234567890, 'David Caro', 'Colombia', 'Cll1', 'kingcold55@gma
 INSERT INTO gerente_de_oficina(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
 VALUES(1234567890, 1234567890, 'David Caro', 'Colombia', 'Cll1', 'kingcold55@gmail.com', 'Cundinamarca', '11111', 'Bogot�', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(9876543210, 9876543210, 'Laura Gomez', 'Colombia', 'Cll2', 'laura123@gmail.com', 'Antioquia', '22222', 'Medell�n', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('9876543210', '9876543210', 'Laura Gomez', 'Colombia', 'Cll2', 'laura123@gmail.com', 'Antioquia', '22222', 'Medellin', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(4567890123, 4567890123, 'Carlos Perez', 'Colombia', 'Cll3', 'carlos456@gmail.com', 'Valle del Cauca', '33333', 'Cali', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('4567890123', '4567890123', 'Carlos Perez', 'Colombia', 'Cll3', 'carlos456@gmail.com', 'Valle del Cauca', '33333', 'Cali', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(6543210987, 6543210987, 'Maria Rodriguez', 'Colombia', 'Cll4', 'maria789@gmail.com', 'Santander', '44444', 'Bucaramanga', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('6543210987', '6543210987', 'Maria Rodriguez', 'Colombia', 'Cll4', 'maria789@gmail.com', 'Santander', '44444', 'Bucaramanga', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(7890123456, 7890123456, 'Juan Martinez', 'Colombia', 'Cll5', 'juanmartinez@gmail.com', 'Atl�ntico', '55555', 'Barranquilla', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('7890123456', '7890123456', 'Juan Martinez', 'Colombia', 'Cll5', 'juanmartinez@gmail.com', 'Atlantico', '55555', 'Barranquilla', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(2345678901, 2345678901, 'Ana Gutierrez', 'Colombia', 'Cll6', 'anagutierrez@gmail.com', 'Risaralda', '66666', 'Pereira', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('2345678901', '2345678901', 'Ana Gutierrez', 'Colombia', 'Cll6', 'anagutierrez@gmail.com', 'Risaralda', '66666', 'Pereira', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(3456789012, 3456789012, 'Pedro Hernandez', 'Colombia', 'Cll7', 'pedrohernandez@gmail.com', 'Quind�o', '77777', 'Armenia', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('3456789012', '3456789012', 'Pedro Hernandez', 'Colombia', 'Cll7', 'pedrohernandez@gmail.com', 'Quindio', '77777', 'Armenia', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(5678901234, 5678901234, 'Diana Ramirez', 'Colombia', 'Cll8', 'dianaramirez@gmail.com', 'Huila', '88888', 'Neiva', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('5678901234', '5678901234', 'Diana Ramirez', 'Colombia', 'Cll8', 'dianaramirez@gmail.com', 'Huila', '88888', 'Neiva', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(6789012345, 6789012345, 'Camilo Castro', 'Colombia', 'Cll9', 'camilocastro@gmail.com', 'Tolima', '99999', 'Ibagu�', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('6789012345', '6789012345', 'Camilo Castro', 'Colombia', 'Cll9', 'camilocastro@gmail.com', 'Tolima', '99999', 'Ibague', 'CC');
 
-INSERT INTO persona(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(1357924680, 1357924680, 'Elena Vargas', 'Colombia', 'Cll10', 'elena.vargas@example.com', 'Meta', '12345', 'Villavicencio', 'CC');
+INSERT INTO persona(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('1357924680', '1357924680', 'Elena Vargas', 'Colombia', 'Cll10', 'elena.vargas@example.com', 'Meta', '12345', 'Villavicencio', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(9876543210, 9876543210, 'Laura Gomez', 'Colombia', 'Cll2', 'laura123@gmail.com', 'Antioquia', '22222', 'Medell�n', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('9876543210', '9876543210', 'Laura Gomez', 'Colombia', 'Cll2', 'laura123@gmail.com', 'Antioquia', '22222', 'Medellin', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(4567890123, 4567890123, 'Carlos Perez', 'Colombia', 'Cll3', 'carlos456@gmail.com', 'Valle del Cauca', '33333', 'Cali', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('4567890123', '4567890123', 'Carlos Perez', 'Colombia', 'Cll3', 'carlos456@gmail.com', 'Valle del Cauca', '33333', 'Cali', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(6543210987, 6543210987, 'Maria Rodriguez', 'Colombia', 'Cll4', 'maria789@gmail.com', 'Santander', '44444', 'Bucaramanga', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('6543210987', '6543210987', 'Maria Rodriguez', 'Colombia', 'Cll4', 'maria789@gmail.com', 'Santander', '44444', 'Bucaramanga', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(7890123456, 7890123456, 'Juan Martinez', 'Colombia', 'Cll5', 'juanmartinez@gmail.com', 'Atl�ntico', '55555', 'Barranquilla', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('7890123456', '7890123456', 'Juan Martinez', 'Colombia', 'Cll5', 'juanmartinez@gmail.com', 'Atlantico', '55555', 'Barranquilla', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(2345678901, 2345678901, 'Ana Gutierrez', 'Colombia', 'Cll6', 'anagutierrez@gmail.com', 'Risaralda', '66666', 'Pereira', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('2345678901', '2345678901', 'Ana Gutierrez', 'Colombia', 'Cll6', 'anagutierrez@gmail.com', 'Risaralda', '66666', 'Pereira', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(3456789012, 3456789012, 'Pedro Hernandez', 'Colombia', 'Cll7', 'pedrohernandez@gmail.com', 'Quind�o', '77777', 'Armenia', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('3456789012', '3456789012', 'Pedro Hernandez', 'Colombia', 'Cll7', 'pedrohernandez@gmail.com', 'Quindio', '77777', 'Armenia', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(5678901234, 5678901234, 'Diana Ramirez', 'Colombia', 'Cll8', 'dianaramirez@gmail.com', 'Huila', '88888', 'Neiva', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('5678901234', '5678901234', 'Diana Ramirez', 'Colombia', 'Cll8', 'dianaramirez@gmail.com', 'Huila', '88888', 'Neiva', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(6789012345, 6789012345, 'Camilo Castro', 'Colombia', 'Cll9', 'camilocastro@gmail.com', 'Tolima', '99999', 'Ibagu�', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('6789012345', '6789012345', 'Camilo Castro', 'Colombia', 'Cll9', 'camilocastro@gmail.com', 'Tolima', '99999', 'Ibague', 'CC');
 
-INSERT INTO cliente(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
-VALUES(1357924680, 1357924680, 'Elena Vargas', 'Colombia', 'Cll10', 'elena.vargas@example.com', 'Meta', '12345', 'Villavicencio', 'CC');
+INSERT INTO cliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
+VALUES('1357924680', '1357924680', 'Elena Vargas', 'Colombia', 'Cll10', 'elena.vargas@example.com', 'Meta', '12345', 'Villavicencio', 'CC');
 
 INSERT INTO cajero(numero_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, codigo_postal, ciudad, tipo_documento)
 VALUES(9876543210, 9876543210, 'Laura Gomez', 'Colombia', 'Cll2', 'laura123@gmail.com', 'Antioquia', '22222', 'Medell�n', 'CC');
