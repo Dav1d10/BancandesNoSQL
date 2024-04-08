@@ -33,7 +33,7 @@ public class PrestamoController {
     public String prestamoGuardar(@ModelAttribute PrestamoEntity prestamo) {
         prestamoRepository.insertarPrestamo(prestamo.getMonto(),
         prestamo.getInteres(),
-        prestamo.getNum_cuotas(),
+        prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
         prestamo.getEstado_prestamo());
@@ -55,7 +55,7 @@ public class PrestamoController {
     public String prestamoEditarGuardar(@PathVariable("id_prestamo") int id, @ModelAttribute PrestamoEntity prestamo) {
         prestamoRepository.actualizarPrestamo(prestamo.getMonto(),
         prestamo.getInteres(),
-        prestamo.getNum_cuotas(),
+        prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
         prestamo.getEstado_prestamo());
