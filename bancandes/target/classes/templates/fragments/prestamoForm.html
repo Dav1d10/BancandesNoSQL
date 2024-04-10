@@ -11,17 +11,39 @@
         <h1 class="text-center" th:text="$(titulo)"></h1>
         <form>
             <label class="col-form-label">Monto</label>
-            <input class="form-control" type="text" id="monto"
+            <input class="form-control" type="number" id="monto"
             name="monto" required th:value="$(prestamo.monto)"/>
             <label class="col-form-label">Interes</label>
-            <input class="form-control" type="text" id="interes"
+            <input class="form-control" type="number" id="interes"
             name="interes" required th:value="$(prestamo.interes)"/>
             <label class="col-form-label">Numero cuotas</label>
-            <input class="form-control" type="text" id="numero cuotas"
-            name="numero cuotas" required th:value="$(prestamo.numero_cuotas)"/>
+            <input class="form-control" type="number" id="numero_cuotas"
+            name="numero_cuotas" required th:value="$(prestamo.numero_cuotas)"/>
             <label class="col-form-label">Dia Pago</label>
-            <input class="form-control" type="text" id="dia pago"
-            name="dia pago" required th:value="$(prestamo.dia_pago)"/>
+            <input class="form-control" type="text" id="dia_pago"
+            name="dia_pago" required th:value="$(prestamo.dia_pago)"/>
+            <label class="col-form-label">Estado</label>
+            <select class="form-control" id="estado"
+            name="estado" required>
+            <option value="SOLICITADO" th:selected="${prestamo.estado_prestamo eq 'SOLICITADO'}">
+                SOLICITADO
+            </option>
+            <option value="APROBADO" th:selected="${prestamo.estado_prestamo eq 'APROBADO'}">
+                APROBADO
+            </option>
+            <option value="RECHAZADO" th:selected="${prestamo.estado_prestamo eq 'RECHAZADO'}">
+                RECHAZADO
+            </option>
+            <option value="PAGADO" th:selected="${prestamo.estado_prestamo eq 'PAGADO'}">
+                PAGADO
+            </option>
+        </select>
+        <label class="col-form-label">Valor Cuota</label>
+        <input class="form-control" type="number" id="valor_cuota"
+        name="valor_cuota" required th:value="$(prestamo.valor_cuota)"/><br>
+        <div class="text-center">
+            
+        </div>
         </form>
     </div>
 </body>
