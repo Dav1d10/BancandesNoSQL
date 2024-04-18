@@ -8,20 +8,20 @@
 </head>
 <body>
     <div th:fragment="prestamoForm(titulo)" class="container border border-2 w-25">
-        <h1 class="text-center" th:text="$(titulo)"></h1>
+        <h1 class="text-center" th:text="${titulo}"></h1>
         <form>
             <label class="col-form-label">Monto</label>
             <input class="form-control" type="number" id="monto"
-            name="monto" required th:valued="$(prestamo.monto)"/>
+            name="monto" required th:valued="${prestamo.monto}"/>
             <label class="col-form-label">Interes</label>
             <input class="form-control" type="number" id="interes"
-            name="interes" required th:valued="$(prestamo.interes)"/>
+            name="interes" required th:valued="${prestamo.interes}"/>
             <label class="col-form-label">Numero cuotas</label>
             <input class="form-control" type="number" id="numero_cuotas"
-            name="numero_cuotas" required th:valued="$(prestamo.numero_cuotas)"/>
+            name="numero_cuotas" required th:valued="${prestamo.numero_cuotas}"/>
             <label class="col-form-label">Dia Pago</label>
-            <input class="form-control" type="text" id="dia_pago"
-            name="dia_pago" required th:value="$(prestamo.dia_pago)"/>
+            <input class="form-control" type="date" id="dia_pago"
+            name="dia_pago" required th:value="${prestamo.dia_pago}"/>
             <label class="col-form-label">Estado</label>
             <select class="form-control" id="estado"
             name="estado" required>
@@ -40,7 +40,7 @@
         </select>
         <label class="col-form-label">Valor Cuota</label>
         <input class="form-control" type="number" id="valor_cuota"
-        name="valor_cuota" required th:valued="$(prestamo.valor_cuota)"/><br>
+        name="valor_cuota" required th:valued="${prestamo.valor_cuota}"/><br>
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary"/>
             <a th:href="@{/prestamos}" class="btn btn btn-primary">Cancelar</a>
