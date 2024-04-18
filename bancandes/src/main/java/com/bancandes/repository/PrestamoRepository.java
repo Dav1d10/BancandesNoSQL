@@ -4,8 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 import com.bancandes.entities.PrestamoEntity;
+
+import java.sql.Date;
 import java.util.Collection;
-import java.util.Date;
+
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,7 +25,7 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo) VALUES(id_prestamo_sequence.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo)", nativeQuery =true)
+    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo) VALUES(id_prestamo.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo)", nativeQuery =true)
     void insertarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo")PrestamoEntity.EstadoPrestamo estado_prestamo);
 
 

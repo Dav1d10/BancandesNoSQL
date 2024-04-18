@@ -1,6 +1,8 @@
 package com.bancandes.entities;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
