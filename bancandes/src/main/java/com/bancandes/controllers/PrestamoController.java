@@ -51,7 +51,7 @@ public class PrestamoController {
         }
     }
 
-    @PostMapping("/prestamos/{id}/edit/save")
+    @PostMapping("/prestamos/{id_prestamo}/edit/save")
     public String prestamoEditarGuardar(@PathVariable("id_prestamo") int id, @ModelAttribute PrestamoEntity prestamo) {
         prestamoRepository.actualizarPrestamo(prestamo.getMonto(),
         prestamo.getInteres(),
@@ -59,6 +59,12 @@ public class PrestamoController {
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
         prestamo.getEstado_prestamo());
+        return "redirect:/prestamos";
+    }
+
+    @GetMapping("/prestamos/{id_prestamo}/delete")
+    public String prestamoEliminar(@PathVariable("id_prestamo") int id_prestamo) {
+        prestamoRepository.eliminarPrestamo(id_prestamo);
         return "redirect:/prestamos";
     }
     

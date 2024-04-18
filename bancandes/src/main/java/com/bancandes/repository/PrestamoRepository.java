@@ -23,7 +23,7 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo) VALUES(bancandes_sequence.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo)", nativeQuery =true)
+    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo) VALUES(id_prestamo_sequence.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo)", nativeQuery =true)
     void insertarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo")PrestamoEntity.EstadoPrestamo estado_prestamo);
 
 
@@ -31,5 +31,10 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
     @Transactional
     @Query(value = "UPDATE PRESTAMO SET monto=:monto, interes=:interes, numero_cuotas=:numero_cuotas, dia_pago=:dia_pago, valor_cuota=:valor_cuota, estado_prestamo=:estado_prestamo WHERE id_prestamo=:id_prestamo", nativeQuery =true)
     void actualizarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo")PrestamoEntity.EstadoPrestamo estado_prestamo);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM PRESTAMO WHERE id_prestamo = :id_prestamo", nativeQuery = true)
+    void eliminarPrestamo(@Param("id_prestamo") int id_prestamo);
 }
   
