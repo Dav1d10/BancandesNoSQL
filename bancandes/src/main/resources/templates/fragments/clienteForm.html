@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div th:fragment="clienteForm(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+        <form>
+            <label class="col-form-label">Numero de documento</label>
+            <input class="form-control" type="text" id="numero_documento"
+            name="monto" required th:value="${cliente.numDocumento}"/>
+            <label class="col-form-label">Telefono</label>
+            <input class="form-control" type="text" id="telefono"
+            name="monto" required th:value="${cliente.telefono}"/>
+            <label class="col-form-label">Nombre</label>
+            <input class="form-control" type="text" id="nombre"
+            name="monto" required th:value="${cliente.nombre}"/>
+            <label class="col-form-label">Nacionalidad</label>
+            <input class="form-control" type="text" id="nacionalidad"
+            name="monto" required th:value="${cliente.nacionalidad}"/>
+            <label class="col-form-label">Direccion Fisica</label>
+            <input class="form-control" type="text" id="direccion_fisica"
+            name="monto" required th:value="${cliente.direccionFisica}"/>
+            <label class="col-form-label">Direccion Electronica</label>
+            <input class="form-control" type="text" id="direccion_electronica"
+            name="monto" required th:value="${cliente.direccionElectronica}"/>
+            <label class="col-form-label">Departamento</label>
+            <input class="form-control" type="text" id="departamento"
+            name="monto" required th:value="${cliente.departamento}"/>
+            <label class="col-form-label">Codigo Postal</label>
+            <input class="form-control" type="text" id="codigo_postal"
+            name="monto" required th:value="${cliente.codigoPostal}"/>
+            <label class="col-form-label">Ciudad</label>
+            <input class="form-control" type="text" id="ciudad"
+            name="monto" required th:value="${cliente.ciudad}"/>
+            <label class="col-form-label">Tipo Documento</label>
+            <select class="form-control" id="tipo_documento"
+            name="estado" required>
+            <option value="NIT" th:selected="${cliente.tipoDocumento eq 'NIT'}">
+                NIT
+            </option>
+            <option value="CC" th:selected="${cliente.tipoDocumento eq 'CC'}">
+                CC
+            </option>
+            <div class="text-center">
+                <input type="submit" value="Guardar" class="btn btn-primary"/>
+                <a th:href="@{/cliente}" class="btn btn-primary">Cancelar</a>
+            </div>
+            
+        </form>
+
+    </div>
+</body>
+</html>
