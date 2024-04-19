@@ -34,8 +34,8 @@ public class CuentaController {
         cuentaRepository.insertarCuenta(cuenta.getSaldo(), 
         cuenta.getFecha_ultima_transaccion(), 
         cuenta.getFecha_creacion(), 
-        cuenta.getTipo_cuenta(), 
-        cuenta.getEstado_cuenta());
+        cuenta.getTipo_cuenta().name(), 
+        cuenta.getEstado_cuenta().name());
         return "redirect:/cuentas";
     }
 
