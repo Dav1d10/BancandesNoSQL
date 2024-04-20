@@ -31,12 +31,13 @@ public class PrestamoController {
 
     @PostMapping("/prestamos/new/save")
     public String prestamoGuardar(@ModelAttribute PrestamoEntity prestamo) {
-        prestamoRepository.insertarPrestamo(prestamo.getMonto(),
+        prestamoRepository.insertarPrestamo(
+        prestamo.getMonto(),
         prestamo.getInteres(),
         prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
-        prestamo.getEstado_prestamo());
+        prestamo.getEstado_prestamo().name());
         return "redirect:/prestamos";
     }
 
