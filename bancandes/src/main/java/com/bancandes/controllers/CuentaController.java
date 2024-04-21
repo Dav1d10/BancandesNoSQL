@@ -52,11 +52,12 @@ public class CuentaController {
 
     @PostMapping("/cuentas/{numero_cuenta}/edit/save")
     public String cuentaEditarGuardar(@PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
-        cuentaRepository.actualizarCuenta(cuenta.getSaldo(), 
+        cuentaRepository.actualizarCuenta(id, 
+        cuenta.getSaldo(), 
         cuenta.getFecha_ultima_transaccion(), 
         cuenta.getFecha_creacion(), 
-        cuenta.getTipo_cuenta(), 
-        cuenta.getEstado_cuenta());
+        cuenta.getTipo_cuenta().name(), 
+        cuenta.getEstado_cuenta().name());
         return "redirect:/cuentas";
     }
 
