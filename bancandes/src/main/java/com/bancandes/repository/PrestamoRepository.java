@@ -20,7 +20,7 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
     Collection<PrestamoEntity> darPrestamos();
 
     @Query(value = "SELECT * FROM PRESTAMO WHERE id_prestamo= :id_prestamo", nativeQuery = true)
-    PrestamoEntity darPrestamo(@Param("id_prestamo") int id_prestamo);
+    PrestamoEntity darPrestamo(@Param("id_prestamo") long id_prestamo);
 
 
     @Modifying
@@ -32,11 +32,11 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
     @Modifying
     @Transactional
     @Query(value = "UPDATE PRESTAMO SET monto=:monto, interes=:interes, numero_cuotas=:numero_cuotas, dia_pago=:dia_pago, valor_cuota=:valor_cuota, estado_prestamo=:estado_prestamo WHERE id_prestamo=:id_prestamo", nativeQuery =true)
-    void actualizarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo")PrestamoEntity.EstadoPrestamo estado_prestamo);
+    void actualizarPrestamo(@Param("id_prestamo") long id_prestamo, @Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo") String estado_prestamo);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM PRESTAMO WHERE id_prestamo = :id_prestamo", nativeQuery = true)
-    void eliminarPrestamo(@Param("id_prestamo") int id_prestamo);
+    void eliminarPrestamo(@Param("id_prestamo") long id_prestamo);
 }
   
