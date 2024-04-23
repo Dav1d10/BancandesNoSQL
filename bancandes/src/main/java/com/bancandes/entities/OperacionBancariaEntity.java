@@ -115,7 +115,8 @@ public class OperacionBancariaEntity {
     
     public enum Producto {
         CUENTA,
-        CDT
+        CDT,
+        PRESTAMO
     }
 
 }
