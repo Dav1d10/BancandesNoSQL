@@ -31,18 +31,19 @@ public class PrestamoController {
 
     @PostMapping("/prestamos/new/save")
     public String prestamoGuardar(@ModelAttribute PrestamoEntity prestamo) {
-        prestamoRepository.insertarPrestamo(prestamo.getMonto(),
+        prestamoRepository.insertarPrestamo(
+        prestamo.getMonto(),
         prestamo.getInteres(),
         prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
-        prestamo.getEstado_prestamo());
+        prestamo.getEstado_prestamo().name());
         return "redirect:/prestamos";
     }
 
     @GetMapping("/prestamos/{id_prestamo}/edit")
-    public String prestamoEditarForm(@PathVariable("id_prestamo") int id, Model model) {
-        PrestamoEntity prestamo = prestamoRepository.darPrestamo(id);
+    public String prestamoEditarForm(@PathVariable("id_prestamo") long id_prestamo, Model model) {
+        PrestamoEntity prestamo = prestamoRepository.darPrestamo(id_prestamo);
         if (prestamo != null) {
             model.addAttribute("prestamo", prestamo);
             return "prestamoEditar";
@@ -52,18 +53,19 @@ public class PrestamoController {
     }
 
     @PostMapping("/prestamos/{id_prestamo}/edit/save")
-    public String prestamoEditarGuardar(@PathVariable("id_prestamo") int id, @ModelAttribute PrestamoEntity prestamo) {
-        prestamoRepository.actualizarPrestamo(prestamo.getMonto(),
+    public String prestamoEditarGuardar(@PathVariable("id_prestamo") long id_prestamo, @ModelAttribute PrestamoEntity prestamo) {
+        prestamoRepository.actualizarPrestamo(((long) id_prestamo),
+        prestamo.getMonto(),
         prestamo.getInteres(),
         prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
-        prestamo.getEstado_prestamo());
+        prestamo.getEstado_prestamo().name());
         return "redirect:/prestamos";
     }
 
     @GetMapping("/prestamos/{id_prestamo}/delete")
-    public String prestamoEliminar(@PathVariable("id_prestamo") int id_prestamo) {
+    public String prestamoEliminar(@PathVariable("id_prestamo") long id_prestamo) {
         prestamoRepository.eliminarPrestamo(id_prestamo);
         return "redirect:/prestamos";
     }

@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="prestamos")
+@Table(name="prestamo")
 public class PrestamoEntity {
 
     @Id
@@ -99,8 +99,7 @@ public class PrestamoEntity {
         this.estado_prestamo = estado_prestamo;
     }
 
-
-
+    
     public enum EstadoPrestamo {
         SOLICITADO,
         APROBADO,
