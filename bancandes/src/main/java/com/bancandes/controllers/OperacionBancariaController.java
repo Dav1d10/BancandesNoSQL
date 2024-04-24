@@ -27,13 +27,13 @@ public class OperacionBancariaController {
     @GetMapping("/operacionesbancarias/new")
     public String operacionBancariaForm(Model model) {
         model.addAttribute("operacionbancaria", new OperacionBancariaEntity());
-        return "nuevaOperacionBancaria";
+        return "operacionbancariaNuevo";
     }
 
     @PostMapping("/operacionesbancarias/new/save")
     public String operacionBancariaGuardar(@ModelAttribute OperacionBancariaEntity operacionBancaria) {
         operacionBancariaRepository.insertarOperacionBancaria(operacionBancaria.getValor(), 
-        operacionBancaria.getHora(), 
+        operacionBancaria.getHora(),
         operacionBancaria.getFecha(),
         operacionBancaria.getProducto().name(),
         operacionBancaria.getTipo().name());
