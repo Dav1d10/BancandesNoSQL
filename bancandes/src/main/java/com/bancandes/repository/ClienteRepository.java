@@ -19,25 +19,25 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
     Collection<ClienteEntity> darClientes();
 
 
-    @Query(value = "SELECT * FROM cliente WHERE numero_documento= :numero_documento", nativeQuery = true)
-    ClienteEntity darCliente(@Param("numero_documento")String numDocumento);
+    @Query(value = "SELECT * FROM cliente WHERE numDocumento= :numDocumento", nativeQuery = true)
+    ClienteEntity darCliente(@Param("numDocumento")String numDocumento);
 
 
-    @Query(value = "INSERT INTO cliente (numero_documento,telefono,nombre,nacionalidad,direccionFisica,direccionElectronica,departamento,codigoPostal,ciudad,tipoDocumento)  VALUES (:numero_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
-    void insertarCliente(@Param("numero_documento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
-    @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccionFisica, @Param("direccion_electronica")String direccionElectronica,
-    @Param("departamento")String departamento, @Param("codigo_postal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipo_documento")CajeroEntity.TipoDocumento tipoDocumento);
-
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE cliente SET numero_documento=:numero_documento,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)  VALUES (:numero_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
-    void actualizarCliente(@Param("numero_documento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
-    @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccionFisica, @Param("direccion_electronica")String direccionElectronica,
-    @Param("departamento")String departamento, @Param("codigo_postal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipo_documento")CajeroEntity.TipoDocumento tipoDocumento);
-
+    @Query(value = "INSERT INTO cliente (numDocumento,telefono,nombre,nacionalidad,direccionFisica,direccionElectronica,departamento,codigoPostal,ciudad,tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery =true)  
+    void insertarCliente(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
+    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")String tipoDocumento);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM cliente WHERE numero_documento = :numero_documento", nativeQuery = true)
-    void eliminarCliente(@Param("numero_documento") String numDocumento);
+    @Query(value = "UPDATE cliente SET numDocumento=:numDocumento,telefono:=telefono ,nombre:=nombre ,nacionalidad:=nacionalidad, direccionFisica:=direccionFisica,direccionElectronica:=direccionElectronica ,departamento:=departamento ,codigoPostal:=codigoPostal, ciudad:=ciudad, tipoDocumento:=tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :tipoDocumento)", nativeQuery =true)  
+    void actualizarCliente(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
+    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipoDocumento")String tipoDocumento);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM cliente WHERE numDocumento = :numDocumento", nativeQuery = true)
+    void eliminarCliente(@Param("numDocumento") String numDocumento);
 }

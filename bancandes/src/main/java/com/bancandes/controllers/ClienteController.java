@@ -39,7 +39,7 @@ public class ClienteController {
     public String clienteGuardar(@ModelAttribute ClienteEntity cliente) {
         clienteRepository.insertarCliente(cliente.getNumDocumento(), cliente.getTelefono(), cliente.getNombre(), 
         cliente.getNacionalidad(), cliente.getDireccionFisica(), cliente.getDireccionElectronica(), cliente.getDepartamento(), cliente.getCodigoPostal(),
-        cliente.getCiudad(), cliente.getTipoDocumento());
+        cliente.getCiudad(), cliente.getTipoDocumento().name());
 
         return "redirect:/clientes";
     }
@@ -66,7 +66,7 @@ public class ClienteController {
         cliente.getDepartamento(), 
         cliente.getCodigoPostal(), 
         cliente.getCiudad(),
-        cliente.getTipoDocumento());
+        cliente.getTipoDocumento().name());
         return "redirect:/cuentas";
     }
 
