@@ -1,5 +1,8 @@
 package com.bancandes.entities;
 
+import java.sql.Date;
+import java.sql.Time;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,8 +20,8 @@ public class OperacionBancariaEntity {
 
     private Integer id;
     private int valor;
-    private String hora;
-    private String fecha;
+    private Time hora;
+    private Date fecha;
     
     @Enumerated(EnumType.STRING)
     private Producto producto;
@@ -27,7 +30,8 @@ public class OperacionBancariaEntity {
     private Tipo tipo;
 
     
-    public OperacionBancariaEntity(Integer id, int valor, String hora, String fecha, Producto producto, Tipo tipo) {
+    
+    public OperacionBancariaEntity(Integer id, int valor, Time hora, Date fecha, Producto producto, Tipo tipo) {
         this.id = id;
         this.valor = valor;
         this.hora = hora;
@@ -41,8 +45,8 @@ public class OperacionBancariaEntity {
         ;
     }
 
-    
 
+    
     public Integer getId() {
         return id;
     }
@@ -63,22 +67,22 @@ public class OperacionBancariaEntity {
     }
 
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
 
-    public void setHora(String hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -101,7 +105,6 @@ public class OperacionBancariaEntity {
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
-
 
 
     public enum Tipo {
