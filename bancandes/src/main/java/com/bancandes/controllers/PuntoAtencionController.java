@@ -18,6 +18,12 @@ public class PuntoAtencionController {
     @Autowired
     private PuntoAtencionRepository puntoAtencionRepository;
 
+    @GetMapping("/puntosAtencion")
+    public String puntosAtencion(Model model) {
+        model.addAttribute("puntosAtencion", puntoAtencionRepository.darPuntosAtencion());
+        return "puntosAtencion";
+    }
+
     @GetMapping("/puntosAtencion/new")
     public String puntoAtencionForm(Model model) {
         model.addAttribute("puntoAtencion", new PuntoAtencionEntity());
@@ -37,7 +43,25 @@ public class PuntoAtencionController {
         return "redirect:/puntosAtencion";
     }
 
-    @GetMapping("/puntosAtencion/delete/{id}")
+    @GetMapping("/puntosAtencion/{id_punto_atencion}/edit")
+    public String editarPuntoAtencion(@PathVariable("id_punto_atencion") int id, Model model) {
+        PuntoAtencionEntity puntoAtencion = puntoAtencionRepository.darPuntoAtencion(id);
+        if (puntoAtencion != null) {
+            model.addAttribute("puntoAtencion", puntoAtencion);
+            return "editarPuntoAtencion";
+        } else {
+            return "redirect:/puntosAtencion";
+        }
+    }
+
+    @PostMapping("/puntosAtencion/{id_punto_atencion}/edit/save")
+    public String editarGuardarPuntoAtencion(@PathVariable("id_punto_atencion") int id, @ModelAttribute PuntoAtencionEntity puntoAtencion) {
+        puntoAtencionRepository.actualizarPuntoAtencion(puntoAtencion.getLocalizacion(),
+                                                        puntoAtencion.getTipo_punto_atencion());
+        return "redirect:/puntosAtencion";
+    }
+
+    @GetMapping("/puntosAtencion/{id_punto_atencion}/delete")
     public String eliminarPuntoAtencion(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         try {
             puntoAtencionRepository.eliminarPuntoAtencion(id);
