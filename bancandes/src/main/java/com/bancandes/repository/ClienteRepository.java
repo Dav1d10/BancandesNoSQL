@@ -3,8 +3,10 @@ package com.bancandes.repository;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.CajeroEntity;
 import com.bancandes.entities.ClienteEntity;
@@ -21,9 +23,21 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
     ClienteEntity darCliente(@Param("numero_documento")String numDocumento);
 
 
-    @Query(value = "INSERT INTO cliente (numero_documento ,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)  VALUES (:numero_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
+    @Query(value = "INSERT INTO cliente (numero_documento,telefono,nombre,nacionalidad,direccionFisica,direccionElectronica,departamento,codigoPostal,ciudad,tipoDocumento)  VALUES (:numero_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
     void insertarCliente(@Param("numero_documento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
     @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccionFisica, @Param("direccion_electronica")String direccionElectronica,
     @Param("departamento")String departamento, @Param("codigo_postal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipo_documento")CajeroEntity.TipoDocumento tipoDocumento);
 
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE cliente SET numero_documento=:numero_documento,telefono ,nombre ,nacionalidad, direccionFisica ,direccionElectronica ,departamento ,codigoPostal, ciudad, tipoDocumento)  VALUES (:numero_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
+    void actualizarCliente(@Param("numero_documento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccionFisica, @Param("direccion_electronica")String direccionElectronica,
+    @Param("departamento")String departamento, @Param("codigo_postal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("tipo_documento")CajeroEntity.TipoDocumento tipoDocumento);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM cliente WHERE numero_documento = :numero_documento", nativeQuery = true)
+    void eliminarCliente(@Param("numero_documento") String numDocumento);
 }
