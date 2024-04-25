@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div th:fragment="puntoAtencionForm(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+        <form>
+            <label class="col-form-label">Localizacion</label>
+            <input class="form-control" type="text" id="localizacion"
+            name="localizacion" required th:valued="${punto_atencion.localizacion}"/>
+            <label class="col-form-label">Tipo de punto de atencion</label>
+            <select class="form-control" id="tipo_punto_atencion"
+            name="tipo_punto_atencion" required>
+            <option value="ATENCION_PERSONALIZADA" th:selected="${punto_atencion.estado_punto_atencion eq 'ATENCION_PERSONALIZADA'}">
+                ATENCION_PERSONALIZADA
+            </option>
+            <option value="CAJERO_AUTOMATICO" th:selected="${punto_atencion.estado_punto_atencion eq 'CAJERO_AUTOMATICO'}">
+                CAJERO_AUTOMATICO
+            </option>
+            <option value="PUNTO_DE_ATENCION_DIGITAL" th:selected="${punto_atencion.estado_punto_atencion eq 'PUNTO_DE_ATENCION_DIGITAL'}">
+                PUNTO_DE_ATENCION_DIGITAL
+            </option>
+        </select>
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary"/>
+            <a th:href="@{/puntos_atencion}" class="btn btn btn-primary">Cancelar</a>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
