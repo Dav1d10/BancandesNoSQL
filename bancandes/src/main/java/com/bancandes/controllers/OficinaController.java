@@ -26,7 +26,7 @@ public class OficinaController {
     @GetMapping("/oficinas/new")
     public String oficinaForm(Model model) {
         model.addAttribute("oficina", new OficinaEntity());
-        return "oficina";
+        return "oficinaNuevo";
     }
 
     @PostMapping("/oficinas/new/save")
@@ -50,7 +50,7 @@ public class OficinaController {
 
     @PostMapping("/oficinas/{id_oficina}/edit/save")
     public String oficinaEditarGuardar(@PathVariable("id_oficina") int id, @ModelAttribute OficinaEntity oficina) {
-        oficinaRepository.actualizarOficina(oficina.getNombre(),
+        oficinaRepository.actualizarOficina(id, oficina.getNombre(),
                                             oficina.getDireccion(),
                                             oficina.getPuntos_atencion());
         return "redirect:/oficinas";

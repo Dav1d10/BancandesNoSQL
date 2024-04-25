@@ -11,14 +11,14 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
         <form>
             <label class="col-form-label">Nombre</label>
-            <input class="form-control" type="number" id="nombre"
-            name="nombre" required th:valued="${oficina.nombre}"/>
+            <input class="form-control" type="text" id="nombre"
+            name="nombre" required th:value="${oficina.nombre}"/>
             <label class="col-form-label">Direccion</label>
-            <input class="form-control" type="number" id="direccion"
-            name="direccion" required th:valued="${oficina.direccion}"/>
+            <input class="form-control" type="text" id="direccion"
+            name="direccion" required th:value="${oficina.direccion}"/>
             <label class="col-form-label">Puntos de atencion</label>
             <input class="form-control" type="number" id="puntos_atencion"
-            name="puntos_atencion" required th:valued="${oficina.puntos_atencion}"/>
+            name="puntos_atencion" required th:value="${oficina.puntos_atencion}"/>
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary"/>
             <a th:href="@{/oficinas}" class="btn btn btn-primary">Cancelar</a>
