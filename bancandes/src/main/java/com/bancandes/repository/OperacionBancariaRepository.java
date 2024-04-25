@@ -1,5 +1,7 @@
 package com.bancandes.repository;
 
+
+import java.sql.Date;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,9 +20,18 @@ public interface OperacionBancariaRepository extends JpaRepository<OperacionBanc
     @Query(value = "SELECT * FROM OPERACION_BANCARIA WHERE id= :id", nativeQuery = true)
     OperacionBancariaEntity darOperacionBancaria(@Param("id") int id);
 
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO OPERACION_BANCARIA (id, valor, hora, fecha, producto, tipo) VALUES(id_operacion_bancaria.nextval, :valor, :hora, :fecha, :producto, :tipo)", nativeQuery =true)
+    void insertarOperacionBancaria(@Param("valor")int valor, @Param("hora")String hora, @Param("fecha")Date fecha, @Param("producto")String producto, @Param("tipo")String tipo );
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO OPERACION_BANCARIA (id, valor, hora, fecha, producto, tipo) VALUES(bancandes_sequence.nextval, :valor, :hora, :fecha, :producto, :tipo)", nativeQuery =true)
-    void insertarOperacionBancaria(@Param("valor")int valor, @Param("hora")String hora, @Param("fecha")String fecha, @Param("producto")OperacionBancariaEntity.Producto producto, @Param("tipo")OperacionBancariaEntity.Tipo tipo );
+    @Query(value = "UPDATE OPERACION_BANCARIA SET valor=:valor, hora=:hora, fecha=:fecha, producto=:producto, tipo=:tipo WHERE id=:id", nativeQuery =true)
+    void actualizarOperacionBancaria(@Param("id") int id, @Param("valor")int valor, @Param("hora")String hora, @Param("fecha")Date fecha, @Param("producto")String producto, @Param("tipo")String tipo);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM OPERACION_BANCARIA WHERE id=:id", nativeQuery = true)
+    void eliminarOperacionBancaria(@Param("id") int id);
 }

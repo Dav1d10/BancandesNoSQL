@@ -24,13 +24,13 @@ public interface CuentaRepository extends JpaRepository<CuentaEntity, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO cuentas (numero_cuenta, saldo, fecha_ultima_transaccion, fecha_creacion, tipo_cuenta, estado_cuenta) VALUES(bancandes_sequence.nextval, :saldo, :fecha_ultima_transaccion, :fecha_creacion, :tipo_cuenta, :estado_cuenta)", nativeQuery = true)
-    void insertarCuenta(@Param("saldo") Integer saldo, @Param("fecha_ultima_transaccion") Date fecha_ultima_transaccion, @Param("fecha_creacion") Date fecha_creacion, @Param("tipo_cuenta") CuentaEntity.TipoCuenta tipo_cuenta, @Param("estado_cuenta") CuentaEntity.EstadoCuenta estado_cuenta);
+    @Query(value = "INSERT INTO CUENTA (numero_cuenta, saldo, fecha_ultima_transaccion, fecha_creacion, tipo_cuenta, estado_cuenta) VALUES(id_cuenta.nextval, :saldo, :fecha_ultima_transaccion, :fecha_creacion, :tipo_cuenta, :estado_cuenta)", nativeQuery = true)
+    void insertarCuenta(@Param("saldo") Integer saldo, @Param("fecha_ultima_transaccion") Date fecha_ultima_transaccion, @Param("fecha_creacion") Date fecha_creacion, @Param("tipo_cuenta") String tipo_cuenta, @Param("estado_cuenta") String estado_cuenta);
     
     @Modifying
     @Transactional
-    @Query(value = "UPDATE cuentas SET saldo=:saldo, fecha_ultima_transaccion=:fecha_ultima_transaccion, fecha_creacion=:fecha_creacion, tipo_cuenta=:tipo_cuenta, estado_cuenta=:estado_cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
-    void actualizarCuenta(@Param("saldo") Integer saldo, @Param("fecha_ultima_transaccion") Date fecha_ultima_transaccion, @Param("fecha_creacion") Date fecha_creacion, @Param("tipo_cuenta") CuentaEntity.TipoCuenta tipo_cuenta, @Param("estado_cuenta") CuentaEntity.EstadoCuenta estado_cuenta);
+    @Query(value = "UPDATE cuenta SET saldo=:saldo, fecha_ultima_transaccion=:fecha_ultima_transaccion, fecha_creacion=:fecha_creacion, tipo_cuenta=:tipo_cuenta, estado_cuenta=:estado_cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
+    void actualizarCuenta(@Param("numero_cuenta") int numero_cuenta, @Param("saldo") Integer saldo, @Param("fecha_ultima_transaccion") Date fecha_ultima_transaccion, @Param("fecha_creacion") Date fecha_creacion, @Param("tipo_cuenta") String tipo_cuenta, @Param("estado_cuenta") String estado_cuenta);
 
     @Modifying
     @Transactional
