@@ -45,7 +45,7 @@ public class ClienteController {
     }
 
     @GetMapping("/clientes/{numDocumento}/edit")
-    public String cuentaEditarForm(@PathVariable("numDocumento") String id, Model model) {
+    public String clienteEditarForm(@PathVariable("numDocumento") String id, Model model) {
         ClienteEntity cliente = clienteRepository.darCliente(id);
         if (cliente != null) {
             model.addAttribute("cliente", cliente);
@@ -56,7 +56,7 @@ public class ClienteController {
     }
 
     @PostMapping("/clientes/{numDocumento}/edit/save")
-    public String cuentaEditarGuardar(@PathVariable("numDocumento") String id, @ModelAttribute ClienteEntity cliente) {
+    public String clienteEditarGuardar(@PathVariable("numDocumento") String id, @ModelAttribute ClienteEntity cliente) {
         clienteRepository.actualizarCliente(cliente.getNumDocumento(), 
         cliente.getTelefono(), 
         cliente.getNombre(), 
@@ -67,13 +67,13 @@ public class ClienteController {
         cliente.getCodigoPostal(), 
         cliente.getCiudad(),
         cliente.getTipoDocumento().name());
-        return "redirect:/cuentas";
+        return "redirect:/clientes";
     }
 
     @GetMapping("/clientes/{numDocumento}/delete")
-    public String cuentaEliminar(@PathVariable("numDocumento") String id) {
+    public String clienteEliminar(@PathVariable("numDocumento") String id) {
         clienteRepository.eliminarCliente(id);
-        return "redirect:/cuentas";
+        return "redirect:/clientes";
     }
     
 }

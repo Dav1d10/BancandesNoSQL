@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <form action="#" th:action="@{'/gerentesgenerales/'+${id}+'/edit/save'}" th:object="${gerente}" method="post">
+        <div th:replace="~{fragments/gerenteGeneralForm :: gerenteGeneralForm(titulo='Editar Gerente General', gerente=${gerente})}"></div>
+    </form>
+</body>
+</html>

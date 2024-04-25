@@ -39,12 +39,12 @@
             <input class="form-control" type="text" id="ciudad"
             name="ciudad" required th:value="${cliente.ciudad}"/>
             <label class="col-form-label">Tipo Documento</label>
-            <select class="form-control" id="tipoDocumento"
-            name="tipoDocumento" required>
-                <option value="NIT" th:selected="${cliente.tipoDocumento eq 'NIT'}">
+            <select class="form-control" id="TipoDocumento"
+            name="TipoDocumento" required>
+                <option value="NIT" th:selected="${cliente.TipoDocumento eq 'NIT'}">
                     NIT
                 </option>
-                <option value="CC" th:selected="${cliente.tipoDocumento eq 'CC'}">
+                <option value="CC" th:selected="${cliente.TipoDocumento eq 'CC'}">
                     CC
                 </option>
             </select>
