@@ -8,49 +8,49 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <div th:fragment="clienteForm(titulo)" class="container border border-2 w-25">
+    <div th:fragment="gerenteGeneralForm(titulo)" class="container border border-2 w-25">
         <h1 class="text-center" th:text="${titulo}"></h1>
         <form>
             <label class="col-form-label">Numero de documento</label>
             <input class="form-control" type="text" id="numDocumento"
-            name="numDocumento" required th:value="${cliente.numDocumento}"/>
+            name="numDocumento" required th:value="${gerentegeneral.numDocumento}"/>
             <label class="col-form-label">Telefono</label>
             <input class="form-control" type="text" id="telefono"
-            name="telefono" required th:value="${cliente.telefono}"/>
+            name="telefono" required th:value="${gerentegeneral.telefono}"/>
             <label class="col-form-label">Nombre</label>
             <input class="form-control" type="text" id="nombre"
-            name="nombre" required th:value="${cliente.nombre}"/>
+            name="nombre" required th:value="${gerentegeneral.nombre}"/>
             <label class="col-form-label">Nacionalidad</label>
             <input class="form-control" type="text" id="nacionalidad"
-            name="nacionalidad" required th:value="${cliente.nacionalidad}"/>
+            name="nacionalidad" required th:value="${gerentegeneral.nacionalidad}"/>
             <label class="col-form-label">Direccion Fisica</label>
             <input class="form-control" type="text" id="direccionFisica"
-            name="direccionFisica" required th:value="${cliente.direccionFisica}"/>
+            name="direccionFisica" required th:value="${gerentegeneral.direccionFisica}"/>
             <label class="col-form-label">Direccion Electronica</label>
             <input class="form-control" type="text" id="direccionElectronica"
-            name="direccionElectronica" required th:value="${cliente.direccionElectronica}"/>
+            name="direccionElectronica" required th:value="${gerentegeneral.direccionElectronica}"/>
             <label class="col-form-label">Departamento</label>
             <input class="form-control" type="text" id="departamento"
-            name="departamento" required th:value="${cliente.departamento}"/>
+            name="departamento" required th:value="${gerentegeneral.departamento}"/>
             <label class="col-form-label">Codigo Postal</label>
             <input class="form-control" type="text" id="codigo_postal"
-            name="codigoPostal" required th:value="${cliente.codigoPostal}"/>
+            name="codigoPostal" required th:value="${gerentegeneral.codigoPostal}"/>
             <label class="col-form-label">Ciudad</label>
             <input class="form-control" type="text" id="ciudad"
-            name="ciudad" required th:value="${cliente.ciudad}"/>
+            name="ciudad" required th:value="${gerentegeneral.ciudad}"/>
             <label class="col-form-label">Tipo Documento</label>
             <select class="form-control" id="TipoDocumento"
             name="TipoDocumento" required>
-                <option value="NIT" th:selected="${cliente.TipoDocumento eq 'NIT'}">
+                <option value="NIT" th:selected="${gerentegeneral.TipoDocumento eq 'NIT'}">
                     NIT
                 </option>
-                <option value="CC" th:selected="${cliente.TipoDocumento eq 'CC'}">
+                <option value="CC" th:selected="${gerentegeneral.TipoDocumento eq 'CC'}">
                     CC
                 </option>
             </select>
             <div class="text-center">
                 <input type="submit" value="Guardar" class="btn btn-primary"/>
-                <a th:href="@{/clientes}" class="btn btn-primary">Cancelar</a>
+                <a th:href="@{/gerentesgenerales}" class="btn btn-primary">Cancelar</a>
             </div>
             
         </form>
