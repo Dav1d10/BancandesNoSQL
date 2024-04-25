@@ -12,8 +12,8 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
         <form>
             <label class="col-form-label">Numero de documento</label>
-            <input class="form-control" type="text" id="numDocumento"
-            name="numDocumento" required th:value="${cliente.numDocumento}"/>
+            <input class="form-control" type="text" id="num_documento"
+            name="num_documento" required th:value="${cliente.num_documento}"/>
             <label class="col-form-label">Telefono</label>
             <input class="form-control" type="text" id="telefono"
             name="telefono" required th:value="${cliente.telefono}"/>
@@ -24,30 +24,30 @@
             <input class="form-control" type="text" id="nacionalidad"
             name="nacionalidad" required th:value="${cliente.nacionalidad}"/>
             <label class="col-form-label">Direccion Fisica</label>
-            <input class="form-control" type="text" id="direccionFisica"
-            name="direccionFisica" required th:value="${cliente.direccionFisica}"/>
+            <input class="form-control" type="text" id="direccion_fisica"
+            name="direccion_fisica" required th:value="${cliente.direccion_fisica}"/>
             <label class="col-form-label">Direccion Electronica</label>
-            <input class="form-control" type="text" id="direccionElectronica"
-            name="direccionElectronica" required th:value="${cliente.direccionElectronica}"/>
+            <input class="form-control" type="text" id="direccion_electronica"
+            name="direccion_electronica" required th:value="${cliente.direccion_electronica}"/>
             <label class="col-form-label">Departamento</label>
             <input class="form-control" type="text" id="departamento"
             name="departamento" required th:value="${cliente.departamento}"/>
             <label class="col-form-label">Codigo Postal</label>
             <input class="form-control" type="text" id="codigo_postal"
-            name="codigoPostal" required th:value="${cliente.codigoPostal}"/>
+            name="codigo_postal" required th:value="${cliente.codigo_postal}"/>
             <label class="col-form-label">Ciudad</label>
             <input class="form-control" type="text" id="ciudad"
             name="ciudad" required th:value="${cliente.ciudad}"/>
             <label class="col-form-label">Tipo Documento</label>
-            <select class="form-control" id="TipoDocumento"
-            name="TipoDocumento" required>
-                <option value="NIT" th:selected="${cliente.TipoDocumento eq 'NIT'}">
+            <select class="form-control" id="tipo_documento"
+            name="tipo_documento" required>
+                <option value="NIT" th:selected="${cliente.tipo_documento eq 'NIT'}">
                     NIT
                 </option>
-                <option value="CC" th:selected="${cliente.TipoDocumento eq 'CC'}">
+                <option value="CC" th:selected="${cliente.tipo_documento eq 'CC'}">
                     CC
                 </option>
-            </select>
+        </select>
             <div class="text-center">
                 <input type="submit" value="Guardar" class="btn btn-primary"/>
                 <a th:href="@{/clientes}" class="btn btn-primary">Cancelar</a>

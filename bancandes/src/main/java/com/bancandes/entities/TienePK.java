@@ -15,7 +15,7 @@ public class TienePK implements Serializable {
     private CuentaEntity numero_cuenta;
 
     @ManyToOne
-    @JoinColumn(name="id_cliente", referencedColumnName = "numDocumento")
+    @JoinColumn(name="id_cliente", referencedColumnName = "num_documento")
     private ClienteEntity id_cliente;
 
     public TienePK(CuentaEntity numero_cuenta, ClienteEntity id_cliente) {

@@ -27,21 +27,21 @@
                 </thead>
                 <th:block th:each="cliente:${clientes}">
                     <tr>
-                        <td th:text="${cliente.numDocumento}"></td>
+                        <td th:text="${cliente.num_documento}"></td>
                         <td th:text="${cliente.telefono}"></td>
                         <td th:text="${cliente.nombre}"></td>
                         <td th:text="${cliente.nacionalidad}"></td>
-                        <td th:text="${cliente.direccionFisica}"></td>
-                        <td th:text="${cliente.direccionElectronica}"></td>
+                        <td th:text="${cliente.direccion_fisica}"></td>
+                        <td th:text="${cliente.direccion_electronica}"></td>
                         <td th:text="${cliente.departamento}"></td>
-                        <td th:text="${cliente.codigoPostal}"></td>
+                        <td th:text="${cliente.codigo_postal}"></td>
                         <td th:text="${cliente.ciudad}"></td>
-                        <td th:text="${cliente.TipoDocumento}"></td>
+                        <td th:text="${cliente.tipo_documento}"></td>
                         <td>
-                            <a th:href="@{clientes/{numDocumento}/edit(numDocumento=${cliente.numDocumento})}">
+                            <a th:href="@{clientes/{num_documento}/edit(num_documento=${cliente.num_documento})}">
                                 Editar
                             </a>
-                            <a th:href="@{clientes/{numDocumento}/delete(numDocumento=${cliente.numDocumento})}"
+                            <a th:href="@{clientes/{num_documento}/delete(num_documento=${cliente.num_documento})}"
                             onclick="return confirm('¿Esta seguro de borrar este cliente?')">
                                 Borrar
                             </a>

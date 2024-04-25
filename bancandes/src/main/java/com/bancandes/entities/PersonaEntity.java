@@ -12,33 +12,33 @@ import jakarta.persistence.Table;
 public class PersonaEntity {
 
     @Id
-    private String numDocumento;
+    private String num_documento;
     private String telefono;
     private String nombre;
     private String nacionalidad;
-    private String direccionFisica;
-    private String direccionElectronica;
+    private String direccion_fisica;
+    private String direccion_electronica;
     private String departamento;
-    private String codigoPostal;
+    private String codigo_postal;
     private String ciudad;
     @Enumerated(EnumType.STRING)
-    private TipoDocumento TipoDocumento;
+    private TipoDocumento tipo_documento;
 
     
 
-    public PersonaEntity(String numDocumento, String telefono, String nombre, String nacionalidad,
-            String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
-            String ciudad, TipoDocumento tipoDocumento) {
-        this.numDocumento = numDocumento;
+    public PersonaEntity(String num_documento, String telefono, String nombre, String nacionalidad,
+            String direccion_fisica, String direccion_electronica, String departamento, String codigo_postal,
+            String ciudad, TipoDocumento tipo_documento) {
+        this.num_documento = num_documento;
         this.telefono = telefono;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
-        this.direccionFisica = direccionFisica;
-        this.direccionElectronica = direccionElectronica;
+        this.direccion_fisica = direccion_fisica;
+        this.direccion_electronica = direccion_electronica;
         this.departamento = departamento;
-        this.codigoPostal = codigoPostal;
+        this.codigo_postal = codigo_postal;
         this.ciudad = ciudad;
-        this.TipoDocumento = tipoDocumento;
+        this.tipo_documento = tipo_documento;
     }
 
 
@@ -46,85 +46,108 @@ public class PersonaEntity {
         ;
     }
 
-    public String getNumDocumento() {
-        return numDocumento;
+    
+
+    public String getNum_documento() {
+        return num_documento;
     }
+
+
+    public void setNum_documento(String num_documento) {
+        this.num_documento = num_documento;
+    }
+
 
     public String getTelefono() {
         return telefono;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public String getDireccionFisica() {
-        return direccionFisica;
-    }
-
-    public String getDireccionElectronica() {
-        return direccionElectronica;
-    }
-
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    public String getCodigoPostal() {
-        return codigoPostal;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public TipoDocumento getTipoDocumento() {
-        return TipoDocumento;
-    }
-
-    public void setNumDocumento(String numDocumento) {
-        this.numDocumento = numDocumento;
-    }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 
-    public void setDireccionFisica(String direccionFisica) {
-        this.direccionFisica = direccionFisica;
+
+    public String getDireccion_fisica() {
+        return direccion_fisica;
     }
 
-    public void setDireccionElectronica(String direccionElectronica) {
-        this.direccionElectronica = direccionElectronica;
+
+    public void setDireccion_fisica(String direccion_fisica) {
+        this.direccion_fisica = direccion_fisica;
     }
+
+
+    public String getDireccion_electronica() {
+        return direccion_electronica;
+    }
+
+
+    public void setDireccion_electronica(String direccion_electronica) {
+        this.direccion_electronica = direccion_electronica;
+    }
+
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+
+    public String getCodigo_postal() {
+        return codigo_postal;
     }
+
+
+    public void setCodigo_postal(String codigo_postal) {
+        this.codigo_postal = codigo_postal;
+    }
+
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        TipoDocumento = tipoDocumento;
+
+    public TipoDocumento getTipo_documento() {
+        return tipo_documento;
     }
+
+
+    public void setTipo_documento(TipoDocumento tipo_documento) {
+        this.tipo_documento = tipo_documento;
+    }
+
+
 
     public enum TipoDocumento {
         CC,

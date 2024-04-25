@@ -37,15 +37,15 @@ public class ClienteController {
 
     @PostMapping("/clientes/new/save")
     public String clienteGuardar(@ModelAttribute ClienteEntity cliente) {
-        clienteRepository.insertarCliente(cliente.getNumDocumento(), cliente.getTelefono(), cliente.getNombre(), 
-        cliente.getNacionalidad(), cliente.getDireccionFisica(), cliente.getDireccionElectronica(), cliente.getDepartamento(), cliente.getCodigoPostal(),
-        cliente.getCiudad(), cliente.getTipoDocumento().name());
+        clienteRepository.insertarCliente(cliente.getNum_documento(), cliente.getTelefono(), cliente.getNombre(), 
+        cliente.getNacionalidad(), cliente.getDireccion_fisica(), cliente.getDireccion_electronica(), cliente.getDepartamento(), cliente.getCodigo_postal(),
+        cliente.getCiudad(), cliente.getTipo_documento().name());
 
         return "redirect:/clientes";
     }
 
-    @GetMapping("/clientes/{numDocumento}/edit")
-    public String clienteEditarForm(@PathVariable("numDocumento") String id, Model model) {
+    @GetMapping("/clientes/{num_documento}/edit")
+    public String clienteEditarForm(@PathVariable("num_documento") String id, Model model) {
         ClienteEntity cliente = clienteRepository.darCliente(id);
         if (cliente != null) {
             model.addAttribute("cliente", cliente);
@@ -55,23 +55,23 @@ public class ClienteController {
         }
     }
 
-    @PostMapping("/clientes/{numDocumento}/edit/save")
-    public String clienteEditarGuardar(@PathVariable("numDocumento") String id, @ModelAttribute ClienteEntity cliente) {
-        clienteRepository.actualizarCliente(cliente.getNumDocumento(), 
+    @PostMapping("/clientes/{num_documento}/edit/save")
+    public String clienteEditarGuardar(@PathVariable("num_documento") String id, @ModelAttribute ClienteEntity cliente) {
+        clienteRepository.actualizarCliente(cliente.getNum_documento(), 
         cliente.getTelefono(), 
         cliente.getNombre(), 
         cliente.getNacionalidad(), 
-        cliente.getDireccionFisica(),
-        cliente.getDireccionElectronica(), 
+        cliente.getDireccion_fisica(),
+        cliente.getDireccion_electronica(), 
         cliente.getDepartamento(), 
-        cliente.getCodigoPostal(), 
+        cliente.getCodigo_postal(), 
         cliente.getCiudad(),
-        cliente.getTipoDocumento().name());
+        cliente.getTipo_documento().name());
         return "redirect:/clientes";
     }
 
-    @GetMapping("/clientes/{numDocumento}/delete")
-    public String clienteEliminar(@PathVariable("numDocumento") String id) {
+    @GetMapping("/clientes/{num_documento}/delete")
+    public String clienteEliminar(@PathVariable("num_documento") String id) {
         clienteRepository.eliminarCliente(id);
         return "redirect:/clientes";
     }

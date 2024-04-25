@@ -15,7 +15,7 @@ public class PidePK implements Serializable {
     private PrestamoEntity id_prestamo;
 
     @ManyToOne
-    @JoinColumn(name="id_cliente", referencedColumnName = "numDocumento")
+    @JoinColumn(name="id_cliente", referencedColumnName = "num_documento")
     private ClienteEntity id_cliente;
 
 
