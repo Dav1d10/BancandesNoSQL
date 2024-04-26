@@ -21,7 +21,7 @@ public class PuntoAtencionController {
     @GetMapping("/puntosatencion")
     public String puntosAtencion(Model model) {
         model.addAttribute("puntosatencion", puntoAtencionRepository.darPuntosAtencion());
-        return "puntosatencion";
+        return "puntosAtencion";
     }
 
     @GetMapping("/puntosatencion/new")
