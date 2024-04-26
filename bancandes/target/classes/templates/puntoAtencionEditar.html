@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <form th:action="@{'/puntos_atencion/'+${id_punto_atencion}+'/edit/save'}" th:object="${punto_atencion}"
+    <form th:action="@{'/puntosatencion/'+${id_punto_atencion}+'/edit/save'}" th:object="${puntoatencion}"
     method="post">
-    <div th:replace="~{fragments/puntoAtencionForm :: puntoAtencionForm(titulo='Editar punto_atencion', punto_atencion=${punto_atencion})}">
+    <div th:replace="~{fragments/puntoAtencionForm :: puntoAtencionForm(titulo='Editar punto_atencion', puntoatencion=${puntoatencion})}">
 
     </div>
 </form>
