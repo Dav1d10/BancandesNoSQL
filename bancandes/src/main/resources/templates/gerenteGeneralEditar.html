@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <form action="#" th:action="@{'/gerentesgenerales/'+${id}+'/edit/save'}" th:object="${gerente}" method="post">
-        <div th:replace="~{fragments/gerenteGeneralForm :: gerenteGeneralForm(titulo='Editar Gerente General', gerente=${gerente})}"></div>
+    <form action="#" th:action="@{'/gerentesgenerales/'+${num_documento}+'/edit/save'}" th:object="${gerente_general}" method="post">
+        <div th:replace="~{fragments/gerenteGeneralForm :: gerenteGeneralForm(titulo='Editar Gerente General', gerentegeneral=${gerentegeneral})}"></div>
     </form>
 </body>
 </html>

@@ -5,11 +5,11 @@ import jakarta.persistence.Entity;
 @Entity
 public class GerenteGeneral extends PersonaEntity {
 
-    public GerenteGeneral(String numDocumento, String telefono, String nombre, String nacionalidad,
-            String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
-            String ciudad, TipoDocumento tipoDocumento) {
-        super(numDocumento, telefono, nombre, nacionalidad, direccionFisica, direccionElectronica, departamento,
-                codigoPostal, ciudad, tipoDocumento);
+    public GerenteGeneral(String num_documento, String telefono, String nombre, String nacionalidad,
+    String direccion_fisica, String direccion_electronica, String departamento, String codigo_postal,
+    String ciudad, TipoDocumento tipo_documento) {
+        super(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento,
+        codigo_postal, ciudad, tipo_documento);
     }
 
     public GerenteGeneral() {

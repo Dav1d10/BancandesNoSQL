@@ -25,24 +25,24 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <th:block th:each="gerentegeneral:${gerentesgenerales}">
+                <th:block th:each="gerenteoficina:${gerentesoficinas}">
                     <tr>
-                        <td th:text="${gerentegeneral.num_documento}"></td>
-                        <td th:text="${gerentegeneral.telefono}"></td>
-                        <td th:text="${gerentegeneral.nombre}"></td>
-                        <td th:text="${gerentegeneral.nacionalidad}"></td>
-                        <td th:text="${gerentegeneral.direccion_fisica}"></td>
-                        <td th:text="${gerentegeneral.direccion_electronica}"></td>
-                        <td th:text="${gerentegeneral.departamento}"></td>
-                        <td th:text="${gerentegeneral.codigo_postal}"></td>
-                        <td th:text="${gerentegeneral.ciudad}"></td>
-                        <td th:text="${gerentegeneral.tipo_documento}"></td>
+                        <td th:text="${gerenteoficina.num_documento}"></td>
+                        <td th:text="${gerenteoficina.telefono}"></td>
+                        <td th:text="${gerenteoficina.nombre}"></td>
+                        <td th:text="${gerenteoficina.nacionalidad}"></td>
+                        <td th:text="${gerenteoficina.direccion_fisica}"></td>
+                        <td th:text="${gerenteoficina.direccion_electronica}"></td>
+                        <td th:text="${gerenteoficina.departamento}"></td>
+                        <td th:text="${gerenteoficina.codigo_postal}"></td>
+                        <td th:text="${gerenteoficina.ciudad}"></td>
+                        <td th:text="${gerenteoficina.tipo_documento}"></td>
                         <td>
-                            <a th:href="@{gerentesgenerales/{num_documento}/edit(num_documento=${gerentegeneral.num_documento})}">
+                            <a th:href="@{gerentesoficinas/{num_documento}/edit(num_documento=${gerenteoficina.num_documento})}">
                                 Editar
                             </a>
-                            <a th:href="@{gerentesgenerales/{num_documento}/delete(num_documento=${gerentegeneral.num_documento})}"
-                            onclick="return confirm('¿Esta seguro de borrar este Gerente General?')">
+                            <a th:href="@{gerentesoficinas/{num_documento}/delete(num_documento=${gerenteoficina.num_documento})}"
+                            onclick="return confirm('¿Esta seguro de borrar este Gerente Oficina?')">
                                 Borrar
                             </a>
                         </td>
@@ -51,7 +51,7 @@
             </table>
             <div>
             <a th:href="@{/}" class="btn btn-primary">Volver atras</a>
-            <a th:href="@{gerentesgenerales/new}" class="btn btn-primary">Añadir Gerente General</a>
+            <a th:href="@{gerentesoficinas/new}" class="btn btn-primary">Añadir Gerente Oficina</a>
             </div>
 
 

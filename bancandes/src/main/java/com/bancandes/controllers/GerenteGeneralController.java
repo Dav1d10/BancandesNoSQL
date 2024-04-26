@@ -36,42 +36,42 @@ public class GerenteGeneralController {
 
     @PostMapping("/gerentesgenerales/new/save")
     public String gerenteGeneralGuardar(@ModelAttribute GerenteGeneral gerente) {
-        gerenteRepository.insertarGerenteGeneral(gerente.getNumDocumento(), gerente.getTelefono(), gerente.getNombre(), 
-        gerente.getNacionalidad(), gerente.getDireccionFisica(), gerente.getDireccionElectronica(), gerente.getDepartamento(), gerente.getCodigoPostal(),
-        gerente.getCiudad(), gerente.getTipoDocumento().name());
+        gerenteRepository.insertarGerenteGeneral(gerente.getNum_documento(), gerente.getTelefono(), gerente.getNombre(), 
+        gerente.getNacionalidad(), gerente.getDireccion_fisica(), gerente.getDireccion_electronica(), gerente.getDepartamento(), gerente.getCodigo_postal(),
+        gerente.getCiudad(), gerente.getTipo_documento().name());
 
         return "redirect:/gerentesgenerales";
     }
 
-    @GetMapping("/gerentesgenerales/{numDocumento}/edit")
-    public String gerenteGeneralEditarForm(@PathVariable("numDocumento") String id, Model model) {
+    @GetMapping("/gerentesgenerales/{num_documento}/edit")
+    public String gerenteGeneralEditarForm(@PathVariable("num_documento") String id, Model model) {
         GerenteGeneral gerente = gerenteRepository.darGerenteGeneral(id);
         if (gerente != null) {
-            model.addAttribute("gerente", gerente);
-            return "gerenteEditar";
+            model.addAttribute("gerentegeneral", gerente);
+            return "gerenteGeneralEditar";
         } else {
             return "redirect:/gerentesgenerales";
         }
     }
 
-    @PostMapping("/gerentesgenerales/{numDocumento}/edit/save")
-    public String gerenteGeneralEditarGuardar(@PathVariable("numDocumento") String id, @ModelAttribute GerenteGeneral gerente) {
-        gerenteRepository.actualizarCliente(gerente.getNumDocumento(), 
+    @PostMapping("/gerentesgenerales/{num_documento}/edit/save")
+    public String gerenteGeneralEditarGuardar(@PathVariable("num_documento") String id, @ModelAttribute GerenteGeneral gerente) {
+        gerenteRepository.actualizarGerenteGeneral(gerente.getNum_documento(), 
         gerente.getTelefono(), 
         gerente.getNombre(), 
         gerente.getNacionalidad(), 
-        gerente.getDireccionFisica(),
-        gerente.getDireccionElectronica(), 
+        gerente.getDireccion_fisica(),
+        gerente.getDireccion_electronica(), 
         gerente.getDepartamento(), 
-        gerente.getCodigoPostal(), 
+        gerente.getCodigo_postal(), 
         gerente.getCiudad(),
-        gerente.getTipoDocumento().name());
+        gerente.getTipo_documento().name());
         return "redirect:/gerentesgenerales";
     }
 
-    @GetMapping("/gerentesgenerales/{numDocumento}/delete")
-    public String gerenteGeneralEliminar(@PathVariable("numDocumento") String id) {
-        gerenteRepository.eliminarCliente(id);
+    @GetMapping("/gerentesgenerales/{num_documento}/delete")
+    public String gerenteGeneralEliminar(@PathVariable("num_documento") String id) {
+        gerenteRepository.eliminarGerenteGeneral(id);
         return "redirect:/gerentesgenerales";
     }
     
