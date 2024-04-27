@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PuntosAtencion</title>
+    <title>Puntos de Atencion</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
@@ -18,16 +18,16 @@
 
                 </tr>
             </thead>
-            <th:block th:each="punto_atencion:${puntos_atencion}">
+            <th:block th:each="puntoatencion:${puntosatencion}">
                 <tr>
-                    <td th:text="${punto_atencion.id_punto_atencion}"></td>
-                    <td th:text="${punto_atencion.localizacion}"></td>
-                    <td th:text="${punto_atencion.tipo_punto_atencion}"></td>
+                    <td th:text="${puntoatencion.id_punto_atencion}"></td>
+                    <td th:text="${puntoatencion.localizacion}"></td>
+                    <td th:text="${puntoatencion.tipo_punto_atencion}"></td>
                     <td>
-                        <a th:href="@{puntos_atencion/{id_punto_atencion}/edit(id_punto_atencion=${punto_atencion.id_punto_atencion})}">
+                        <a th:href="@{puntosatencion/{id_punto_atencion}/edit(id_punto_atencion=${punto_atencion.id_punto_atencion})}">
                             Editar
                         </a>
-                        <a th:href="@{puntos_atencion/{id_punto_atencion}/delete(id_punto_atencion=${punto_atencion.id_punto_atencion})}"
+                        <a th:href="@{puntosatencion/{id_punto_atencion}/delete(id_punto_atencion=${punto_atencion.id_punto_atencion})}"
                         onclick="return confirm('¿Esta seguro de borrar este punto de atencion?')">
                             Borrar
                         </a>
@@ -37,7 +37,7 @@
         </table>
         <div>
         <a th:href="@{/}" class="btn btn-primary">Volver atras</a>
-        <a th:href="@{puntos_atencion/new}" class="btn btn-primary">Añadir Punto de atencion</a>
+        <a th:href="@{puntosatencion/new}" class="btn btn-primary">Añadir Punto de atencion</a>
         </div>
 
 
