@@ -50,6 +50,9 @@
             <option value="CERRAR_PRESTAMO" th:selected="${operacionbancaria.tipo eq 'CERRAR_PRESTAMO'}">
                 CERRAR PRESTAMO
             </option>
+            <option value="TRANSFERENCIA" th:selected="${operacionbancaria.tipo eq 'TRANSFERENCIA'}">
+                TRANSFERENCIA
+            </option>
         </select>
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary"/>
