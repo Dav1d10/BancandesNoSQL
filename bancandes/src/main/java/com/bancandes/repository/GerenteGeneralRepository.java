@@ -16,29 +16,30 @@ public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral,S
 
     
     @Query(value = "SELECT * FROM gerente_general",nativeQuery = true)
-
     Collection<GerenteGeneral> darGerentesGenerales();
 
 
-    @Query(value = "SELECT * FROM gerente_general WHERE numDocumento= :numDocumento", nativeQuery = true)
-    GerenteGeneral darGerenteGeneral(@Param("numDocumento")String numDocumento);
+    @Query(value = "SELECT * FROM gerente_general WHERE num_documento=:num_documento", nativeQuery = true)
+    GerenteGeneral darGerenteGeneral(@Param("num_documento")String num_documento);
 
-
-    @Query(value = "INSERT INTO gerente_general (numDocumento,telefono,nombre,nacionalidad,direccionFisica,direccionElectronica,departamento,codigoPostal,ciudad,tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :TipoDocumento)", nativeQuery =true)  
-    void insertarGerenteGeneral(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
-    @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
-    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("TipoDocumento")String tipoDocumento);
+    
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO gerente_general (num_documento,telefono,nombre,nacionalidad,direccion_fisica,direccion_electronica,departamento,codigo_postal,ciudad,tipo_documento) VALUES(:num_documento, :telefono, :nombre, :nacionalidad, :direccion_fisica, :direccion_electronica, :departamento, :codigo_postal, :ciudad, :tipo_documento)", nativeQuery =true)  
+    void insertarGerenteGeneral(@Param("num_documento") String num_documento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccion_fisica, @Param("direccion_electronica")String direccion_electronica,
+    @Param("departamento")String departamento, @Param("codigo_postal") String codigo_postal,  @Param("ciudad")String ciudad, @Param("tipo_documento")String tipo_documento);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE gerente_general SET numDocumento=:numDocumento,telefono:=telefono ,nombre:=nombre ,nacionalidad:=nacionalidad, direccionFisica:=direccionFisica,direccionElectronica:=direccionElectronica ,departamento:=departamento ,codigoPostal:=codigoPostal, ciudad:=ciudad, tipoDocumento:=tipoDocumento)  VALUES (:numDocumento, :telefono, :nombre, :nacionalidad, :direccionFisica, :direccionElectronica, :departamento, :codigoPostal, :ciudad, :TipoDocumento)", nativeQuery =true)  
-    void actualizarCliente(@Param("numDocumento") String numDocumento, @Param("telefono") String telefono, @Param("nombre")String nombre,
-    @Param("nacionalidad")String nacionalidad, @Param("direccionFisica") String direccionFisica, @Param("direccionElectronica")String direccionElectronica,
-    @Param("departamento")String departamento, @Param("codigoPostal") String codigoPostal,  @Param("ciudad")String ciudad, @Param("TipoDocumento")String tipoDocumento);
+    @Query(value = "UPDATE gerente_general SET num_documento=:num_documento,telefono=:telefono ,nombre=:nombre ,nacionalidad=:nacionalidad, direccion_fisica=:direccion_fisica,direccion_electronica=:direccion_electronica ,departamento=:departamento ,codigo_postal=:codigo_postal, ciudad=:ciudad, tipo_documento=:tipo_documento WHERE num_documento=:num_documento" , nativeQuery =true)  
+    void actualizarGerenteGeneral(@Param("num_documento") String num_documento, @Param("telefono") String telefono, @Param("nombre")String nombre,
+    @Param("nacionalidad")String nacionalidad, @Param("direccion_fisica") String direccion_fisica, @Param("direccion_electronica")String direccion_electronica,
+    @Param("departamento")String departamento, @Param("codigo_postal") String codigo_postal,  @Param("ciudad")String ciudad, @Param("tipo_documento")String tipo_documento);
 
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM gerente_general WHERE numDocumento = :numDocumento", nativeQuery = true)
-    void eliminarCliente(@Param("numDocumento") String numDocumento);
+    @Query(value = "DELETE FROM gerente_general WHERE num_documento=:num_documento", nativeQuery = true)
+    void eliminarGerenteGeneral(@Param("num_documento") String num_documento);
 }

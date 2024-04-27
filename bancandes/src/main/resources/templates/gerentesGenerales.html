@@ -27,21 +27,21 @@
                 </thead>
                 <th:block th:each="gerentegeneral:${gerentesgenerales}">
                     <tr>
-                        <td th:text="${gerentegeneral.numDocumento}"></td>
+                        <td th:text="${gerentegeneral.num_documento}"></td>
                         <td th:text="${gerentegeneral.telefono}"></td>
                         <td th:text="${gerentegeneral.nombre}"></td>
                         <td th:text="${gerentegeneral.nacionalidad}"></td>
-                        <td th:text="${gerentegeneral.direccionFisica}"></td>
-                        <td th:text="${gerentegeneral.direccionElectronica}"></td>
+                        <td th:text="${gerentegeneral.direccion_fisica}"></td>
+                        <td th:text="${gerentegeneral.direccion_electronica}"></td>
                         <td th:text="${gerentegeneral.departamento}"></td>
-                        <td th:text="${gerentegeneral.codigoPostal}"></td>
+                        <td th:text="${gerentegeneral.codigo_postal}"></td>
                         <td th:text="${gerentegeneral.ciudad}"></td>
-                        <td th:text="${gerentegeneral.TipoDocumento}"></td>
+                        <td th:text="${gerentegeneral.tipo_documento}"></td>
                         <td>
-                            <a th:href="@{gerentesgenerales/{numDocumento}/edit(numDocumento=${gerentegeneral.numDocumento})}">
+                            <a th:href="@{gerentesgenerales/{num_documento}/edit(num_documento=${gerentegeneral.num_documento})}">
                                 Editar
                             </a>
-                            <a th:href="@{gerentesgenerales/{numDocumento}/delete(numDocumento=${gerentegeneral.numDocumento})}"
+                            <a th:href="@{gerentesgenerales/{num_documento}/delete(num_documento=${gerentegeneral.num_documento})}"
                             onclick="return confirm('¿Esta seguro de borrar este Gerente General?')">
                                 Borrar
                             </a>

@@ -5,26 +5,17 @@ import jakarta.persistence.Entity;
 @Entity
 public class GerenteOficina extends PersonaEntity {
 
-    private int id_oficina;
 
-    public GerenteOficina(String numDocumento, String telefono, String nombre, String nacionalidad,
-            String direccionFisica, String direccionElectronica, String departamento, String codigoPostal,
-            String ciudad, TipoDocumento tipoDocumento, int id_oficina) {
-        super(numDocumento, telefono, nombre, nacionalidad, direccionFisica, direccionElectronica, departamento,
-                codigoPostal, ciudad, tipoDocumento);
-        this.id_oficina = id_oficina;
+    public GerenteOficina(String num_documento, String telefono, String nombre, String nacionalidad,
+    String direccion_fisica, String direccion_electronica, String departamento, String codigo_postal,
+    String ciudad, TipoDocumento tipo_documento) {
+        super(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento,
+        codigo_postal, ciudad, tipo_documento);
+   
     }
 
     public GerenteOficina() {
         ;
-    }
-
-    public int getId_oficina() {
-        return id_oficina;
-    }
-
-    public void setId_oficina(int id_oficina) {
-        this.id_oficina = id_oficina;
     }
 
     
