@@ -41,3 +41,4 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
     @Query(value = "DELETE FROM cliente WHERE num_documento=:num_documento", nativeQuery = true)
     void eliminarCliente(@Param("num_documento") String num_documento);
 }
+
