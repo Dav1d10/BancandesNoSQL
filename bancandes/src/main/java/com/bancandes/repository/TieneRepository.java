@@ -7,9 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.TieneEntity;
+import com.bancandes.entities.TienePK;
+
 import java.util.Collection;
 
-public interface TieneRepository extends JpaRepository<TieneEntity, Integer>{
+public interface TieneRepository extends JpaRepository<TieneEntity, TienePK>{
     
     @Query(value = "SELECT * FROM tiene", nativeQuery = true)
     Collection<TieneEntity> darTiene();

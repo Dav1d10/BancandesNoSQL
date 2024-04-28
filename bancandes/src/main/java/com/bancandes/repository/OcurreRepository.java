@@ -7,10 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.OcurreEntity;
+import com.bancandes.entities.OcurrePK;
 
 import java.util.Collection;
 
-public interface OcurreRepository extends JpaRepository<OcurreEntity, Integer>{
+public interface OcurreRepository extends JpaRepository<OcurreEntity, OcurrePK>{
 
     @Query(value = "SELECT * FROM ocurre", nativeQuery = true)
     Collection<OcurreEntity> darOcurre();

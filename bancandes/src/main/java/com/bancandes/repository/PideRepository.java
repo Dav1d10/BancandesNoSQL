@@ -7,9 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.PideEntity;
+import com.bancandes.entities.PidePK;
+
 import java.util.Collection;
 
-public interface PideRepository extends JpaRepository<PideEntity, Integer>{
+public interface PideRepository extends JpaRepository<PideEntity, PidePK>{
     
     @Query(value = "SELECT * FROM pide", nativeQuery = true)
     Collection<PideEntity> darHace();

@@ -7,9 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.EjecutaEntity;
+import com.bancandes.entities.EjecutaPK;
+
 import java.util.Collection;
 
-public interface EjecutaRepository extends JpaRepository<EjecutaEntity, Integer>{
+public interface EjecutaRepository extends JpaRepository<EjecutaEntity, EjecutaPK>{
 
     @Query(value = "SELECT * FROM ejecuta", nativeQuery = true)
     Collection<EjecutaEntity> darEjecuta();
