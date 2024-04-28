@@ -20,7 +20,7 @@
             </th:block>
         </select><br>
 
-        <label class="col-form-label" for="id_cliente">Operacion Bancaria:</label>
+        <label class="col-form-label" for="id_cliente">Cliente:</label>
         <select class="form-control"  id="id_cliente" name="id_cliente" required>
             <th:block th:each="cliente : ${clientes}">
                 <option th:value="${cliente.id}" th:text="${cliente.id}"></option>
