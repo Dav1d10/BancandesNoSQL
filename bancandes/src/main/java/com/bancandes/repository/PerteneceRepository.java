@@ -19,18 +19,18 @@ public interface PerteneceRepository extends JpaRepository<PerteneceEntity, Inte
     Collection<PerteneceEntity> darPertenece();
 
     @Query(value = "SELECT * FROM pertenece WHERE id_cuenta = :id_cuenta AND id_oficina = :id_oficina", nativeQuery = true)
-    PerteneceEntity darPertenecePorId(@Param("id_cuenta") int id_cuenta, @Param("id_oficina") Integer id_oficina);
+    PerteneceEntity darPertenecePorId(@Param("id_cuenta") Integer id_cuenta, @Param("id_oficina") Integer id_oficina);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM pertenece WHERE id_cuenta = :id_cuenta AND id_oficina = :id_oficina", nativeQuery = true)
-    void eliminarPertenece(@Param("id_cuenta") int id_cuenta, @Param("id_oficina") int id_oficina);
+    void eliminarPertenece(@Param("id_cuenta") Integer id_cuenta, @Param("id_oficina") Integer id_oficina);
 
     
     @Modifying
     @Transactional
     @Query(value = "UPDATE pertenece SET id_cuenta = :id_cuenta_actualizado, id_oficina = :id_oficina_actualizado WHERE id_cuenta = :id_cuenta AND id_oficina = :id_oficina", nativeQuery = true)
-    void actualizarPertenece(@Param("id_cuenta") int id_cuenta, @Param("id_oficina") int id_oficina, @Param("id_cuenta_actualizado") int id_cuenta_actualizado, @Param("id_oficina_actualizado") int id_oficina_actualizado);
+    void actualizarPertenece(@Param("id_cuenta") Integer id_cuenta, @Param("id_oficina") Integer id_oficina, @Param("id_cuenta_actualizado") Integer id_cuenta_actualizado, @Param("id_oficina_actualizado") Integer id_oficina_actualizado);
     
     @Modifying
     @Transactional

@@ -12,7 +12,7 @@
     <form th:action="@{/pertenece/new/save}" method="post">
 
         <label class="col-form-label" for="id_oficina">Oficina:</label>
-        <select class="form-control" id="id_cuenta" name="id_cuenta" required>
+        <select class="form-control" id="id_oficina" name="id_oficina" required>
             <th:block th:each="oficina : ${oficinas}">
                 <option th:value="${oficina.id_oficina}" th:text="${oficina.nombre}"></option>
             </th:block>
