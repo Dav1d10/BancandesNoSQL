@@ -11,28 +11,28 @@ import jakarta.persistence.ManyToOne;
 public class PertenecePK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name="id_punto_atencion", referencedColumnName = "id_punto_atencion")
-    private PuntoAtencionEntity id_punto_atencion;
+    @JoinColumn(name="id_cuenta", referencedColumnName = "numero_cuenta")
+    private CuentaEntity id_cuenta;
 
     @ManyToOne
     @JoinColumn(name="id_oficina", referencedColumnName = "id_oficina")
     private OficinaEntity id_oficina;
 
 
-    public PertenecePK(PuntoAtencionEntity id_punto_atencion, OficinaEntity id_oficina) {
+    public PertenecePK(CuentaEntity id_cuenta, OficinaEntity id_oficina) {
         super();
-        this.id_punto_atencion = id_punto_atencion;
+        this.id_cuenta = id_cuenta;
         this.id_oficina = id_oficina;
     }
 
 
-    public PuntoAtencionEntity getId_punto_atencion() {
-        return id_punto_atencion;
+    public CuentaEntity getId_cuenta() {
+        return id_cuenta;
     }
 
 
-    public void setId_punto_atencion(PuntoAtencionEntity id_punto_atencion) {
-        this.id_punto_atencion = id_punto_atencion;
+    public void setId_cuenta(CuentaEntity id_cuenta) {
+        this.id_cuenta = id_cuenta;
     }
 
 

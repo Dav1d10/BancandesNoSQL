@@ -16,5 +16,4 @@ public class CajeroEntity extends PersonaEntity{
     public CajeroEntity() {
         ;
     }
-
 }
