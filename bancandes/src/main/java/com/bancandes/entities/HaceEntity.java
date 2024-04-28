@@ -15,4 +15,11 @@ public class HaceEntity {
     public HaceEntity() {
         ;
     }
+    public HacePK getPk() {
+        return pk;
+    }
+
+    public void setPk(HacePK pk) {
+        this.pk = pk;
+    }
 }

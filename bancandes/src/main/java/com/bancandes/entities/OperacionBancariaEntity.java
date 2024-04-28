@@ -112,7 +112,8 @@ public class OperacionBancariaEntity {
         RETIRO,
         PEDIR_PRESTAMO,
         PAGAR_PRESTAMO,
-        CERRAR_PRESTAMO
+        CERRAR_PRESTAMO,
+        TRANSFERENCIA
     }
     
     

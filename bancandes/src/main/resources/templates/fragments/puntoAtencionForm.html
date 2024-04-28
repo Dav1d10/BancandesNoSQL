@@ -12,17 +12,17 @@
         <form>
             <label class="col-form-label">Localizacion</label>
             <input class="form-control" type="text" id="localizacion"
-            name="localizacion" required th:valued="${puntoatencion.localizacion}"/>
+            name="localizacion" required th:value="${puntoatencion.localizacion}"/>
             <label class="col-form-label">Tipo de punto de atencion</label>
             <select class="form-control" id="tipo_punto_atencion"
             name="tipo_punto_atencion" required>
-            <option value="ATENCION PERSONALIZADA" th:selected="${puntoatencion.tipo_punto_atencion eq 'ATENCION PERSONALIZADA'}">
+            <option value="ATENCION_PERSONALIZADA" th:selected="${puntoatencion.tipo_punto_atencion eq 'ATENCION_PERSONALIZADA'}">
                 ATENCION PERSONALIZADA
             </option>
-            <option value="CAJERO AUTOMATICO" th:selected="${puntoatencion.tipo_punto_atencion eq 'CAJERO AUTOMATICO'}">
+            <option value="CAJERO_AUTOMATICO" th:selected="${puntoatencion.tipo_punto_atencion eq 'CAJERO_AUTOMATICO'}">
                 CAJERO AUTOMATICO
             </option>
-            <option value="PUNTO DE ATENCION DIGITAL" th:selected="${puntoatencion.tipo_punto_atencion eq 'PUNTO DE ATENCION DIGITAL'}">
+            <option value="PUNTO_DE_ATENCION_DIGITAL" th:selected="${puntoatencion.tipo_punto_atencion eq 'PUNTO_DE_ATENCION_DIGITAL'}">
                 PUNTO DE ATENCION DIGITAL
             </option>
         </select>
