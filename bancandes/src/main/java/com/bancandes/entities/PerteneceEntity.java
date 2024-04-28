@@ -11,13 +11,15 @@ public class PerteneceEntity {
     @EmbeddedId
     private PertenecePK pk;
 
-    public PerteneceEntity(PuntoAtencionEntity id_punto_atencion, OficinaEntity id_oficina) {
-        this.pk = new PertenecePK(id_punto_atencion, id_oficina);
-    }
-
     public PerteneceEntity() {
         ;
     }
+
+    public PerteneceEntity(CuentaEntity id_cuenta, OficinaEntity id_oficina) {
+        this.pk = new PertenecePK(id_cuenta, id_oficina);
+    }
+
+    
 
     public PertenecePK getPk() {
         return pk;
