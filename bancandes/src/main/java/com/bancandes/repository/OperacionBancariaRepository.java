@@ -34,4 +34,12 @@ public interface OperacionBancariaRepository extends JpaRepository<OperacionBanc
     @Transactional
     @Query(value = "DELETE FROM OPERACION_BANCARIA WHERE id=:id", nativeQuery = true)
     void eliminarOperacionBancaria(@Param("id") int id);
+
+
+    @Query(value = "SELECT ob.*\r\n" + // 
+                    "FROM operacion_bancaria ob\r\n" + //
+                    "INNER JOIN hace h ON ob.id = h.id_operacionbancaria\r\n" + //
+                    "INNER JOIN cuenta c ON h.id_cuenta = c.numero_cuenta\r\n" + //
+                    "WHERE c.numero_cuenta = :numero_cuenta AND ob.fecha >= SYSDATE - 30", nativeQuery = true)
+    Collection<OperacionBancariaEntity> darOperacionesBancariasPorCuentaEnLosUltimos30Dias(@Param("numero_cuenta") int numero_cuenta);
 }
