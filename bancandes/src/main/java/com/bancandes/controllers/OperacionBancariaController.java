@@ -19,8 +19,12 @@ public class OperacionBancariaController {
     private OperacionBancariaRepository operacionBancariaRepository;
 
     @GetMapping("/operacionesbancarias")
-    public String operacionesBancarias(Model model) {
-        model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
+    public String operacionesBancarias(Model model, Integer numero_cuenta) {
+        if (numero_cuenta != null) {
+            model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta));
+        } else {
+            model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
+        }
         return "operacionesbancarias";
     }
 

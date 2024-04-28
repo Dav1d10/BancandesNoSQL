@@ -11,8 +11,8 @@
     <h1 class="text-center">Crear Nueva Preferencia</h1>
     <form th:action="@{/pide/new/save}" method="post">
 
-        <label class="col-form-label" for="num_documento">Cliente:</label>
-        <select class="form-control" id="num_documento" name="num_documento" required>
+        <label class="col-form-label" for="id_cliente">Cliente:</label>
+        <select class="form-control" id="id_cliente" name="id_cliente" required>
             <th:block th:each="cliente : ${clientes}">
                 <option th:value="${cliente.num_documento}" th:text="${cliente.nombre}"></option>
             </th:block>
