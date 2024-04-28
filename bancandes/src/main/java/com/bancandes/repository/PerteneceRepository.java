@@ -9,11 +9,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.bancandes.entities.PerteneceEntity;
-
+import com.bancandes.entities.PertenecePK;
 
 import jakarta.transaction.Transactional;
 
-public interface PerteneceRepository extends JpaRepository<PerteneceEntity, Integer>
+public interface PerteneceRepository extends JpaRepository<PerteneceEntity, PertenecePK>
 {
     @Query(value = "SELECT * FROM pertenece", nativeQuery = true)
     Collection<PerteneceEntity> darPertenece();

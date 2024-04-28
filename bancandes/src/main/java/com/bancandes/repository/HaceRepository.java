@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bancandes.entities.HaceEntity;
 import java.util.Collection;
 
-public interface HaceRepository extends JpaRepository<HaceEntity, Integer>{
+public interface HaceRepository extends JpaRepository<HaceEntity, HacePK>{
 
     @Query(value = "SELECT * FROM hace", nativeQuery = true)
     Collection<HaceEntity> darHace();
