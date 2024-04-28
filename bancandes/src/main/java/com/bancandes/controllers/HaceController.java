@@ -32,22 +32,21 @@ public class HaceController {
 
     @GetMapping("/hace/new")
     public String haceForm(Model model) {
-        model.addAttribute("opsBancarias", operacionBancariaRepository.darOperacionesBancarias());
+        model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
         model.addAttribute("cuentas", cuentaRepository.darCuentas());
         return "haceNuevo";
     }
     
     @PostMapping("/hace/new/save")
-    public String haceGuardar(@ModelAttribute("id") Integer idOpBancaria,
-            @ModelAttribute("numero_cuenta") Integer numeroCuenta) {
+    public String haceGuardar(@ModelAttribute("id_operacionbancaria") int idOperacionbancaria,
+            @ModelAttribute("id_cuenta") int idCuenta) {
 
-        CuentaEntity cuenta = cuentaRepository.darCuenta(numeroCuenta);
-        OperacionBancariaEntity opBancaria = operacionBancariaRepository.darOperacionBancaria(idOpBancaria);
-        HacePK pk = new HacePK(opBancaria, cuenta);
+        CuentaEntity cuenta = cuentaRepository.darCuenta(idCuenta);
+        OperacionBancariaEntity operacionBancaria = operacionBancariaRepository.darOperacionBancaria(idOperacionbancaria);
+        HacePK pk = new HacePK(operacionBancaria, cuenta);
         HaceEntity hace = new HaceEntity();
         hace.setPk(pk);
-        haceRepository.insertarHace(hace.getPk().getIdCuenta().getNumero_cuenta(), hace.getPk().getIdOperacionBancaria().getId());
-        
-        return "redirect:/bebidas";
+        haceRepository.insertarHace(hace.getPk().getId_cuenta().getNumero_cuenta(), hace.getPk().getId_operacionbancaria().getId());
+        return "redirect:/cuentas";
     } 
 }

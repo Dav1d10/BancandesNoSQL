@@ -11,27 +11,28 @@ import com.bancandes.entities.HacePK;
 
 import java.util.Collection;
 
-public interface HaceRepository extends JpaRepository<HaceEntity, HacePK>{
+public interface HaceRepository extends JpaRepository<HaceEntity, Integer>{
 
     @Query(value = "SELECT * FROM hace", nativeQuery = true)
     Collection<HaceEntity> darHace();
 
-    @Query(value = "SELECT FROM hace WHERE numero_cuenta =: numero_cuenta AND id =: id", nativeQuery = true)
-    HaceEntity darHacePorId(@Param("numero_cuenta") Integer numero_cuenta, @Param("id") Integer id);
+    @Query(value = "SELECT FROM hace WHERE id_cuenta =: id_cuenta AND id_operacionbancaria =: id_operacionebancaria", nativeQuery = true)
+    HaceEntity darHacePorId(@Param("id_cuenta") int id_cuenta, @Param("id_operacionbancaria") int id_operacionbancaria);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM hace WHERE numero_cuenta =: numero_cuenta AND id =: id", nativeQuery = true)
-    void eliminarHace(@Param("numero_cuenta") Integer numero_cuenta, @Param("id") Integer id);
+    @Query(value = "DELETE FROM hace WHERE id_cuenta =: id_cuenta AND id_operacionbancaria =: id_operacionebancaria", nativeQuery = true)
+    void eliminarHace(@Param("id_cuenta") int id_cuenta, @Param("id_operacionbancaria") int id_operacionbancaria);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE hace SET numero_cuenta =: numero_cuenta_actualizado, id = :id_actualizado WHERE numero_cuenta =: numero_cuenta AND id = :id", nativeQuery = true)
-    void actualizarHace(@Param("numero_cuenta") Integer numero_cuenta, @Param("id") Integer id, @Param("numero_cuenta_actualizado") Integer numero_cuenta_actualizado, @Param("id_actualizado") Integer id_actualizado);
+    @Query(value = "UPDATE hace SET id_cuenta = :id_cuenta_actualizado, id_operacionbancaria = :id_operacionbancaria_actualizado WHERE id_cuenta = :id_cuenta AND id_operacionbancaria = :id_operacionbancaria", nativeQuery = true)
+    void actualizarHace(@Param("id_cuenta") int id_cuenta, @Param("id_operacionbancaria") int id_operacionbancaria, @Param("id_cuenta_actualizado") int id_cuenta_actualizado, @Param("id_operacionbancaria_actualizado") int id_operacionbancaria_actualizado);
+    
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO hace (numero_cuenta, id) VALUES (:numero_cuenta, :id)", nativeQuery = true)
-    void insertarHace(@Param("numero_cuenta") Integer numero_cuenta, @Param("id") Integer id);
+    @Query(value = "INSERT INTO hace (id_cuenta, id_operacionbancaria) VALUES (:id_cuenta, :id_operacionbancaria)", nativeQuery = true)
+    void insertarHace(@Param("id_cuenta") int id_cuenta, @Param("id_operacionbancaria") int id_operacionbancaria);
 
 }
