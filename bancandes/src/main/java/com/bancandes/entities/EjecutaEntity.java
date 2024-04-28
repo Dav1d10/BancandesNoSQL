@@ -15,4 +15,11 @@ public class EjecutaEntity {
     public EjecutaEntity() {
         ;
     }
+    public EjecutaPK getPk() {
+        return pk;
+    }
+
+    public void setPk(EjecutaPK pk) {
+        this.pk = pk;
+    }
 }

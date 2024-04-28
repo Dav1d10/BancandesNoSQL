@@ -7,8 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.HaceEntity;
-import com.bancandes.entities.HacePK;
-
 import java.util.Collection;
 
 public interface HaceRepository extends JpaRepository<HaceEntity, Integer>{
