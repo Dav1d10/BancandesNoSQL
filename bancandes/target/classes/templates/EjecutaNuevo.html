@@ -11,15 +11,15 @@
     <h1 class="text-center">Crear Nueva Preferencia</h1>
     <form th:action="@{/ejecuta/new/save}" method="post">
 
-        <label class="col-form-label" for="id_operacionbancaria">Operacion bancaria:</label>
-        <select class="form-control" id="id_operacionbancaria" name="id_operacionbancaria" required>
+        <label class="col-form-label" for="idoperacionbancaria">Operacion bancaria:</label>
+        <select class="form-control" id="id_operacionbancaria" name="idoperacionbancaria" required>
             <th:block th:each="operacionbancaria : ${operacionesbancarias}">
-                <option th:value="${operacionbancaria.id_operacionbancaria}" th:text="${operacionbancaria.id_operacionbancaria}"></option>
+                <option th:value="${operacionbancaria.id}" th:text="${operacionbancaria.id}"></option>
             </th:block>
         </select>
 
-        <label class="col-form-label" for="num_documento">Cliente:</label>
-        <select class="form-control" id="num_documento" name="num_documento" required>
+        <label class="col-form-label" for="idcliente">Cliente:</label>
+        <select class="form-control" id="idcliente" name="idcliente" required>
             <th:block th:each="cliente : ${clientes}">
                 <option th:value="${cliente.num_documento}" th:text="${cliente.num_documento}"></option>
             </th:block>
