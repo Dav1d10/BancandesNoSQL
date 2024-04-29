@@ -21,7 +21,7 @@
         <label class="col-form-label" for="idcliente">Cliente:</label>
         <select class="form-control" id="idcliente" name="idcliente" required>
             <th:block th:each="cliente : ${clientes}">
-                <option th:value="${cliente.num_documento}" th:text="${cliente.num_documento}"></option>
+                <option th:value="${cliente.num_documento}" th:text="${cliente.nombre}"></option>
             </th:block>
         </select><br>
 
