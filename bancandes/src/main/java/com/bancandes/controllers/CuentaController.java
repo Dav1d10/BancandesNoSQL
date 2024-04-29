@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.bancandes.entities.CuentaEntity;
+import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.repository.CuentaRepository;
 
 @Controller
@@ -58,6 +59,12 @@ public class CuentaController {
         cuenta.getFecha_creacion(), 
         cuenta.getTipo_cuenta().name(), 
         cuenta.getEstado_cuenta().name());
+
+        if (cuenta.getSaldo() == 0 && cuentaRepository.findById(id).get().getEstado_cuenta() == EstadoCuenta.ACTIVA) {
+            cuentaRepository.actualizarCuenta(id, cuenta.getSaldo(), cuenta.getFecha_ultima_transaccion(), cuenta.getFecha_creacion(), cuenta.getTipo_cuenta().toString(),  "CERRADA");
+        } else if (cuenta.getEstado_cuenta() == EstadoCuenta.ACTIVA) {
+            cuentaRepository.actualizarCuenta(id, cuenta.getSaldo(), cuenta.getFecha_ultima_transaccion(), cuenta.getFecha_creacion(), cuenta.getTipo_cuenta().toString(),  "DESACTIVADA");
+        }
         return "redirect:/cuentas";
     }
 
@@ -66,5 +73,6 @@ public class CuentaController {
         cuentaRepository.eliminarCuenta(id);
         return "redirect:/cuentas";
     }
-    
-}
+
+}   
+
