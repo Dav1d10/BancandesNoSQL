@@ -26,7 +26,7 @@ public class OperacionBancariaController {
     @GetMapping("/operacionesbancarias")
     public String operacionesBancarias(Model model, Integer numero_cuenta) {
         if (numero_cuenta != null) {
-            model.addAttribute("operacionesbancarias", operacionesbancariasServicio.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta));
+            model.addAttribute("operacionesbancarias", operacionesbancariasServicio.darOperacionesBancariasPorCuentaEnLosUltimos30DiasReadCommitted(numero_cuenta));
         } else {
             model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
         }
@@ -75,6 +75,16 @@ public class OperacionBancariaController {
     public String operacionBancariaEliminar(@PathVariable("id") int id) {
         operacionBancariaRepository.eliminarOperacionBancaria(id);
         return "redirect:/operacionesbancarias";
+    }
+
+    @GetMapping("/operacionesbancariasbloqueo")
+    public String darOperacionesBancariasPorCuentaSinFantasma(Model model, Integer numero_cuenta) {
+        if (numero_cuenta != null) {
+            model.addAttribute("operacionesbancarias", operacionesbancariasServicio.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta));
+        } else {
+            model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
+        }
+        return "operacionesbancarias";
     }
     
 }
