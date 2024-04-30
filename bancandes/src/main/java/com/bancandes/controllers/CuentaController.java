@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.repository.CuentaRepository;
@@ -73,17 +74,16 @@ public class CuentaController {
         return "redirect:/cuentas";
     }
 
-    @PostMapping("/cuentasconsignacionbloqueo")
-    public String consignacionCuentaSinFantasmas(Model model, @RequestParam("numero_cuenta") Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
+    @GetMapping("/cuentas/operacioncuentas")
+    public String consignacionCuentaSinFantasmas(RedirectAttributes redirectAttributes,Integer numero_cuenta, Integer cantidad_consignacion) {
         if (numero_cuenta != null && cantidad_consignacion != null) {
             try {
                 cuentasServicio.consignacionCuentaSerializable(numero_cuenta, cantidad_consignacion);
-                model.addAttribute("successMessage", "¡La consignación se realizó con éxito!");
             } catch (Exception e) {
-                model.addAttribute("errorMessage", "No se pudo realizar la consignación");
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
             }
         }
-        return "cuentas";
+        return "redirect/cuentas";
     }
     
 }

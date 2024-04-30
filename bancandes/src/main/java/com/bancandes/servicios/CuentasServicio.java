@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bancandes.entities.CuentaEntity;
 import com.bancandes.repository.CuentaRepository;
 
 @Service
@@ -19,11 +20,13 @@ public class CuentasServicio {
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public void consignacionCuentaSerializable(int numero_cuenta, int cantidad_consignacion) {
         try {
-            cuentaRepository.consignacionCuenta(numero_cuenta, cantidad_consignacion);
+            CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
+            cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() + cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta().name(), cuentaActual.getEstado_cuenta().name());
         } catch (Exception e) {
-            System.out.println("No pudo realizarse la consignación");
+            System.out.println(e.getMessage());
         }
     }
+    
 
 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
