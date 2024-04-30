@@ -35,7 +35,7 @@ public String clientes(Model model, @RequestParam(required = false) String num_d
             RespuestaInfoCliente cliente = info.iterator().next();
             model.addAttribute("nombre", cliente.getNOMBRE());
             model.addAttribute("nombreOficina", cliente.getNOMBRE_OFICINA());
-            model.addAttribute("numDocumento", cliente.getNUMERO_DOC());
+            model.addAttribute("numDocumento", num_documento);
             model.addAttribute("saldo", cliente.getSALDO());
             model.addAttribute("tipoCliente", cliente.getTIPO_CLIENTE());
             model.addAttribute("numCuenta", cliente.getNUM_CUENTA());

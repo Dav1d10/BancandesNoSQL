@@ -10,8 +10,8 @@
         <div class="container mx-auto w-25">
             <h1>Lista de Clientes</h1>
             <form th:action="@{clientes}" method="get">
-                <label class="col-form-label" for="id_cliente">Cliente:</label>
-                <select class="form-control" id="id_cliente" name="num_documento" required>
+                <label class="col-form-label" for="num_documento">Cliente:</label>
+                <select class="form-control" id="num_documento" name="num_documento" required>
                     <th:block th:each="cliente : ${clientes}">
                         <option th:value="${cliente.num_documento}" th:text="${cliente.num_documento}"></option>
                     </th:block>
@@ -24,7 +24,7 @@
                 <h2>Detalle del Cliente</h2>
                 <p>Nombre: <span th:text="${nombre}"></span></p>
                 <p>Oficina: <span th:text="${nombreOficina}"></span></p>
-                <p>Documento: <span th:text="${num_documento}"></span></p>
+                <p>Documento: <span th:text="${numDocumento}"></span></p>
                 <p>Saldo: <span th:text="${saldo}"></span></p>
                 <p>Tipo de Cliente: <span th:text="${tipoCliente}"></span></p>
                 <p>Número de Cuenta: <span th:text="${numCuenta}"></span></p>

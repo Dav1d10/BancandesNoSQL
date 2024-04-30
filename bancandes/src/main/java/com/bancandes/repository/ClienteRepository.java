@@ -55,7 +55,7 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
 
 
     @Query(value = "SELECT \r\n" + //
-    "c.tipo_cliente AS TIPO_CLIENTE, \r\n" + //
+    "c.tipo_documento AS TIPO_CLIENTE, \r\n" + //
     "c.nombre AS NOMBRE , \r\n" + //
     "c.num_documento AS NUM_DOC, \r\n" + //
     "cu.numero_cuenta AS NUM_CUENTA, \r\n" + //
@@ -75,9 +75,9 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
     "LEFT JOIN \r\n" + //
         "pide pd ON c.num_documento = pd.id_cliente \r\n" + //
     "LEFT JOIN \r\n" + //
-        "prestamo p ON cu.numero_cuenta = p.id_cuenta \r\n" + //
+        "prestamo p ON pd.id_prestamo = p.id_prestamo \r\n" + //
     "WHERE \r\n" + //
-        "c.num_documento = :num_documento;", nativeQuery = true)
+        "c.num_documento = :num_documento", nativeQuery = true)
     Collection<RespuestaInfoCliente> darClientePorNumDoc(@Param("num_documento") String num_documento);
     
         
