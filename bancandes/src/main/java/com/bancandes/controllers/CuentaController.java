@@ -74,8 +74,15 @@ public class CuentaController {
         return "redirect:/cuentas";
     }
 
+
     @GetMapping("/cuentas/operacioncuentas")
-    public String consignacionCuentaSinFantasmas(RedirectAttributes redirectAttributes,Integer numero_cuenta, Integer cantidad_consignacion) {
+    public String mostrarOperacionesCuentas(Model model) {
+    return "operacionesCuentas";
+}
+
+
+    @PostMapping("/cuentas/operacioncuentas/save")
+    public String consignacionCuentaSinFantasmas(RedirectAttributes redirectAttributes,@RequestParam("numero_cuenta")Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
         if (numero_cuenta != null && cantidad_consignacion != null) {
             try {
                 cuentasServicio.consignacionCuentaSerializable(numero_cuenta, cantidad_consignacion);
@@ -83,7 +90,7 @@ public class CuentaController {
                 redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
             }
         }
-        return "redirect/cuentas";
+        return "redirect:/cuentas";
     }
     
 }
