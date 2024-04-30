@@ -46,7 +46,10 @@ public class HaceController {
         HacePK pk = new HacePK(operacionBancaria, cuenta);
         HaceEntity hace = new HaceEntity();
         hace.setPk(pk);
+        if (cuenta.getEstado_cuenta().name() != "CERRADA" && cuenta.getEstado_cuenta().name() != "CERRADA") {
         haceRepository.insertarHace(hace.getPk().getId_cuenta().getNumero_cuenta(), hace.getPk().getId_operacionbancaria().getId());
+        }
+        
         return "redirect:/cuentas";
     } 
 }
