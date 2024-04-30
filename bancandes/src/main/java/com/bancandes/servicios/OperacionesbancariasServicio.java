@@ -30,6 +30,18 @@ public class OperacionesbancariasServicio {
         return operacionesBancarias;
     }
 
+    @Transactional(isolation = Isolation.READ_COMMITTED, readOnly = true, rollbackFor = Exception.class)
+    public Collection<OperacionBancariaEntity> darOperacionesBancariasPorCuentaEnLosUltimos30DiasReadCommitted(int numero_cuenta) {
+        Collection<OperacionBancariaEntity> operacionesBancarias = null;
+        try {
+            operacionesBancarias = operacionBancariaRepository.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta);
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            System.out.println("Se realizo rollback dado que la operacion fallo");
+        }
+        return operacionesBancarias;
+    }
+
     
     
 }

@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.repository.CuentaRepository;
+import com.bancandes.servicios.CuentasServicio;
 
 @Controller
 public class CuentaController {
@@ -17,9 +21,12 @@ public class CuentaController {
     @Autowired
     private CuentaRepository cuentaRepository;
 
+    @Autowired
+    private CuentasServicio cuentasServicio;
+
 
     @GetMapping("/cuentas")
-    public String cuentas(Model model) {
+    public String cuentas(Model model, Integer numero_cuenta, Integer cantidad_consignacion) {
         model.addAttribute("cuentas", cuentaRepository.darCuentas());
         return "cuentas";
     }
@@ -74,5 +81,16 @@ public class CuentaController {
         return "redirect:/cuentas";
     }
 
-}   
-
+    @GetMapping("/cuentas/operacioncuentas")
+    public String consignacionCuentaSinFantasmas(RedirectAttributes redirectAttributes,Integer numero_cuenta, Integer cantidad_consignacion) {
+        if (numero_cuenta != null && cantidad_consignacion != null) {
+            try {
+                cuentasServicio.consignacionCuentaSerializable(numero_cuenta, cantidad_consignacion);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect/cuentas";
+    }
+    
+}

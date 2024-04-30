@@ -9,6 +9,16 @@
 <body>
     <div class="container mx-auto w-25">
         <h1>Lista de Cuentas</h1>
+        <form th:action="@{/cuentasconsignacionbloqueo}" method="post">
+            <div class="input-group input-group-sm mb-2 justify-content-center">
+                <input class='w-25' id="txtSearch" type="number" name="numero_cuenta" placeholder="Número de Cuenta">
+                <input class='w-25' id="txtSearch" type="number" name="cantidad_consignacion" placeholder="Cantidad a Consignar">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Realizar la consignación a la cuenta (Serializable)</button>
+                </div>
+            </div>
+        </form>
+            <br />
         <table class= "table table-hover table-bordered"> 
             <thead class= "thead-dark">
                 <tr>
@@ -46,6 +56,7 @@
         <a th:href="@{cuentas/new}" class="btn btn-primary">Añadir Cuenta</a>
         <a th:href="@{hace/new}" class="btn btn-primary">Añadir Operacion Bancaria a Cuenta</a>
         <a th:href="@{tiene/new}" class="btn btn-primary">Añadir Cliente a Cuenta</a>
+        <a th:href="@{cuentas/operacioncuentas}" class="btn btn-primary">Añadir Operacion a Cuenta</a>
         </div>
 
 
