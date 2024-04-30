@@ -1,15 +1,20 @@
 package com.bancandes.controllers;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import com.bancandes.entities.ClienteEntity;
 import com.bancandes.repository.ClienteRepository;
+import com.bancandes.repository.ClienteRepository.RespuestaInfoCliente;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -23,10 +28,24 @@ public class ClienteController {
 
 
     @GetMapping("/clientes")
-    public String clientes(Model model) {
+public String clientes(Model model, @RequestParam(required = false) String num_documento) {
+    if (num_documento != null && !num_documento.isEmpty()) {
+        Collection<RespuestaInfoCliente> info = clienteRepository.darClientePorNumDoc(num_documento);
+        if (!info.isEmpty()) {
+            RespuestaInfoCliente cliente = info.iterator().next();
+            model.addAttribute("nombre", cliente.getNOMBRE());
+            model.addAttribute("nombreOficina", cliente.getNOMBRE_OFICINA());
+            model.addAttribute("numDocumento", num_documento);
+            model.addAttribute("saldo", cliente.getSALDO());
+            model.addAttribute("tipoCliente", cliente.getTIPO_CLIENTE());
+            model.addAttribute("numCuenta", cliente.getNUM_CUENTA());
+            model.addAttribute("numPrestamo", cliente.getNUM_PRESTAMO());
+        }
+    } else {
         model.addAttribute("clientes", clienteRepository.darClientes());
-        return "clientes";
     }
+    return "clientes";
+}
 
     @GetMapping("/clientes/new")
     public String clienteForm(Model model) {

@@ -12,6 +12,17 @@ import com.bancandes.entities.ClienteEntity;
 
 
 public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
+
+    public interface RespuestaInfoCliente {
+        String getTIPO_CLIENTE();
+        String getNOMBRE();
+        String getNUMERO_DOC();
+        int getNUM_CUENTA();
+        String getNOMBRE_OFICINA();
+        long getNUM_PRESTAMO();
+        Integer getSALDO();
+        
+    }
     
     @Query(value = "SELECT * FROM cliente",nativeQuery = true)
     Collection<ClienteEntity> darClientes();
@@ -40,5 +51,41 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, String>{
     @Transactional
     @Query(value = "DELETE FROM cliente WHERE num_documento=:num_documento", nativeQuery = true)
     void eliminarCliente(@Param("num_documento") String num_documento);
+
+
+
+    @Query(value = "SELECT \r\n" + //
+    "c.tipo_documento AS TIPO_CLIENTE, \r\n" + //
+    "c.nombre AS NOMBRE , \r\n" + //
+    "c.num_documento AS NUM_DOC, \r\n" + //
+    "cu.numero_cuenta AS NUM_CUENTA, \r\n" + //
+    "o.nombre AS NOMBRE_OFICINA, \r\n" + //
+    "p.id_prestamo AS NUM_PRESTAMO, \r\n" + //
+    "cu.saldo AS SALDO \r\n" + //
+    "FROM \r\n" + //
+        "cliente c \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "tiene t ON c.num_documento = t.id_cliente \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "cuenta cu ON t.id_cuenta = cu.numero_cuenta \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "pertenece pe ON cu.numero_cuenta = pe.id_cuenta \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "oficina o ON pe.id_oficina = o.id_oficina \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "pide pd ON c.num_documento = pd.id_cliente \r\n" + //
+    "LEFT JOIN \r\n" + //
+        "prestamo p ON pd.id_prestamo = p.id_prestamo \r\n" + //
+    "WHERE \r\n" + //
+        "c.num_documento = :num_documento", nativeQuery = true)
+    Collection<RespuestaInfoCliente> darClientePorNumDoc(@Param("num_documento") String num_documento);
+    
+        
+
+
+
+
+
+
 }
 
