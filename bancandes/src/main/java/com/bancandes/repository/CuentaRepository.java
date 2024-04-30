@@ -36,4 +36,27 @@ public interface CuentaRepository extends JpaRepository<CuentaEntity, Integer> {
     @Transactional
     @Query(value = "DELETE FROM CUENTA WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
     void eliminarCuenta(@Param("numero_cuenta") int numero_cuenta);
+
+    @Query(value = "UPDATE cuenta\r\n" + //
+                    "SET SALDO = SALDO + :cantidad_consignacion\r\n" + //
+                    "WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
+    void consignacionCuenta(@Param("numero_cuenta") int numero_cuenta, @Param("cantidad_consignacion") int cantidad_consignacion);
+
+    @Query(value = "UPDATE cuenta\r\n" + //
+                    "SET SALDO = SALDO - :cantidad_retiro\r\n" + //
+                    "WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
+    void retiroCuenta(@Param("numero_cuenta") int numero_cuenta, @Param("cantidad_retiro") int cantidad_retiro);
+
+    
+    @Query(value = "UPDATE cuenta\r\n" + //
+                    "SET SALDO = SALDO - :cantidad_retiro_transferencia\r\n" + //
+                    "WHERE numero_cuenta = :numero_cuenta_origen\r\n", nativeQuery = true)
+    void transferenciaRetiroCuenta(@Param("numero_cuenta_origen") int numero_cuenta_origen, @Param("cantidad_retiro_transferencia") int cantidad_retiro_transferencia);    
+
+
+    @Query(value = "UPDATE cuenta\r\n" + //
+                    "SET SALDO = SALDO + :cantidad_consignacion_transferencia\r\n" + //
+                    "WHERE numero_cuenta = :numero_cuenta_destino\r\n", nativeQuery = true)
+    void transferenciaConsignacionCuenta(@Param("numero_cuenta_destino") int numero_cuenta_destino, @Param("cantidad_consignacion_transferencia")int cantidad_consignacion_transferencia);    
+    
 }

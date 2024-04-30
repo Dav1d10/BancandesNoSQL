@@ -13,11 +13,20 @@
             <div class="input-group input-group-sm mb-2 justify-content-center">
                 <input class='w-25' id="txtSearch" type="text" name="numero_cuenta">
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Buscar por cuenta</button>
+                    <button type="submit" class="btn btn-secondary">Buscar Operaciones Bancarias por Cuenta (Read Committed)</button>
                 </div>
             </div>
         </form>
             <br />
+            <form th:action="@{/operacionesbancariasbloqueo}" method="get">
+                <div class="input-group input-group-sm mb-2 justify-content-center">
+                    <input class='w-25' id="txtSearch" type="text" name="numero_cuenta">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">Buscar Operaciones Bancarias por Cuenta (Serializable)</button>
+                    </div>
+                </div>
+            </form>
+                <br />            
 
         <table class= "table table-hover table-bordered"> 
             <thead class= "thead-dark">

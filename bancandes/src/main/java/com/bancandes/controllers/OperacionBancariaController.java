@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 
 import com.bancandes.entities.OperacionBancariaEntity;
 import com.bancandes.repository.OperacionBancariaRepository;
+import com.bancandes.servicios.OperacionesbancariasServicio;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,10 +20,13 @@ public class OperacionBancariaController {
     @Autowired
     private OperacionBancariaRepository operacionBancariaRepository;
 
+    @Autowired
+    private OperacionesbancariasServicio operacionesbancariasServicio;
+
     @GetMapping("/operacionesbancarias")
     public String operacionesBancarias(Model model, Integer numero_cuenta) {
         if (numero_cuenta != null) {
-            model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta));
+            model.addAttribute("operacionesbancarias", operacionesbancariasServicio.darOperacionesBancariasPorCuentaEnLosUltimos30DiasReadCommitted(numero_cuenta));
         } else {
             model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
         }
@@ -70,6 +75,16 @@ public class OperacionBancariaController {
     public String operacionBancariaEliminar(@PathVariable("id") int id) {
         operacionBancariaRepository.eliminarOperacionBancaria(id);
         return "redirect:/operacionesbancarias";
+    }
+
+    @GetMapping("/operacionesbancariasbloqueo")
+    public String darOperacionesBancariasPorCuentaSinFantasma(Model model, Integer numero_cuenta) {
+        if (numero_cuenta != null) {
+            model.addAttribute("operacionesbancarias", operacionesbancariasServicio.darOperacionesBancariasPorCuentaEnLosUltimos30Dias(numero_cuenta));
+        } else {
+            model.addAttribute("operacionesbancarias", operacionBancariaRepository.darOperacionesBancarias());
+        }
+        return "operacionesbancarias";
     }
     
 }
