@@ -10,7 +10,6 @@ import com.bancandes.entities.OficinaEntity;
 import com.bancandes.entities.GerenteOficina;
 import com.bancandes.repository.OficinaRepository;
 import com.bancandes.repository.ManejaRepository.ManejaProjection;
-import com.bancandes.repository.TieneRepository.TieneProjection;
 import com.bancandes.repository.ManejaRepository;
 import com.bancandes.repository.GerenteOficinaRepository;
 import com.bancandes.entities.ManejaEntity;

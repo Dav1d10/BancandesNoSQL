@@ -14,6 +14,7 @@ import com.bancandes.entities.CuentaEntity;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.servicios.CuentasServicio;
 
+
 @Controller
 public class CuentaController {
     
@@ -58,15 +59,24 @@ public class CuentaController {
     }
 
     @PostMapping("/cuentas/{numero_cuenta}/edit/save")
-    public String cuentaEditarGuardar(@PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
-        cuentaRepository.actualizarCuenta(id, 
-        cuenta.getSaldo(), 
-        cuenta.getFecha_ultima_transaccion(), 
-        cuenta.getFecha_creacion(), 
-        cuenta.getTipo_cuenta().name(), 
-        cuenta.getEstado_cuenta().name());
+public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
+
+    if (cuenta.getEstado_cuenta().name().equals("CERRADA") && cuenta.getSaldo() != 0) {
         return "redirect:/cuentas";
     }
+
+    cuentaRepository.actualizarCuenta(id,
+    cuenta.getSaldo(),
+    cuenta.getFecha_ultima_transaccion(),
+    cuenta.getFecha_creacion(),
+    cuenta.getTipo_cuenta().toString(),
+    cuenta.getEstado_cuenta().toString());
+    
+    return "redirect:/cuentas";
+}
+
+    
+
 
     @GetMapping("/cuentas/{numero_cuenta}/delete")
     public String cuentaEliminar(@PathVariable("numero_cuenta") int id) {
