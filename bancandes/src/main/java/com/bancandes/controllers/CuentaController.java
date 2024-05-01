@@ -131,5 +131,32 @@ public class CuentaController {
         }
         return "redirect:/cuentas";
     }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/serializable/transferencia")
+    public String transferenciaCuentaSinFantasmas(RedirectAttributes redirectAttributes, @RequestParam("numero_cuenta_origen") Integer numero_cuenta_origen, @RequestParam("numero_cuenta_destino") Integer numero_cuenta_destino, @RequestParam("cantidad_transferencia") Integer cantidad_transferencia) {
+        if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
+            try {
+                cuentasServicio.transferenciaCuentasSerializable(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/readcommitted/transferencia")
+    public String transferenciaCuentaConFantasmas(RedirectAttributes redirectAttributes, @RequestParam("numero_cuenta_origen") Integer numero_cuenta_origen, @RequestParam("numero_cuenta_destino") Integer numero_cuenta_destino, @RequestParam("cantidad_transferencia") Integer cantidad_transferencia) {
+        if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
+            try {
+                cuentasServicio.transferenciaCuentasReadCommitted(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
     
 }
