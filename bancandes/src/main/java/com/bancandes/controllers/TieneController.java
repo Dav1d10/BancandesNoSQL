@@ -1,5 +1,7 @@
 package com.bancandes.controllers;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.ui.Model;
 import com.bancandes.entities.ClienteEntity;
 import com.bancandes.repository.ClienteRepository;
 import com.bancandes.repository.TieneRepository;
+import com.bancandes.repository.TieneRepository.TieneProjection;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.entities.TieneEntity;
 import com.bancandes.entities.TienePK;
@@ -27,6 +30,13 @@ public class TieneController {
 
     @Autowired
     private TieneRepository tieneRepository;
+
+    @GetMapping("/tienes")
+    public String tiene(Model model) {
+    Collection<TieneProjection> tieneData = tieneRepository.darTienes();
+    model.addAttribute("tienes", tieneData);
+    return "tienes";
+}
 
     @GetMapping("/tiene/new")
     public String tieneForm(Model model) {
