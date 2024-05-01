@@ -20,10 +20,10 @@
             </th:block>
         </select><br>
 
-        <label class="col-form-label" for="id_operacionbancaria">Operacion Bancaria:</label>
-        <select class="form-control"  id="id_operacionbancaria" name="id_operacionbancaria" required>
-            <th:block th:each="operacionbancaria : ${operacionesbancarias}">
-                <option th:value="${operacionbancaria.id}" th:text="${operacionbancaria.id}"></option>
+        <label class="col-form-label" for="id_oficina">Oficina:</label>
+        <select class="form-control"  id="id_oficina" name="id_oficina" required>
+            <th:block th:each="oficinas : ${oficinas}">
+                <option th:value="${oficina.id}" th:text="${oficina.id}"></option>
             </th:block>
         </select><br>
 
