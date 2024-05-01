@@ -1,5 +1,7 @@
 package com.bancandes.controllers;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,8 @@ import org.springframework.ui.Model;
 import com.bancandes.entities.OficinaEntity;
 import com.bancandes.entities.GerenteOficina;
 import com.bancandes.repository.OficinaRepository;
+import com.bancandes.repository.ManejaRepository.ManejaProjection;
+import com.bancandes.repository.TieneRepository.TieneProjection;
 import com.bancandes.repository.ManejaRepository;
 import com.bancandes.repository.GerenteOficinaRepository;
 import com.bancandes.entities.ManejaEntity;
@@ -27,6 +31,13 @@ public class ManejaController {
 
     @Autowired
     private ManejaRepository manejaRepository;
+
+    @GetMapping("/manejas")
+    public String maneja(Model model) {
+    Collection<ManejaProjection> manejaData = manejaRepository.darManeja();
+    model.addAttribute("manejas", manejaData);
+    return "manejas";
+}
 
     @GetMapping("/maneja/new")
     public String manejaForm(Model model) {
