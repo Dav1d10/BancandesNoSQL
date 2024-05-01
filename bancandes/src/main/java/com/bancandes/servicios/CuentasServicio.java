@@ -91,26 +91,45 @@ public class CuentasServicio {
 
 
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
-    public void transferenciaCuentasSerializable(int numero_cuenta_origen, int cantidad_retiro_transferencia, int numero_cuenta_destino, int cantidad_consignacion_transferencia) {
+    public void transferenciaCuentasSerializable(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) {
         try {
-            cuentaRepository.transferenciaRetiroCuenta(numero_cuenta_origen, cantidad_retiro_transferencia);
-            cuentaRepository.transferenciaConsignacionCuenta(numero_cuenta_destino, cantidad_consignacion_transferencia);
+            LocalDate fechaActual = LocalDate.now();
+            LocalTime horaActual = LocalTime.now();
+            Date fechaSql = Date.valueOf(fechaActual);
+            CuentaEntity cuentaOrigen = cuentaRepository.darCuenta(numero_cuenta_origen);
+            CuentaEntity cuentaDestino = cuentaRepository.darCuenta(numero_cuenta_destino);
+            cuentaRepository.actualizarCuenta(numero_cuenta_origen, cuentaOrigen.getSaldo() - cantidad_transferencia, fechaSql, cuentaOrigen.getFecha_creacion(), cuentaOrigen.getTipo_cuenta().name(), cuentaOrigen.getEstado_cuenta().name());
+            cuentaRepository.actualizarCuenta(numero_cuenta_destino, cuentaDestino.getSaldo() + cantidad_transferencia , fechaSql, cuentaDestino.getFecha_creacion(), cuentaDestino.getTipo_cuenta().name(), cuentaDestino.getEstado_cuenta().name());
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "TRANSFERENCIA");
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
         } catch (Exception e) {
-            System.out.println("No pudo realizarse la transferencia");
+            System.out.println(e.getMessage());
         }
     }
 
 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-    public void transferenciaCuentasReadCommited(int numero_cuenta_origen, int cantidad_retiro_transferencia, int numero_cuenta_destino, int cantidad_consignacion_transferencia) {
+    public void transferenciaCuentasReadCommitted(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) {
         try {
-            cuentaRepository.transferenciaRetiroCuenta(numero_cuenta_origen, cantidad_retiro_transferencia);
-            cuentaRepository.transferenciaConsignacionCuenta(numero_cuenta_destino, cantidad_consignacion_transferencia);
+            LocalDate fechaActual = LocalDate.now();
+            LocalTime horaActual = LocalTime.now();
+            Date fechaSql = Date.valueOf(fechaActual);
+            CuentaEntity cuentaOrigen = cuentaRepository.darCuenta(numero_cuenta_origen);
+            CuentaEntity cuentaDestino = cuentaRepository.darCuenta(numero_cuenta_destino);
+            cuentaRepository.actualizarCuenta(numero_cuenta_origen, cuentaOrigen.getSaldo() - cantidad_transferencia, fechaSql, cuentaOrigen.getFecha_creacion(), cuentaOrigen.getTipo_cuenta().name(), cuentaOrigen.getEstado_cuenta().name());
+            cuentaRepository.actualizarCuenta(numero_cuenta_destino, cuentaDestino.getSaldo() + cantidad_transferencia , fechaSql, cuentaDestino.getFecha_creacion(), cuentaDestino.getTipo_cuenta().name(), cuentaDestino.getEstado_cuenta().name());
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "TRANSFERENCIA");
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
         } catch (Exception e) {
-            System.out.println("No pudo realizarse la transferencia");
+            System.out.println(e.getMessage());
         }
     }
 
+    }
+
+
+    
+
     
     
-}
+

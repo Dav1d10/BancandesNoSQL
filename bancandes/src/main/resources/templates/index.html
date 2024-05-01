@@ -15,7 +15,7 @@
         
         <div class = "container md-6 mx-auto">
             <h1>Bancandes</h1>
-            <img th:src="@{/images/bancandeslogo.jpg}" width="400">
+            <img th:src="@{/images/logo.jpeg}" width="400">
             <div class="container mx-auto w-20">
                 <a th:href="@{/clientes}" class="btn btn-primary">Clientes</a>
                 <a th:href="@{/cuentas}" class="btn btn-primary">Cuentas</a>
@@ -30,8 +30,9 @@
             </div>
             <div class="container mx-auto w-20">
                 <h2>Operaciones sobre existentes</h2>
-                <a th:href="@{hace/new}" class="btn btn-primary">Añadir una Operacion Bancaria a una cuenta</a>
-                <a th:href="@{/tienes}" class="btn btn-primary">Mostrar los cliente que tienen una cuenta</a>
+                <a th:href="@{/manejas}" class="btn btn-primary">Mostrar los Gerentes de oficina por oficina</a>
+                <a th:href="@{/hace/new}" class="btn btn-primary">Añadir una Operacion Bancaria a una cuenta</a>
+                <a th:href="@{/tienes}" class="btn btn-primary">Mostrar los clientes que tienen una cuenta</a>
                 <a th:href="@{cuentas/operacioncuentas}" class="btn btn-primary">Hacer una consignacion o transferencia</a>
                 <a th:href="@{pide/new}" class="btn btn-primary">Añadir Cliente a Préstamo</a>
 

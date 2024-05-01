@@ -59,20 +59,23 @@ public class CuentaController {
     }
 
     @PostMapping("/cuentas/{numero_cuenta}/edit/save")
-    public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
+public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
 
-        if (cuenta.getEstado_cuenta().name() == "CERRADA" && cuenta.getSaldo() != 0) {
-            return "redirect:/cuentas";
-        }
-
-        cuentaRepository.actualizarCuenta(id, 
-        cuenta.getSaldo(), 
-        cuenta.getFecha_ultima_transaccion(), 
-        cuenta.getFecha_creacion(), 
-        cuenta.getTipo_cuenta().name(), 
-        cuenta.getEstado_cuenta().name());
+    if (cuenta.getEstado_cuenta().name().equals("CERRADA") && cuenta.getSaldo() != 0) {
         return "redirect:/cuentas";
     }
+
+    cuentaRepository.actualizarCuenta(id,
+    cuenta.getSaldo(),
+    cuenta.getFecha_ultima_transaccion(),
+    cuenta.getFecha_creacion(),
+    cuenta.getTipo_cuenta().toString(),
+    cuenta.getEstado_cuenta().toString());
+    
+    return "redirect:/cuentas";
+}
+
+    
 
 
     @GetMapping("/cuentas/{numero_cuenta}/delete")
@@ -138,5 +141,32 @@ public class CuentaController {
         }
         return "redirect:/cuentas";
     }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/serializable/transferencia")
+    public String transferenciaCuentaSinFantasmas(RedirectAttributes redirectAttributes, @RequestParam("numero_cuenta_origen") Integer numero_cuenta_origen, @RequestParam("numero_cuenta_destino") Integer numero_cuenta_destino, @RequestParam("cantidad_transferencia") Integer cantidad_transferencia) {
+        if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
+            try {
+                cuentasServicio.transferenciaCuentasSerializable(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/readcommitted/transferencia")
+    public String transferenciaCuentaConFantasmas(RedirectAttributes redirectAttributes, @RequestParam("numero_cuenta_origen") Integer numero_cuenta_origen, @RequestParam("numero_cuenta_destino") Integer numero_cuenta_destino, @RequestParam("cantidad_transferencia") Integer cantidad_transferencia) {
+        if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
+            try {
+                cuentasServicio.transferenciaCuentasReadCommitted(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
     
 }

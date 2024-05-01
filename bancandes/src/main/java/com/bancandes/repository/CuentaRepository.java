@@ -22,6 +22,9 @@ public interface CuentaRepository extends JpaRepository<CuentaEntity, Integer> {
     @Query(value = "SELECT * FROM cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
     CuentaEntity darCuenta(@Param("numero_cuenta") int numero_cuenta);
 
+    @Query(value = "SELECT estado_cuenta FROM cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
+    CuentaEntity darEstadoCuenta(@Param("numero_cuenta") int numero_cuenta);
+
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO CUENTA (numero_cuenta, saldo, fecha_ultima_transaccion, fecha_creacion, tipo_cuenta, estado_cuenta) VALUES(id_cuenta.nextval, :saldo, :fecha_ultima_transaccion, :fecha_creacion, :tipo_cuenta, :estado_cuenta)", nativeQuery = true)
