@@ -13,8 +13,14 @@ import com.bancandes.entities.ManejaPK;
 
 public interface ManejaRepository extends JpaRepository<ManejaEntity, ManejaPK>{
 
-    @Query(value = "SELECT * FROM maneja", nativeQuery = true)
-    Collection<ManejaEntity> darManeja();
+
+    public interface ManejaProjection {
+        String getIdOficina();
+        String getIdGerenteOficina();
+    }
+
+    @Query(value = "SELECT id_oficina AS idOficina, id_gerenteoficina AS idGerenteOficina  FROM maneja", nativeQuery = true)
+    Collection<ManejaProjection> darManeja();
 
     @Query(value = "SELECT FROM maneja WHERE id_oficina =: id_oficina AND id_gerenteoficina =: id_ogerenteoficina", nativeQuery = true)
     ManejaEntity darManejaPorId(@Param("id_oficina") int id_oficina, @Param("id_gerenteoficina") String id_gerenteoficina);
