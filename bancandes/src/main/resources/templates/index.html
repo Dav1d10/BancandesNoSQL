@@ -6,10 +6,17 @@
         <title>Bancandes</title>
         <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
     </head>
+    <style>
+        .btn {
+            margin-right: 10px; /* Ajusta este valor según el espacio que desees entre los botones */
+        }
+    </style>
     <body>
-        <div class="container mx-auto w-25">
+        
+        <div class = "container md-6 mx-auto">
             <h1>Bancandes</h1>
-            <div>
+            <img th:src="@{/images/bancandeslogo.jpg}" width="400">
+            <div class="container mx-auto w-20">
                 <a th:href="@{/clientes}" class="btn btn-primary">Clientes</a>
                 <a th:href="@{/cuentas}" class="btn btn-primary">Cuentas</a>
                 <a th:href="@{/operacionesbancarias}" class="btn btn-primary">Operaciones Bancarias</a>
@@ -19,6 +26,14 @@
                 <a th:href="@{/puntosatencion}" class="btn btn-primary">Puntos de Atencion</a>
                 <a th:href="@{/gerentesoficinas}" class="btn btn-primary">Gerente Oficina</a>
                 <a th:href="@{/cajeros}" class="btn btn-primary">Cajeros</a>
+                
+            </div>
+            <div class="container mx-auto w-20">
+                <h2>Operaciones sobre existentes</h2>
+                <a th:href="@{hace/new}" class="btn btn-primary">Añadir una Operacion Bancaria a una cuenta</a>
+                <a th:href="@{/tienes}" class="btn btn-primary">Mostrar los cliente que tienen una cuenta</a>
+                <a th:href="@{cuentas/operacioncuentas}" class="btn btn-primary">Hacer una consignacion o transferencia</a>
+                <a th:href="@{pide/new}" class="btn btn-primary">Añadir Cliente a Préstamo</a>
 
         </div>
         
