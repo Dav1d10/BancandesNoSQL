@@ -64,6 +64,9 @@ public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVa
     if (cuenta.getEstado_cuenta().name().equals("CERRADA") && cuenta.getSaldo() != 0) {
         return "redirect:/cuentas";
     }
+    if (cuentaRepository.darCuenta(id).getEstado_cuenta().toString().equals("CERRADA") && cuenta.getEstado_cuenta().name().equals("DESACTIVADA")) {
+        return "redirect:/cuentas";
+    }
 
     cuentaRepository.actualizarCuenta(id,
     cuenta.getSaldo(),
