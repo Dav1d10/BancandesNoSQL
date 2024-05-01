@@ -44,6 +44,28 @@
                 <input class='w-25' id="txtSearch" type="text" name="cantidad_consignacion" placeholder="Cantidad a Consignar">
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-secondary">Realizar el retiro de la cuenta (Read Commited)</button>
+                </div>
+            </div>
+        </form>
+    <br/>
+        <form th:action="@{/cuentas/operacioncuentas/save/serializable/transferencia}" method="post">
+            <div class="input-group input-group-sm mb-2 justify-content-center">
+                <input class='w-25' id="txtSearch" type="text" name="numero_cuenta_origen" placeholder="Origen">
+                <input class='w-25' id="txtSearch" type="text" name="numero_cuenta_destino" placeholder="Destino">
+                <input class='w-25' id="txtSearch" type="text" name="cantidad_transferencia" placeholder="Cantidad">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Realizar la transferencia (Serializable)</button>
+                </div>
+            </div>
+        </form>
+    <br/>
+        <form th:action="@{/cuentas/operacioncuentas/save/readcommitted/transferencia}" method="post">
+            <div class="input-group input-group-sm mb-2 justify-content-center">
+                <input class='w-25' id="txtSearch" type="text" name="numero_cuenta_origen" placeholder="Origen">
+                <input class='w-25' id="txtSearch" type="text" name="numero_cuenta_destino" placeholder="Destino">
+                <input class='w-25' id="txtSearch" type="text" name="cantidad_transferencia" placeholder="Cantidad">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Realizar la transferencia (Read Committed)</button>
                     <a th:href="@{/cuentas}" class="btn btn-primary">Cancelar</a>
                 </div>
             </div>
