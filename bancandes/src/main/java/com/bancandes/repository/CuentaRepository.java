@@ -37,16 +37,6 @@ public interface CuentaRepository extends JpaRepository<CuentaEntity, Integer> {
     @Query(value = "DELETE FROM CUENTA WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
     void eliminarCuenta(@Param("numero_cuenta") int numero_cuenta);
 
-    @Query(value = "UPDATE cuenta\r\n" + //
-                    "SET SALDO = SALDO + :cantidad_consignacion\r\n" + //
-                    "WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
-    void consignacionCuenta(@Param("numero_cuenta") int numero_cuenta, @Param("cantidad_consignacion") int cantidad_consignacion);
-
-    @Query(value = "UPDATE cuenta\r\n" + //
-                    "SET SALDO = SALDO - :cantidad_retiro\r\n" + //
-                    "WHERE numero_cuenta = :numero_cuenta", nativeQuery = true)
-    void retiroCuenta(@Param("numero_cuenta") int numero_cuenta, @Param("cantidad_retiro") int cantidad_retiro);
-
     
     @Query(value = "UPDATE cuenta\r\n" + //
                     "SET SALDO = SALDO - :cantidad_retiro_transferencia\r\n" + //

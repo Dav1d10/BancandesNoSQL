@@ -88,11 +88,50 @@ public class CuentaController {
 }
 
 
-    @PostMapping("/cuentas/operacioncuentas/save")
+    @PostMapping("/cuentas/operacioncuentas/save/serializable")
     public String consignacionCuentaSinFantasmas(RedirectAttributes redirectAttributes,@RequestParam("numero_cuenta")Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
         if (numero_cuenta != null && cantidad_consignacion != null) {
             try {
                 cuentasServicio.consignacionCuentaSerializable(numero_cuenta, cantidad_consignacion);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/readcommitted")
+    public String consignacionCuentaConFantasmas(RedirectAttributes redirectAttributes,@RequestParam("numero_cuenta")Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
+        if (numero_cuenta != null && cantidad_consignacion != null) {
+            try {
+                cuentasServicio.consignacionCuentaReadCommited(numero_cuenta, cantidad_consignacion);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/serializable/retiro")
+    public String retiroCuentaSinFantasmas(RedirectAttributes redirectAttributes,@RequestParam("numero_cuenta")Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
+        if (numero_cuenta != null && cantidad_consignacion != null) {
+            try {
+                cuentasServicio.retiroCuentaSerializable(numero_cuenta, cantidad_consignacion);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            }
+        }
+        return "redirect:/cuentas";
+    }
+
+
+    @PostMapping("/cuentas/operacioncuentas/save/readcommitted/retiro")
+    public String retiroCuentaConFantasmas(RedirectAttributes redirectAttributes,@RequestParam("numero_cuenta")Integer numero_cuenta, @RequestParam("cantidad_consignacion")Integer cantidad_consignacion) {
+        if (numero_cuenta != null && cantidad_consignacion != null) {
+            try {
+                cuentasServicio.retiroCuentaReadCommitted(numero_cuenta, cantidad_consignacion);
             } catch (Exception e) {
                 redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
             }
