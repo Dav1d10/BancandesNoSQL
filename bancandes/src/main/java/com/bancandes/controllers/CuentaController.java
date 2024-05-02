@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bancandes.entities.CuentaEntity;
+import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.servicios.CuentasServicio;
 
@@ -151,11 +152,12 @@ public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVa
         if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
             try {
                 cuentasServicio.transferenciaCuentasSerializable(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
-            } catch (Exception e) {
-                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            } catch (SaldoInsuficienteException e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No hay suficiente saldo en al cuenta origen.");
+                System.out.println("Mensaje de error agregado correctamente: " + e.getMessage());
             }
         }
-        return "redirect:/cuentas";
+        return "redirect:/cuentas/operacioncuentas";
     }
 
 

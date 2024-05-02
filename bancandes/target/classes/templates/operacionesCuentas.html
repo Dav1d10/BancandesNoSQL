@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container mx-auto w-25">
+        <div class="text-center"><h2 th:text="${errorMessage}"></h2></div>
         <form th:action="@{/cuentas/operacioncuentas/save/serializable}" method="post">
             <div class="input-group input-group-sm mb-2 justify-content-center">
                 <input class='w-25' id="txtSearch" type="text" name="numero_cuenta" placeholder="Número de Cuenta">
