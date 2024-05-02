@@ -22,14 +22,14 @@
 
         <label class="col-form-label" for="id_oficina">Oficina:</label>
         <select class="form-control"  id="id_oficina" name="id_oficina" required>
-            <th:block th:each="oficinas : ${oficinas}">
-                <option th:value="${oficina.id}" th:text="${oficina.id}"></option>
+            <th:block th:each="oficina : ${oficinas}">
+                <option th:value="${oficina.id_oficina}" th:text="${oficina.id_oficina}"></option>
             </th:block>
         </select><br>
 
         <div class="text-center">
         <input type="submit" value="Guardar" class="btn btn-primary">
-        <a th:href="@{/gerentesoficina}" class="btn btn-primary">Cancelar</a>
+        <a th:href="@{/}" class="btn btn-primary">Cancelar</a>
         </div>
     </br>
     </form>
