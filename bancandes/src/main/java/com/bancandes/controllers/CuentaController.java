@@ -153,11 +153,11 @@ public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVa
             try {
                 cuentasServicio.transferenciaCuentasSerializable(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
             } catch (SaldoInsuficienteException e) {
-                redirectAttributes.addFlashAttribute("errorMessage", "No hay suficiente saldo en al cuenta origen.");
+                redirectAttributes.addFlashAttribute("errorMessage", "No hay suficiente saldo en la cuenta origen.");
                 System.out.println("Mensaje de error agregado correctamente: " + e.getMessage());
             }
         }
-        return "redirect:/cuentas/operacioncuentas";
+        return "redirect:/cuentas";
     }
 
 
@@ -166,8 +166,9 @@ public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVa
         if (numero_cuenta_origen != null && numero_cuenta_destino != null && cantidad_transferencia != null) {
             try {
                 cuentasServicio.transferenciaCuentasReadCommitted(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
-            } catch (Exception e) {
-                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar la transferencia.");
+            } catch (SaldoInsuficienteException e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No hay suficiente saldo en la cuenta origen.");
+                System.out.println("Mensaje de error agregado correctamente: " + e.getMessage());
             }
         }
         return "redirect:/cuentas";

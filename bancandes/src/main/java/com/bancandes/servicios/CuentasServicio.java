@@ -110,23 +110,19 @@ public class CuentasServicio {
 
 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-    public void transferenciaCuentasReadCommitted(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) {
-        try {
-            LocalDate fechaActual = LocalDate.now();
-            LocalTime horaActual = LocalTime.now();
-            Date fechaSql = Date.valueOf(fechaActual);
-            CuentaEntity cuentaOrigen = cuentaRepository.darCuenta(numero_cuenta_origen);
-            CuentaEntity cuentaDestino = cuentaRepository.darCuenta(numero_cuenta_destino);
-            if (cuentaOrigen.getSaldo() >= cantidad_transferencia) {
-                cuentaRepository.actualizarCuenta(numero_cuenta_origen, cuentaOrigen.getSaldo() - cantidad_transferencia, fechaSql, cuentaOrigen.getFecha_creacion(), cuentaOrigen.getTipo_cuenta().name(), cuentaOrigen.getEstado_cuenta().name());
-                cuentaRepository.actualizarCuenta(numero_cuenta_destino, cuentaDestino.getSaldo() + cantidad_transferencia , fechaSql, cuentaDestino.getFecha_creacion(), cuentaDestino.getTipo_cuenta().name(), cuentaDestino.getEstado_cuenta().name());
-                operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "TRANSFERENCIA");
-                operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
-            } else {
-                System.out.println("No hay suficiente saldo en la cuenta origen.");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+    public void transferenciaCuentasReadCommitted(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
+        LocalDate fechaActual = LocalDate.now();
+        LocalTime horaActual = LocalTime.now();
+        Date fechaSql = Date.valueOf(fechaActual);
+        CuentaEntity cuentaOrigen = cuentaRepository.darCuenta(numero_cuenta_origen);
+        CuentaEntity cuentaDestino = cuentaRepository.darCuenta(numero_cuenta_destino);
+        if (cuentaOrigen.getSaldo() >= cantidad_transferencia) {
+            cuentaRepository.actualizarCuenta(numero_cuenta_origen, cuentaOrigen.getSaldo() - cantidad_transferencia, fechaSql, cuentaOrigen.getFecha_creacion(), cuentaOrigen.getTipo_cuenta().name(), cuentaOrigen.getEstado_cuenta().name());
+            cuentaRepository.actualizarCuenta(numero_cuenta_destino, cuentaDestino.getSaldo() + cantidad_transferencia , fechaSql, cuentaDestino.getFecha_creacion(), cuentaDestino.getTipo_cuenta().name(), cuentaDestino.getEstado_cuenta().name());
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "TRANSFERENCIA");
+            operacionBancariaRepository.insertarOperacionBancaria(cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
+        } else {
+            throw new SaldoInsuficienteException("No hay suficiente saldo en la cuenta origen.");
         }
     }
 
