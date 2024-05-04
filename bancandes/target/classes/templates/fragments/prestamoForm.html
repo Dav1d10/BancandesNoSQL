@@ -42,6 +42,19 @@
                 PAGADO
             </option>
         </select>
+        <label class="col-form-label">Categoria</label>
+        <select class="form-control" id="categoria"
+        name="categoria" required>
+        <option value="ACTIVO" th:selected="${prestamo.categoria eq 'ACTIVO'}">
+            ACTIVO
+        </option>
+        <option value="CERRADO" th:selected="${prestamo.categoria eq 'CERRADO'}">
+            CERRADO
+        </option>
+        <option value="DESACTIVADO" th:selected="${prestamo.categoria eq 'DESACTIVADO'}">
+            DESACTIVADO
+        </option>
+    </select>
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary"/>
             <a th:href="@{/prestamos}" class="btn btn btn-primary">Cancelar</a>

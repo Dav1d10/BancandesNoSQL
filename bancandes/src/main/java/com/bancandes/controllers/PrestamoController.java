@@ -37,7 +37,8 @@ public class PrestamoController {
         prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
-        prestamo.getEstado_prestamo().name());
+        prestamo.getEstado_prestamo().name(),
+        prestamo.getCategoria().name());
         return "redirect:/prestamos";
     }
 
@@ -60,7 +61,8 @@ public class PrestamoController {
         prestamo.getNumero_cuotas(),
         prestamo.getDia_pago(),
         prestamo.getValor_cuota(), 
-        prestamo.getEstado_prestamo().name());
+        prestamo.getEstado_prestamo().name(),
+        prestamo.getCategoria().name());
         return "redirect:/prestamos";
     }
 

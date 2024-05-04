@@ -19,6 +19,7 @@
                     <th>Día pago</th>
                     <th>Valor de cuota</th>
                     <th>Estado</th>
+                    <th>Categoria</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -31,6 +32,7 @@
                     <td th:text="${prestamo.dia_pago}"></td>
                     <td th:text="${prestamo.valor_cuota}"></td>
                     <td th:text="${prestamo.estado_prestamo}"></td>
+                    <td th:text="${prestamo.categoria}"></td>
                     <td>
                         <a th:href="@{prestamos/{id_prestamo}/edit(id_prestamo=${prestamo.id_prestamo})}">
                             Editar

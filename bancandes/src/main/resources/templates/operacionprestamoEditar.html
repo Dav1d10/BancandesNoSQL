@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar operacion prestamo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <form th:action="@{'/operacionesprestamos/'+${id}+'/edit/save'}" th:object="${operacionprestamo}"
+    method="post">
+    <div th:replace="~{fragments/operacionprestamoForm :: operacionprestamoForm(titulo='Editar operacion prestamo', operacionprestamo=${operacionprestamo})}">
+
+    </div>
+</form>
+</body>
+</html>

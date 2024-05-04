@@ -101,6 +101,14 @@ public class PrestamoEntity {
         this.estado_prestamo = estado_prestamo;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     
     public enum EstadoPrestamo {
         SOLICITADO,
@@ -109,10 +117,12 @@ public class PrestamoEntity {
         PAGADO
     }
 
-    
+
     public enum Categoria {
         ACTIVO,
         CERRADO,
         DESACTIVADO
     }
+
+
 }

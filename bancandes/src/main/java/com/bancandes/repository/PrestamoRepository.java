@@ -25,14 +25,14 @@ public interface PrestamoRepository extends JpaRepository<PrestamoEntity, Intege
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo) VALUES(id_prestamo.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo)", nativeQuery =true)
-    void insertarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo") String estado_prestamo);
+    @Query(value = "INSERT INTO PRESTAMO (id_prestamo, monto, interes, numero_cuotas, dia_pago, valor_cuota, estado_prestamo, categoria) VALUES(id_prestamo.nextval, :monto, :interes, :numero_cuotas, :dia_pago, :valor_cuota, :estado_prestamo, :categoria)", nativeQuery =true)
+    void insertarPrestamo(@Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo") String estado_prestamo, @Param("categoria") String categoria);
 
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE PRESTAMO SET monto=:monto, interes=:interes, numero_cuotas=:numero_cuotas, dia_pago=:dia_pago, valor_cuota=:valor_cuota, estado_prestamo=:estado_prestamo WHERE id_prestamo=:id_prestamo", nativeQuery =true)
-    void actualizarPrestamo(@Param("id_prestamo") long id_prestamo, @Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo") String estado_prestamo);
+    @Query(value = "UPDATE PRESTAMO SET monto=:monto, interes=:interes, numero_cuotas=:numero_cuotas, dia_pago=:dia_pago, valor_cuota=:valor_cuota, estado_prestamo=:estado_prestamo, categoria=:categoria WHERE id_prestamo=:id_prestamo", nativeQuery =true)
+    void actualizarPrestamo(@Param("id_prestamo") long id_prestamo, @Param("monto")int monto, @Param("interes")int interes, @Param("numero_cuotas")int numero_cuotas, @Param("dia_pago")Date dia_pago, @Param("valor_cuota")int valor_cuota, @Param("estado_prestamo") String estado_prestamo, @Param("categoria") String categoria);
 
     @Modifying
     @Transactional
