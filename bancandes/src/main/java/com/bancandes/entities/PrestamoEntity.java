@@ -27,6 +27,8 @@ public class PrestamoEntity {
     private int valor_cuota;
     @Enumerated(EnumType.STRING)
     private EstadoPrestamo estado_prestamo;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
     
     public PrestamoEntity(Integer id_prestamo, int monto, int interes, int numero_cuotas, Date dia_pago,
     int valor_cuota, EstadoPrestamo estado_prestamo) {
@@ -105,5 +107,12 @@ public class PrestamoEntity {
         APROBADO,
         RECHAZADO,
         PAGADO
+    }
+
+    
+    public enum Categoria {
+        ACTIVO,
+        CERRADO,
+        DESACTIVADO
     }
 }
