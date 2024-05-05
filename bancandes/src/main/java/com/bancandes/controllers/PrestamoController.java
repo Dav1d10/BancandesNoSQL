@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bancandes.entities.PrestamoEntity;
 import com.bancandes.repository.PrestamoRepository;
+import com.bancandes.servicios.PrestamosServicio;
 
 @Controller
 public class PrestamoController {
@@ -17,8 +20,11 @@ public class PrestamoController {
     @Autowired
     private PrestamoRepository prestamoRepository;
 
+    @Autowired
+    private PrestamosServicio prestamosServicio;
+
     @GetMapping("/prestamos")
-    public String prestamos(Model model, Integer numero_prestamo, Integer cantidad_pago) {
+    public String prestamos(Model model) {
         model.addAttribute("prestamos", prestamoRepository.darPrestamos());
         return "prestamos";
     }
@@ -71,5 +77,32 @@ public class PrestamoController {
         prestamoRepository.eliminarPrestamo(id_prestamo);
         return "redirect:/prestamos";
     }
+
+    @PostMapping("/prestamospagomensual")
+    public String pagoCuotaMensual(RedirectAttributes redirectAttributes, @RequestParam("numero_prestamo")Integer numero_prestamo, @RequestParam("cantidad_pago")Integer cantidad_pago) {
+        if (numero_prestamo != null && cantidad_pago != null) {
+            try {
+                prestamosServicio.pagoMensual(numero_prestamo, cantidad_pago);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar el pago.");
+            }
+        }
+        return "prestamos";
+    }
+
+
+    @PostMapping("/prestamospagoextraordinario")
+    public String pagoCuotaExtraordinaria(RedirectAttributes redirectAttributes, @RequestParam("numero_prestamo")Integer numero_prestamo, @RequestParam("cantidad_pago")Integer cantidad_pago) {
+        if (numero_prestamo != null && cantidad_pago != null) {
+            try {
+                prestamosServicio.pagoExtraordinario(numero_prestamo, cantidad_pago);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", "No se pudo completar el pago.");
+            }
+        }
+        return "prestamos";
+    }
+
+
     
 }
