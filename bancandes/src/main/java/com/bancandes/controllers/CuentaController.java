@@ -60,7 +60,7 @@ public class CuentaController {
     }
 
     @PostMapping("/cuentas/{numero_cuenta}/edit/save")
-public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
+    public String cuentaEditarGuardar(RedirectAttributes redirectAttributes, @PathVariable("numero_cuenta") int id, @ModelAttribute CuentaEntity cuenta) {
 
     if (cuenta.getEstado_cuenta().name().equals("CERRADA") && cuenta.getSaldo() != 0) {
         return "redirect:/cuentas";

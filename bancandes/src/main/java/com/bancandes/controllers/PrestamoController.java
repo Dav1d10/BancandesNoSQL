@@ -18,7 +18,7 @@ public class PrestamoController {
     private PrestamoRepository prestamoRepository;
 
     @GetMapping("/prestamos")
-    public String prestamos(Model model) {
+    public String prestamos(Model model, Integer numero_prestamo, Integer cantidad_pago) {
         model.addAttribute("prestamos", prestamoRepository.darPrestamos());
         return "prestamos";
     }
