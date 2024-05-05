@@ -22,20 +22,20 @@
             <label class="col-form-label">Tipo</label>
             <select class="form-control" id="tipo_operacion"
             name="tipo_operacion" required>
-            <option value="PAGO_EXTRAORDINARIO" th:selected="${operacionprestamo.tipo eq 'PAGO_EXTRAORDINARIO'}">
+            <option value="PAGO_EXTRAORDINARIO" th:selected="${operacionprestamo.tipo_operacion eq 'PAGO_EXTRAORDINARIO'}">
                 PAGO EXTRAORDINARIO
             </option>
-            <option value="PAGO_ORDINARIO" th:selected="${operacionprestamo.tipo eq 'PAGO_ORDINARIO'}">
+            <option value="PAGO_ORDINARIO" th:selected="${operacionprestamo.tipo_operacion eq 'PAGO_ORDINARIO'}">
                 PAGO ORDINARIO
             </option>
         </select>
             <label class="col-form-label">Producto</label>
             <select class="form-control" id="producto_prestamo"
             name="producto_prestamo" required>
-            <option value="PAGO_DE_LA_CUOTA_MENSUAL" th:selected="${operacionprestamo.producto eq 'PAGO_DE_LA_CUOTA_MENSUAL'}">
+            <option value="PAGO_DE_LA_CUOTA_MENSUAL" th:selected="${operacionprestamo.producto_prestamo eq 'PAGO_DE_LA_CUOTA_MENSUAL'}">
                 PAGO DE LA CUOTA MENSUAL
             </option>
-            <option value="PAGO_DE_LA_CUOTA_EXTRAORDINARIA" th:selected="${operacionprestamo.producto eq 'PAGO_DE_LA_CUOTA_EXTRAORDINARIA'}">
+            <option value="PAGO_DE_LA_CUOTA_EXTRAORDINARIA" th:selected="${operacionprestamo.producto_prestamo eq 'PAGO_DE_LA_CUOTA_EXTRAORDINARIA'}">
                 PAGO DE LA CUOTA EXTRAORDINARIA
             </option>
         </select>

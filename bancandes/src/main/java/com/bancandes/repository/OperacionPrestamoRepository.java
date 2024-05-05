@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.OperacionPrestamoEntity;
 
-public interface OperacionPrestamoRepository extends JpaRepository<OperacionPrestamoRepository, Integer> {
+public interface OperacionPrestamoRepository extends JpaRepository<OperacionPrestamoEntity, Integer> {
 
     @Query(value = "SELECT * FROM OPERACION_PRESTAMO", nativeQuery = true)
     Collection<OperacionPrestamoEntity> darOperacionesPrestamos();
