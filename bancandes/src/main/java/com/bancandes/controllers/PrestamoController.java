@@ -61,6 +61,9 @@ public class PrestamoController {
 
     @PostMapping("/prestamos/{id_prestamo}/edit/save")
     public String prestamoEditarGuardar(@PathVariable("id_prestamo") long id_prestamo, @ModelAttribute PrestamoEntity prestamo) {
+        if (prestamo.getMonto() != 0 && prestamo.getCategoria().name().equals("CERRADO")) {
+            return "redirect:/prestamos";
+        }
         prestamoRepository.actualizarPrestamo(((long) id_prestamo),
         prestamo.getMonto(),
         prestamo.getInteres(),
