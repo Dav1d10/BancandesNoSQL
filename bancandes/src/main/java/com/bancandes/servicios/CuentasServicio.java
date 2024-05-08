@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
+import com.bancandes.repository.HaceRepository;
 import com.bancandes.repository.OperacionBancariaRepository;
 
 @Service
@@ -21,11 +22,14 @@ public class CuentasServicio {
 
     private OperacionBancariaRepository operacionBancariaRepository;
 
+    private HaceRepository haceRepository;
+
      
 
-    public CuentasServicio(CuentaRepository cuentaRepository, OperacionBancariaRepository operacionBancariaRepository) {
+    public CuentasServicio(CuentaRepository cuentaRepository, OperacionBancariaRepository operacionBancariaRepository, HaceRepository haceRepository) {
         this.cuentaRepository = cuentaRepository;
         this.operacionBancariaRepository = operacionBancariaRepository;
+        this.haceRepository = haceRepository;
     }
 
 
@@ -39,6 +43,8 @@ public class CuentasServicio {
             CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
             cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() + cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta().name(), cuentaActual.getEstado_cuenta().name());
             operacionBancariaRepository.insertarOperacionBancaria(cantidad_consignacion, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
+            int idOperacionBancaria = operacionBancariaRepository.obtenerUltimoId();
+            haceRepository.insertarHace(numero_cuenta, idOperacionBancaria);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -55,6 +61,8 @@ public class CuentasServicio {
             CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
             cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() + cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta().name(), cuentaActual.getEstado_cuenta().name());
             operacionBancariaRepository.insertarOperacionBancaria(cantidad_consignacion, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "CONSIGNACION");
+            int idOperacionBancaria = operacionBancariaRepository.obtenerUltimoId();
+            haceRepository.insertarHace(numero_cuenta, idOperacionBancaria);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -70,6 +78,8 @@ public class CuentasServicio {
             CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
             cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() - cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta().name(), cuentaActual.getEstado_cuenta().name());
             operacionBancariaRepository.insertarOperacionBancaria(cantidad_consignacion, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "RETIRO");
+            int idOperacionBancaria = operacionBancariaRepository.obtenerUltimoId();
+            haceRepository.insertarHace(numero_cuenta, idOperacionBancaria);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -85,6 +95,8 @@ public class CuentasServicio {
             CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
             cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() - cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta().name(), cuentaActual.getEstado_cuenta().name());
             operacionBancariaRepository.insertarOperacionBancaria(cantidad_consignacion, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fechaSql, "CUENTA", "RETIRO");
+            int idOperacionBancaria = operacionBancariaRepository.obtenerUltimoId();
+            haceRepository.insertarHace(numero_cuenta, idOperacionBancaria);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -35,6 +35,9 @@ public interface OperacionBancariaRepository extends JpaRepository<OperacionBanc
     @Query(value = "DELETE FROM OPERACION_BANCARIA WHERE id=:id", nativeQuery = true)
     void eliminarOperacionBancaria(@Param("id") int id);
 
+    @Query(value = "SELECT id_operacion_bancaria.CURRVAL FROM DUAL", nativeQuery = true)
+    int obtenerUltimoId();
+
 
     @Query(value = "SELECT ob.*\r\n" + // 
                     "FROM operacion_bancaria ob\r\n" + //
