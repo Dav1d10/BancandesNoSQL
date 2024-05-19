@@ -1,14 +1,7 @@
 package com.bancandes.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
 
-
-@Entity
-@Table(name="personas")
 public class PersonaEntity {
 
     @Id
@@ -21,7 +14,6 @@ public class PersonaEntity {
     private String departamento;
     private String codigo_postal;
     private String ciudad;
-    @Enumerated(EnumType.STRING)
     private TipoDocumento tipo_documento;
 
     

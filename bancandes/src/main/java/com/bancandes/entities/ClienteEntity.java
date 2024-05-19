@@ -1,14 +1,13 @@
 package com.bancandes.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
-@Table(name = "cliente")
+
+
+
+@Document(collection = "clientes")
 public class ClienteEntity {
 
     @Id
@@ -21,7 +20,6 @@ public class ClienteEntity {
     private String departamento;
     private String codigo_postal;
     private String ciudad;
-    @Enumerated(EnumType.STRING)
     private TipoDocumento tipo_documento;
 
     

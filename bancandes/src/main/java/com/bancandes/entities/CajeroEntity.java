@@ -1,9 +1,11 @@
 package com.bancandes.entities;
 
-import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
+
+
+@Document(collection = "cajeros")
 public class CajeroEntity extends PersonaEntity{
 
     public CajeroEntity(String num_documento, String telefono, String nombre, String nacionalidad,

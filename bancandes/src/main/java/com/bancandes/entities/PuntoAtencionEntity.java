@@ -1,23 +1,15 @@
 package com.bancandes.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name="puntos_de_atencion")
+
+@Document(collection = "puntos_de_atencion")
 public class PuntoAtencionEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Integer id_punto_atencion;
     private String localizacion;
-    @Enumerated(EnumType.STRING)
     private TipoPuntoAtencion tipo_punto_atencion;
 
     public PuntoAtencionEntity(Integer id_punto_atencion, String localizacion, TipoPuntoAtencion tipo_punto_atencion,

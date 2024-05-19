@@ -1,33 +1,19 @@
 package com.bancandes.entities;
 
+import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Date;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="operacion bancaria")
+@Document(collection = "operaciones_bancarias")
 public class OperacionBancariaEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-
     private Integer id;
     private int valor;
     private String hora;
     private Date fecha;
-    
-    @Enumerated(EnumType.STRING)
     private Producto producto;
-
-    @Enumerated(EnumType.STRING)
     private Tipo tipo;
 
     

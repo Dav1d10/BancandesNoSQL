@@ -1,31 +1,20 @@
 package com.bancandes.entities;
 
 
+import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="cuenta")
+@Document(collection = "cuentas")
 public class CuentaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Integer numero_cuenta;
     private Integer saldo;
     private Date fecha_ultima_transaccion;
     private Date fecha_creacion;
-    @Enumerated(EnumType.STRING)
     private TipoCuenta tipo_cuenta;
-    @Enumerated(EnumType.STRING)
     private EstadoCuenta estado_cuenta;
 
     public CuentaEntity(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion,
