@@ -1,15 +1,19 @@
 package com.bancandes.servicios;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bancandes.entities.CuentaEntity;
+import com.bancandes.entities.CuentaEntity.EstadoCuenta;
+import com.bancandes.entities.CuentaEntity.TipoCuenta;
 import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.repository.HaceRepository;
@@ -18,22 +22,34 @@ import com.bancandes.repository.OperacionBancariaRepository;
 @Service
 public class CuentasServicio {
 
+    @Autowired
     private CuentaRepository cuentaRepository;
 
     private OperacionBancariaRepository operacionBancariaRepository;
 
     private HaceRepository haceRepository;
 
-     
 
+    public CuentaEntity insertarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
+        CuentaEntity nuevaCuenta = new CuentaEntity(numeroCuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
+        return cuentaRepository.save(nuevaCuenta);
+    }
+
+    
+    public void actualizarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
+        cuentaRepository.actualizarCuenta(numeroCuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
+    }
+
+     
+    /* 
     public CuentasServicio(CuentaRepository cuentaRepository, OperacionBancariaRepository operacionBancariaRepository, HaceRepository haceRepository) {
         this.cuentaRepository = cuentaRepository;
         this.operacionBancariaRepository = operacionBancariaRepository;
         this.haceRepository = haceRepository;
     }
+    */
 
-
-
+    /* 
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public void consignacionCuentaSerializable(int numero_cuenta, int cantidad_consignacion) {
         try {
@@ -49,9 +65,10 @@ public class CuentasServicio {
             System.out.println(e.getMessage());
         }
     }
+    */
     
 
-
+    /* 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public void consignacionCuentaReadCommited(int numero_cuenta, int cantidad_consignacion) {
         try {
@@ -67,8 +84,9 @@ public class CuentasServicio {
             System.out.println(e.getMessage());
         }
     }
+    */
 
-
+    /* 
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public void retiroCuentaSerializable(int numero_cuenta, int cantidad_consignacion) {
         try {
@@ -84,8 +102,9 @@ public class CuentasServicio {
             System.out.println(e.getMessage());
         }
     }
+    */
 
-
+    /* 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public void retiroCuentaReadCommitted(int numero_cuenta, int cantidad_consignacion) {
         try {
@@ -101,8 +120,9 @@ public class CuentasServicio {
             System.out.println(e.getMessage());
         }
     }
+    */
 
-
+    /* 
     @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public void transferenciaCuentasSerializable(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
         LocalDate fechaActual = LocalDate.now();
@@ -119,8 +139,9 @@ public class CuentasServicio {
             throw new SaldoInsuficienteException("No hay suficiente saldo en la cuenta origen.");
         }
     }
+    */
 
-
+    /* 
     @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public void transferenciaCuentasReadCommitted(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
         LocalDate fechaActual = LocalDate.now();
@@ -137,7 +158,7 @@ public class CuentasServicio {
             throw new SaldoInsuficienteException("No hay suficiente saldo en la cuenta origen.");
         }
     }
-
+    */
     }
 
 

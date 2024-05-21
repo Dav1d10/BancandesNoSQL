@@ -15,7 +15,7 @@ import com.bancandes.entities.GerenteGeneral;
 public interface GerenteGeneralRepository extends MongoRepository<GerenteGeneral,String>{
     
 
-    
+    /* 
     @Query(value = "SELECT * FROM gerente_general",nativeQuery = true)
     Collection<GerenteGeneral> darGerentesGenerales();
 
@@ -43,4 +43,5 @@ public interface GerenteGeneralRepository extends MongoRepository<GerenteGeneral
     @Transactional
     @Query(value = "DELETE FROM gerente_general WHERE num_documento=:num_documento", nativeQuery = true)
     void eliminarGerenteGeneral(@Param("num_documento") String num_documento);
+    */
 }
