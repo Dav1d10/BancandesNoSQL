@@ -1,18 +1,9 @@
 package com.bancandes.repository;
 
-import java.sql.Date;
+
 import java.util.Collection;
-
-
-
-import org.springframework.data.jpa.repository.Modifying;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
-
-
 import com.bancandes.entities.CuentaEntity;
 
 
@@ -30,7 +21,7 @@ public interface CuentaRepository extends MongoRepository<CuentaEntity, Integer>
     @Query(value = "SELECT * FROM cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
     CuentaEntity darCuenta(@Param("numero_cuenta") int numero_cuenta);
     */
-    
+
     @Query("{ 'numero_cuenta': ?0}")
     CuentaEntity darCuenta(int numero_cuenta);
 
