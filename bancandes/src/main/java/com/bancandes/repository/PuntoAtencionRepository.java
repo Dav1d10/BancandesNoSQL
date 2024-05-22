@@ -17,7 +17,7 @@ public interface PuntoAtencionRepository extends MongoRepository<PuntoAtencionEn
     @Query("{ 'id_punto_atencion': ?0}")
     PuntoAtencionEntity darPuntoAtencion(int id_punto_atencion);
 
-    void deleteByIdPuntoAtencion(int id_punto_atencion);
+    //void deleteById_punto_atencion(int id_punto_atencion);
 
     /* 
     @Query(value = "SELECT * FROM PUNTO_DE_ATENCION", nativeQuery = true)

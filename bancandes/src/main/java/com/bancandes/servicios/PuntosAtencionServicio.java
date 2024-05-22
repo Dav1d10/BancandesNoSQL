@@ -18,8 +18,9 @@ public class PuntosAtencionServicio {
         return puntoAtencionRepository.save(nuevaPuntoAtencion);
     }
 
-    public void eliminarPuntoAtencion(int idPuntoAtencion) {
-        puntoAtencionRepository.deleteByIdPuntoAtencion(idPuntoAtencion);
+    /* 
+    public void eliminarPuntoAtencion(int id_punto_atencion) {
+        puntoAtencionRepository.deleteById_punto_atencion(id_punto_atencion);
     }
-    
+    */
 }
