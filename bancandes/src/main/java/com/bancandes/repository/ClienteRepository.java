@@ -2,16 +2,24 @@ package com.bancandes.repository;
 
 import java.util.Collection;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
 import com.bancandes.entities.ClienteEntity;
 
-
 public interface ClienteRepository extends MongoRepository<ClienteEntity, String>{
+
+    @Query("{}")
+    Collection<ClienteEntity> darClientes();
+
+
+    @Query("{ 'num_documento': ?0}")
+    ClienteEntity darCliente(int num_documento);
 
    
     /* 
     @Query(value = "SELECT * FROM cliente",nativeQuery = true)
     Collection<ClienteEntity> darClientes();
-
+    
 
     @Query(value = "SELECT * FROM cliente WHERE num_documento=:num_documento", nativeQuery = true)
     ClienteEntity darCliente(@Param("num_documento")String num_documento);
