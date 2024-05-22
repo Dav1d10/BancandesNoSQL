@@ -13,8 +13,7 @@ public class OficinaEntity {
     private String direccion;
     private Integer puntos_atencion;
 
-    public OficinaEntity(Integer id_oficina, String nombre, String direccion, Integer puntos_atencion,
-            Integer id_gerente_ofi, Integer id_persona) {
+    public OficinaEntity(Integer id_oficina, String nombre, String direccion, Integer puntos_atencion) {
         this.id_oficina = id_oficina;
         this.nombre = nombre;
         this.direccion = direccion;

@@ -12,8 +12,7 @@ public class PuntoAtencionEntity {
     private String localizacion;
     private TipoPuntoAtencion tipo_punto_atencion;
 
-    public PuntoAtencionEntity(Integer id_punto_atencion, String localizacion, TipoPuntoAtencion tipo_punto_atencion,
-            Integer id_op_bancaria) {
+    public PuntoAtencionEntity(Integer id_punto_atencion, String localizacion, TipoPuntoAtencion tipo_punto_atencion) {
         this.id_punto_atencion = id_punto_atencion;
         this.localizacion = localizacion;
         this.tipo_punto_atencion = tipo_punto_atencion;
@@ -42,6 +41,7 @@ public class PuntoAtencionEntity {
         this.tipo_punto_atencion = tipo_punto_atencion;
     }
 
+    
     public enum TipoPuntoAtencion {
         ATENCION_PERSONALIZADA,
         CAJERO_AUTOMATICO,

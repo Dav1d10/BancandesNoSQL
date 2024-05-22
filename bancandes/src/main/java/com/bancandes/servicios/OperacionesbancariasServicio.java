@@ -1,22 +1,29 @@
 package com.bancandes.servicios;
 
 import java.util.Collection;
+import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bancandes.entities.OficinaEntity;
 import com.bancandes.entities.OperacionBancariaEntity;
 import com.bancandes.repository.OperacionBancariaRepository;
 
 @Service
 public class OperacionesbancariasServicio {
 
+    @Autowired
     private OperacionBancariaRepository operacionBancariaRepository;
 
-    public OperacionesbancariasServicio(OperacionBancariaRepository operacionBancariaRepository) {
-        this.operacionBancariaRepository = operacionBancariaRepository;
+    public OperacionBancariaEntity insertarOperacionBancaria(Integer id, int valor, String hora, Date fecha, OperacionBancariaEntity.Producto producto, OperacionBancariaEntity.Tipo tipo) {
+        OperacionBancariaEntity nuevaOperacionBancaria = new OperacionBancariaEntity(id, valor, hora, fecha, producto, tipo);
+        return operacionBancariaRepository.save(nuevaOperacionBancaria);
     }
+
+    
 
     /* 
     @Transactional(isolation = Isolation.SERIALIZABLE, readOnly = true, rollbackFor = Exception.class)

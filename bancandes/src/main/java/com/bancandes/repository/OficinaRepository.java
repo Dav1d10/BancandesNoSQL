@@ -1,13 +1,19 @@
 package com.bancandes.repository;
 
-import java.util.Collection;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import com.bancandes.entities.OficinaEntity;
 
 public interface OficinaRepository extends MongoRepository<OficinaEntity, Integer> {
+
+    @Query("{}")
+    Collection<OficinaEntity> darOficinas();
+
+     @Query("{ 'id_oficina': ?0}")
+    OficinaEntity darOficina(int id_oficina);
 
     /* 
     @Query(value = "SELECT * FROM OFICINA", nativeQuery = true)

@@ -1,12 +1,23 @@
 package com.bancandes.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.bancandes.entities.OficinaEntity;
 import com.bancandes.entities.PuntoAtencionEntity;
 import java.util.Collection;
 
 public interface PuntoAtencionRepository extends MongoRepository<PuntoAtencionEntity, Integer>{
+
+    @Query("{}")
+    Collection<PuntoAtencionEntity> darPuntosAtencion();
+
+    @Query("{ 'id_punto_atencion': ?0}")
+    PuntoAtencionEntity darPuntoAtencion(int id_punto_atencion);
+
+    void deleteByIdPuntoAtencion(int id_punto_atencion);
 
     /* 
     @Query(value = "SELECT * FROM PUNTO_DE_ATENCION", nativeQuery = true)
