@@ -2,14 +2,22 @@ package com.bancandes.repository;
 
 
 import java.util.Collection;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.mongodb.repository.Query;
+
 import com.bancandes.entities.GerenteGeneral;
 
 
 public interface GerenteGeneralRepository extends MongoRepository<GerenteGeneral,String>{
-    
+
+    @Query("{}")
+    Collection<GerenteGeneral> darGerenteGenerales();
+
+
+    @Query("{ 'num_documento': ?0}")
+    GerenteGeneral darGerenteGeneral(int num_documento);
+
 
     /* 
     @Query(value = "SELECT * FROM gerente_general",nativeQuery = true)
