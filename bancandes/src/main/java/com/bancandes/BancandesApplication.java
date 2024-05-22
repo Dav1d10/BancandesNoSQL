@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.bancandes.repository.CuentaRepository;
 
 @SpringBootApplication
-@EnableMongoRepositories(basePackages = "com.bancandes.mongodb.repository")
+@EnableMongoRepositories
 public class BancandesApplication implements CommandLineRunner {
 
 

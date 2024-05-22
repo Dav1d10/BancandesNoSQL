@@ -1,8 +1,6 @@
 package com.bancandes.repository;
 
 import java.util.Collection;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +9,7 @@ import com.bancandes.entities.GerenteOficina;
 
 public interface GerenteOficinaRepository extends MongoRepository<GerenteOficina,String>{
 
+    /* 
     @Query(value = "SELECT * FROM gerente_de_oficina",nativeQuery = true)
     Collection<GerenteOficina> darGerentesOficinas();
 
@@ -38,5 +37,6 @@ public interface GerenteOficinaRepository extends MongoRepository<GerenteOficina
     @Transactional
     @Query(value = "DELETE FROM gerente_de_oficina WHERE num_documento=:num_documento", nativeQuery = true)
     void eliminarGerenteOficina(@Param("num_documento") String num_documento);
+    */
 }
 

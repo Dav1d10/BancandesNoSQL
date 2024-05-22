@@ -16,7 +16,6 @@ import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.entities.CuentaEntity.TipoCuenta;
 import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
-import com.bancandes.repository.HaceRepository;
 import com.bancandes.repository.OperacionBancariaRepository;
 
 @Service
@@ -27,7 +26,7 @@ public class CuentasServicio {
 
     private OperacionBancariaRepository operacionBancariaRepository;
 
-    private HaceRepository haceRepository;
+    //private HaceRepository haceRepository;
 
 
     public CuentaEntity insertarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
@@ -35,7 +34,7 @@ public class CuentasServicio {
         return cuentaRepository.save(nuevaCuenta);
     }
 
-    
+
     public void actualizarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
         cuentaRepository.actualizarCuenta(numeroCuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
     }

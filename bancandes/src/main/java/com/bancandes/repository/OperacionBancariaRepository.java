@@ -3,16 +3,14 @@ package com.bancandes.repository;
 
 import java.sql.Date;
 import java.util.Collection;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.bancandes.entities.OperacionBancariaEntity;
 
 public interface OperacionBancariaRepository extends MongoRepository<OperacionBancariaEntity, Integer> {
-    
+
+    /* 
     @Query(value = "SELECT * FROM OPERACION_BANCARIA", nativeQuery = true)
     Collection<OperacionBancariaEntity> darOperacionesBancarias();
 
@@ -44,4 +42,5 @@ public interface OperacionBancariaRepository extends MongoRepository<OperacionBa
                     "INNER JOIN cuenta c ON h.id_cuenta = c.numero_cuenta\r\n" + //
                     "WHERE c.numero_cuenta = :numero_cuenta AND ob.fecha >= SYSDATE - 30", nativeQuery = true)
     Collection<OperacionBancariaEntity> darOperacionesBancariasPorCuentaEnLosUltimos30Dias(@Param("numero_cuenta") int numero_cuenta);
+    */
 }

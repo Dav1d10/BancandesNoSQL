@@ -1,21 +1,15 @@
 package com.bancandes.repository;
 
 import java.util.Collection;
-
-
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import com.bancandes.entities.CajeroEntity;
 
 
-
-
 public interface CajeroRepository extends MongoRepository<CajeroEntity,String>{
 
-
+    /* 
     @Query(value = "SELECT * FROM cajero",nativeQuery = true)
     Collection<CajeroEntity> darCajeros();
 
@@ -43,5 +37,6 @@ public interface CajeroRepository extends MongoRepository<CajeroEntity,String>{
     @Transactional
     @Query(value = "DELETE FROM cajero WHERE num_documento=:num_documento", nativeQuery = true)
     void eliminarCajero(@Param("num_documento") String num_documento);
+    */
 }
 

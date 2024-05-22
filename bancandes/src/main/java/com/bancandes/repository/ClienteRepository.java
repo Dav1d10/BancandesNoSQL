@@ -1,14 +1,7 @@
 package com.bancandes.repository;
 
 import java.util.Collection;
-
-
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.bancandes.entities.ClienteEntity;
 
 
@@ -24,7 +17,8 @@ public interface ClienteRepository extends MongoRepository<ClienteEntity, String
         Integer getSALDO();
         
     }
-    
+
+    /* 
     @Query(value = "SELECT * FROM cliente",nativeQuery = true)
     Collection<ClienteEntity> darClientes();
 
@@ -80,13 +74,6 @@ public interface ClienteRepository extends MongoRepository<ClienteEntity, String
     "WHERE \r\n" + //
         "c.num_documento = :num_documento", nativeQuery = true)
     Collection<RespuestaInfoCliente> darClientePorNumDoc(@Param("num_documento") String num_documento);
-    
-        
-
-
-
-
-
-
+    */
 }
 

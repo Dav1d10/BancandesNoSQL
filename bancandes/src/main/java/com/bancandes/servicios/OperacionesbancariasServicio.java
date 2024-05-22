@@ -18,6 +18,7 @@ public class OperacionesbancariasServicio {
         this.operacionBancariaRepository = operacionBancariaRepository;
     }
 
+    /* 
     @Transactional(isolation = Isolation.SERIALIZABLE, readOnly = true, rollbackFor = Exception.class)
     public Collection<OperacionBancariaEntity> darOperacionesBancariasPorCuentaEnLosUltimos30Dias(int numero_cuenta) {
         Collection<OperacionBancariaEntity> operacionesBancarias = null;
@@ -41,7 +42,7 @@ public class OperacionesbancariasServicio {
         }
         return operacionesBancarias;
     }
-
+    */
     
     
 }
