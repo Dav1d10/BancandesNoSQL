@@ -31,8 +31,8 @@ public class BancandesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         System.out.println("Bancandes fue inicializada correctamente...");
-        crearCuenta();
-        //mostrarCuentas();
+        //crearCuenta();
+        mostrarCuentas();
     }
 
     void crearCuenta() {
@@ -60,7 +60,21 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
     public void mostrarCuentas() {
-        cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(cuenta));
+        System.out.println("Las cuentas almacenadas en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(obtenerInfoCuentas(cuenta)));
+    }
+
+    public String obtenerInfoCuentas(CuentaEntity cuenta) {
+        System.out.println(
+            "Numero cuenta: " + cuenta.getNumero_cuenta() +
+            ", \nSaldo: " + cuenta.getSaldo() +
+            ", \nFecha de la ultima transaccion: " + cuenta.getFecha_ultima_transaccion() +
+            ", \nFecha de creacion: " + cuenta.getFecha_creacion() +
+            ", \nTipo de cuenta: " + cuenta.getTipo_cuenta() +
+            ", \nEstado de cuenta: " + cuenta.getEstado_cuenta()
+        );
+        return "";
     }
     
 }
