@@ -29,14 +29,15 @@ public class CuentasServicio {
     //private HaceRepository haceRepository;
 
 
-    public CuentaEntity insertarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
-        CuentaEntity nuevaCuenta = new CuentaEntity(numeroCuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
+    public CuentaEntity insertarCuenta(Integer numero_cuenta, Integer saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
+        System.out.println("Insertando cuenta: " + numero_cuenta + ", " + saldo + ", " + fechaUltimaTransaccion + ", " + fechaCreacion + ", " + tipoCuenta + ", " + estadoCuenta);
+        CuentaEntity nuevaCuenta = new CuentaEntity(numero_cuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
         return cuentaRepository.save(nuevaCuenta);
     }
 
 
-    public void actualizarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
-        cuentaRepository.actualizarCuenta(numeroCuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
+    public void actualizarCuenta(int numero_cuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
+        cuentaRepository.actualizarCuenta(numero_cuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
     }
 
      
