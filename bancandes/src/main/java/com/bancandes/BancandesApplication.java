@@ -20,9 +20,8 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         System.out.println("Bancandes fue inicializada correctamente...");
-        throw new UnsupportedOperationException("Unimplemented method 'run'");
     }
     
 }
