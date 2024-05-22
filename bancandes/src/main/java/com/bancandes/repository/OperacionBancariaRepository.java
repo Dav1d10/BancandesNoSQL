@@ -4,11 +4,20 @@ package com.bancandes.repository;
 import java.sql.Date;
 import java.util.Collection;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.bancandes.entities.OficinaEntity;
 import com.bancandes.entities.OperacionBancariaEntity;
 
 public interface OperacionBancariaRepository extends MongoRepository<OperacionBancariaEntity, Integer> {
+
+    @Query("{}")
+    Collection<OperacionBancariaEntity> darOperacionesBancarias();
+
+    @Query("{ 'id': ?0}")
+    OficinaEntity darOperacionBancaria(int id);
 
     /* 
     @Query(value = "SELECT * FROM OPERACION_BANCARIA", nativeQuery = true)
