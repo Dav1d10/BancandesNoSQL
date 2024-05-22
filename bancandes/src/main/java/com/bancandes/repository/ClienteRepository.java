@@ -7,17 +7,7 @@ import com.bancandes.entities.ClienteEntity;
 
 public interface ClienteRepository extends MongoRepository<ClienteEntity, String>{
 
-    public interface RespuestaInfoCliente {
-        String getTIPO_CLIENTE();
-        String getNOMBRE();
-        String getNUMERO_DOC();
-        int getNUM_CUENTA();
-        String getNOMBRE_OFICINA();
-        long getNUM_PRESTAMO();
-        Integer getSALDO();
-        
-    }
-
+   
     /* 
     @Query(value = "SELECT * FROM cliente",nativeQuery = true)
     Collection<ClienteEntity> darClientes();
