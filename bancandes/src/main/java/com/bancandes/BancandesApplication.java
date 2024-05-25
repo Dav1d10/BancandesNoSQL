@@ -112,11 +112,11 @@ public class BancandesApplication implements CommandLineRunner {
 
     void crearPuntosAtencion() {
         System.out.println("Creacion de puntos de atencion empezada...");
-        puntosAtencionServicio.insertarPuntoAtencion(1, "cll1", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntosAtencionServicio.insertarPuntoAtencion(2, "cll2", TipoPuntoAtencion.CAJERO_AUTOMATICO);
-        puntosAtencionServicio.insertarPuntoAtencion(3, "cll3", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntosAtencionServicio.insertarPuntoAtencion(4, "cll4", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntosAtencionServicio.insertarPuntoAtencion(5, "cll5", TipoPuntoAtencion.CAJERO_AUTOMATICO);
+        puntoAtencionServicio.insertarPuntoAtencion(1, "cll1", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntoAtencionServicio.insertarPuntoAtencion(2, "cll2", TipoPuntoAtencion.CAJERO_AUTOMATICO);
+        puntoAtencionServicio.insertarPuntoAtencion(3, "cll3", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntoAtencionServicio.insertarPuntoAtencion(4, "cll4", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntoAtencionServicio.insertarPuntoAtencion(5, "cll5", TipoPuntoAtencion.CAJERO_AUTOMATICO);
         puntosAtencionServicio.insertarPuntoAtencion(6, "cll6", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
         puntosAtencionServicio.insertarPuntoAtencion(7, "cll7", TipoPuntoAtencion.PUNTO_DE_ATENCION_DIGITAL);
         puntosAtencionServicio.insertarPuntoAtencion(8, "cll8", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
