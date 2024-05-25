@@ -61,9 +61,10 @@ public class BancandesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         System.out.println("Bancandes fue inicializada correctamente...");
-        poblacionColecciones();
+        //poblacionColecciones();
         //crearCuenta();
         //mostrarCuentas();
+        borrarPuntoAtencion(10);
     }
 
     void crearCuenta() {
@@ -110,6 +111,11 @@ public class BancandesApplication implements CommandLineRunner {
         puntosAtencionServicio.insertarPuntoAtencion(9, "cll9", TipoPuntoAtencion.PUNTO_DE_ATENCION_DIGITAL);
         puntosAtencionServicio.insertarPuntoAtencion(10, "cll10", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
         System.out.println("Creacion de puntos de atencion completada...");
+    }
+
+    void borrarPuntoAtencion(int id_punto_atencion) {
+        puntosAtencionServicio.eliminarPuntoAtencion(id_punto_atencion);
+        System.out.println("El punto de atencion seleccionado fue eliminado exitosamente...");
     }
 
     void crearOficinas() {

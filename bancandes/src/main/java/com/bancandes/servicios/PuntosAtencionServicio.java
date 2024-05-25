@@ -4,6 +4,8 @@ package com.bancandes.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.bancandes.entities.PuntoAtencionEntity;
 import com.bancandes.repository.PuntoAtencionRepository;
 
@@ -18,9 +20,9 @@ public class PuntosAtencionServicio {
         return puntoAtencionRepository.save(nuevaPuntoAtencion);
     }
 
-    /* 
+    @Transactional
     public void eliminarPuntoAtencion(int id_punto_atencion) {
-        puntoAtencionRepository.deleteById_punto_atencion(id_punto_atencion);
+        puntoAtencionRepository.eliminarPuntoAtencion(id_punto_atencion);
     }
-    */
+    
 }
