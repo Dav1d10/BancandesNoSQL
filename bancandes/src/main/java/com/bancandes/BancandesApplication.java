@@ -47,13 +47,7 @@ public class BancandesApplication implements CommandLineRunner {
 
 
 
-    void insertarCliente() {
-        System.out.println("Creacion de cliente empezada...");
-        ClienteEntity nuevoCliente = new ClienteEntity("1", "1", "1" , "1", "1" ,
-        "1" , "1", "1" ,"1" , TipoDocumento.CC);
-        clienteRepository.save(nuevoCliente);
-        System.out.println("Creacion de cliente completada...");
-    }
+    
     void crearCuenta() {
         System.out.println("Creacion de cuentas empezada...");
         Date fecha = new Date();
@@ -132,6 +126,14 @@ public class BancandesApplication implements CommandLineRunner {
                         "7. Operaciones Bancarias \\n" + //
                         "8. Puntos De Atencion");
     }
+    void insertarCliente(String num_documento, String telefono, String nombre, String nacionalidad, String direccion_fisica, String direccion_electronica, 
+                        String departamento, String codigo_postal, String ciudad, TipoDocumento tipo_documento) {
+        System.out.println("Creacion de cliente empezada...");
+        ClienteEntity nuevoCliente = new ClienteEntity(num_documento, telefono, nombre, nacionalidad, direccion_fisica, direccion_electronica, departamento, 
+                                                    codigo_postal, ciudad, tipo_documento);
+        clienteRepository.save(nuevoCliente);
+        System.out.println("Creacion de cliente completada...");
+    }
 
     void seleccionOpciones() {
         Scanner scanner = new Scanner(System.in);
@@ -183,7 +185,35 @@ public class BancandesApplication implements CommandLineRunner {
                         "3. Dar todos los clientes" );
         int opcion = scanner.nextInt();
         if (opcion == 1){
-            insertarCliente();
+            System.out.println("Ingrese el numero de documento:");
+            String num_documento = scanner.nextLine();
+            System.out.println("Ingrese el telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el nacionalidad: ");
+            String nacionalidad = scanner.nextLine();
+            System.out.println("Ingrese la direccion fisica: ");
+            String direccion_fisica = scanner.nextLine();
+            System.out.println("Ingrese la direccion electronica: ");
+            String direccion_electronica = scanner.nextLine();
+            System.out.println("Ingrese el departamento: ");
+            String departamento = scanner.nextLine();
+            System.out.println("Ingrese el codigo postal: ");
+            String codigo_postal = scanner.nextLine();
+            System.out.println("Ingrese la ciudad: ");
+            String ciudad = scanner.nextLine();
+            System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
+            TipoDocumento tipoDocumento = TipoDocumento.CC;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1){
+                tipoDocumento = TipoDocumento.CC;
+            }
+            else if (opcion2 == 2) {
+                tipoDocumento = TipoDocumento.NIT;
+            }
+            insertarCliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+            direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
         }
                     
     }
