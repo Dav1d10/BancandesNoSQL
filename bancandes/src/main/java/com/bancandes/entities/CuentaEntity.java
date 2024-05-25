@@ -10,14 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CuentaEntity {
 
     @Id
-    private Integer numero_cuenta;
-    private Integer saldo;
+    private int numero_cuenta;
+    private int saldo;
     private Date fecha_ultima_transaccion;
     private Date fecha_creacion;
     private TipoCuenta tipo_cuenta;
     private EstadoCuenta estado_cuenta;
 
-    public CuentaEntity(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion,
+    public CuentaEntity(int numero_cuenta, int saldo, Date fecha_ultima_transaccion, Date fecha_creacion,
     TipoCuenta tipo_cuenta, EstadoCuenta estado_cuenta) {
         this.numero_cuenta = numero_cuenta;
         this.saldo = saldo;
@@ -30,19 +30,20 @@ public class CuentaEntity {
     public CuentaEntity()
     {;}
 
-    public Integer getNumero_cuenta() {
+
+    public int getNumero_cuenta() {
         return numero_cuenta;
     }
 
-    public void setNumero_cuenta(Integer numero_cuenta) {
+    public void setNumero_cuenta(int numero_cuenta) {
         this.numero_cuenta = numero_cuenta;
     }
 
-    public Integer getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Integer saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 
@@ -77,6 +78,8 @@ public class CuentaEntity {
     public void setEstado_cuenta(EstadoCuenta estado_cuenta) {
         this.estado_cuenta = estado_cuenta;
     }
+
+
 
     public enum EstadoCuenta {
         ACTIVA,

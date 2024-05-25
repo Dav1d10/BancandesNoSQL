@@ -2,6 +2,8 @@ package com.bancandes.repository;
 
 
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import com.bancandes.entities.CuentaEntity;
@@ -9,21 +11,23 @@ import com.bancandes.entities.CuentaEntity;
 
 public interface CuentaRepository extends MongoRepository<CuentaEntity, Integer>, CuentaRepositoryCustom {
 
+    
+
+    @Query("{}")
+    List<CuentaEntity> darCuentas();
+
+    @Query("{ 'numero_cuenta': ?0}")
+    CuentaEntity darCuenta(int numero_cuenta);
+
     /* 
     @Query(value = "SELECT * FROM cuenta", nativeQuery = true)
     Collection<CuentaEntity> darCuentas();
     */
 
-    @Query("{}")
-    Collection<CuentaEntity> darCuentas();
-
     /* 
     @Query(value = "SELECT * FROM cuenta WHERE numero_cuenta=:numero_cuenta", nativeQuery = true)
     CuentaEntity darCuenta(@Param("numero_cuenta") int numero_cuenta);
     */
-
-    @Query("{ 'numero_cuenta': ?0}")
-    CuentaEntity darCuenta(int numero_cuenta);
 
     /* 
     @Modifying
