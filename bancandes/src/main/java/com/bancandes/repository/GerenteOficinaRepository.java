@@ -11,7 +11,7 @@ import com.bancandes.entities.GerenteOficina;
 public interface GerenteOficinaRepository extends MongoRepository<GerenteOficina,String>{
 
     @Query("{}")
-    Collection<GerenteOficina> darGerenteGenerales();
+    Collection<GerenteOficina> darGerentesOficinas();
 
 
     @Query("{ 'num_documento': ?0}")
