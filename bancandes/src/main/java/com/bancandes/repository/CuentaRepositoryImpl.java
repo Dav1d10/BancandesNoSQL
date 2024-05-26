@@ -30,5 +30,12 @@ public class CuentaRepositoryImpl implements CuentaRepositoryCustom {
                 .set("estado_cuenta", estadoCuenta);
         mongoTemplate.updateFirst(query, update, CuentaEntity.class);
     }
+
+    public void actualizarEstadoCuenta(int numeroCuenta, EstadoCuenta nuevoEstado) {
+        Query query = new Query(Criteria.where("numero_cuenta").is(numeroCuenta));
+        Update update = new Update()
+                .set("estado_cuenta", nuevoEstado); 
+        mongoTemplate.updateFirst(query, update, CuentaEntity.class);
+    }
     
 }
