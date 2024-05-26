@@ -14,13 +14,27 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.bancandes.entities.CajeroEntity;
 import com.bancandes.entities.ClienteEntity;
 import com.bancandes.entities.PersonaEntity.TipoDocumento;
+<<<<<<< HEAD
 
+=======
+import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
+>>>>>>> main
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.entities.GerenteGeneral;
 import com.bancandes.entities.GerenteOficina;
 import com.bancandes.entities.OficinaEntity;
+<<<<<<< HEAD
 import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.entities.CuentaEntity.TipoCuenta;
+=======
+import com.bancandes.entities.PuntoAtencionEntity;
+import com.bancandes.entities.OperacionBancariaEntity.Producto;
+import com.bancandes.entities.OperacionBancariaEntity.Tipo;
+import com.bancandes.entities.CuentaEntity.EstadoCuenta;
+import com.bancandes.entities.CuentaEntity.TipoCuenta;
+
+
+>>>>>>> main
 import com.bancandes.repository.CajeroRepository;
 import com.bancandes.repository.ClienteRepository;
 import com.bancandes.repository.CuentaRepository;
@@ -35,6 +49,9 @@ import com.bancandes.servicios.OperacionesbancariasServicio;
 import java.util.Date;
 
 
+import java.util.Date;
+
+
 @SpringBootApplication
 @EnableMongoRepositories
 public class BancandesApplication implements CommandLineRunner {
@@ -44,6 +61,25 @@ public class BancandesApplication implements CommandLineRunner {
 
     @Autowired
     CuentasServicio cuentasServicio;
+
+    @Autowired
+<<<<<<< HEAD
+    ClienteRepository clienteRepository;
+
+    @Autowired
+    CajeroRepository cajeroRepository;
+
+    @Autowired
+    GerenteGeneralRepository gerenteGeneralRepository;
+
+    @Autowired
+    PuntoAtencionRepository puntoAtencionRepository;
+=======
+    PuntosAtencionServicio puntosAtencionServicio;
+>>>>>>> main
+
+    @Autowired
+    OficinasServicio oficinasServicio;
 
     @Autowired
     ClienteRepository clienteRepository;
@@ -162,11 +198,7 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Creacion de cuentas completada...");
     }
 
-    public void mostrarCuentas() {
-        System.out.println("Las cuentas almacenadas en la base de datos son las siguientes -> ");
-        System.out.println("----------------------------------------------------------------");
-        cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(obtenerInfoCuentas(cuenta)));
-    }
+    
 
     public void mostrarOficinas() {
         System.out.println("Las oficinas almacenadas en la base de datos son las siguientes -> ");
@@ -188,17 +220,6 @@ public class BancandesApplication implements CommandLineRunner {
 
     
 
-    public String obtenerInfoCuentas(CuentaEntity cuenta) {
-        System.out.println(
-            "Numero cuenta: " + cuenta.getNumero_cuenta() +
-            ", \nSaldo: " + cuenta.getSaldo() +
-            ", \nFecha de la ultima transaccion: " + cuenta.getFecha_ultima_transaccion() +
-            ", \nFecha de creacion: " + cuenta.getFecha_creacion() +
-            ", \nTipo de cuenta: " + cuenta.getTipo_cuenta() +
-            ", \nEstado de cuenta: " + cuenta.getEstado_cuenta()
-        );
-        return "";
-    }
 
     public String obtenerInfoOficinas(OficinaEntity oficina) {
         System.out.println(
@@ -231,6 +252,7 @@ public class BancandesApplication implements CommandLineRunner {
         return "";
     }
 
+<<<<<<< HEAD
     void crearCuentas() {
         System.out.println("Creacion de cuentas empezada...");
         Date fecha = new Date();
@@ -249,6 +271,11 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
     
+=======
+    
+
+    
+>>>>>>> main
     
 
     void mostrarOpciones() {
@@ -495,8 +522,13 @@ public class BancandesApplication implements CommandLineRunner {
     private void mostrarGerenteGeneral() {
         System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
         System.out.println("----------------------------------------------------------------");
+<<<<<<< HEAD
         gerenteOficinaRepository.darGerentesOficinas()
                 .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteOficina(gerenteOficina)));
+=======
+        gerenteGeneralRepository.darGerenteGenerales()
+                .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteGeneral(gerenteOficina)));
+>>>>>>> main
     }
 
     void opcionesGerenteGeneral(Scanner scanner) {
