@@ -683,6 +683,27 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
 
+    void actualizarEstadoCuenta(int numero_cuenta, EstadoCuenta nuevoEstado) {
+        CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
+        if (nuevoEstado == EstadoCuenta.CERRADA) {
+            if(cuentaActual.getSaldo() != 0) {
+                throw new IllegalStateException("El saldo debe estar en cero para cerrar la cuenta");
+            }
+            if (cuentaActual.getEstado_cuenta() != EstadoCuenta.ACTIVA) {
+                throw new IllegalStateException("La cuenta debe estar activa para ser cerrada");
+            }
+        }
+        if (nuevoEstado == EstadoCuenta.DESACTIVADA) {
+            if (cuentaActual.getEstado_cuenta() != EstadoCuenta.ACTIVA) {
+                throw new IllegalStateException("La cuenta debe estar activa para ser desactivada");
+            }
+        }
+        System.out.println("Actualizando el estado de la cuenta con id: " + numero_cuenta);
+        cuentasServicio.actualizarEstadoCuenta(numero_cuenta, nuevoEstado);
+        System.out.println("Estado actualizado exitosamente");
+    }
+
+
     void opcionesCuenta(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Cuenta");
         System.out.println("\nEliga una opcion: " + 
@@ -691,7 +712,8 @@ public class BancandesApplication implements CommandLineRunner {
                 "\n3. Dar todas las cuentas" +
                 "\n4. Realizar Consignacion" +
                 "\n5. Realizar Retiro" +
-                "\n6. Realizar Transferencia");
+                "\n6. Realizar Transferencia" +
+                "\n7. Cambiar Estado de la Cuenta");
         int opcion = scanner.nextInt();
         scanner.nextLine();
         if (opcion == 1) {
@@ -770,6 +792,20 @@ public class BancandesApplication implements CommandLineRunner {
             System.out.println("Ingrese la cantidad de transferencia: ");
             int cantidad_transferencia = scanner.nextInt();
             transferenciaCuentas(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+        } else if (opcion == 7) {
+            System.out.println("Ingrese el numero de la cuenta a la que desea actualizar el estado: ");
+            int numero_cuenta = scanner.nextInt();
+            System.out.println("Ingrese el estado que desea, 1 si es ACTIVA, 2 si es CERRADA, 3 is es DESACTIVADA");
+            EstadoCuenta estadoCuenta = EstadoCuenta.ACTIVA;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                estadoCuenta = EstadoCuenta.ACTIVA;
+            } else if (opcion2 == 2) {
+                estadoCuenta = EstadoCuenta.CERRADA;
+            } else if (opcion2 == 3) {
+                estadoCuenta = EstadoCuenta.DESACTIVADA;
+            }
+            actualizarEstadoCuenta(numero_cuenta, estadoCuenta);
         }
         else {
             System.out.println("NO EXISTE ESA OPCION!");
