@@ -13,7 +13,7 @@ public interface ClienteRepository extends MongoRepository<ClienteEntity, String
 
 
     @Query("{ 'num_documento': ?0}")
-    ClienteEntity darCliente(int num_documento);
+    ClienteEntity darCliente(String num_documento);
 
    
     /* 

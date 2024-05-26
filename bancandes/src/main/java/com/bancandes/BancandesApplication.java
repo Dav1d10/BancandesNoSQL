@@ -96,7 +96,8 @@ public class BancandesApplication implements CommandLineRunner {
         //poblacionColecciones();
         //crearCuenta();
         //mostrarCuentas();
-        borrarPuntoAtencion(10);
+        mostrarOpciones();
+        seleccionOpciones();
     }
 
     void crearCuenta() {
@@ -246,16 +247,16 @@ public class BancandesApplication implements CommandLineRunner {
     
 
     void mostrarOpciones() {
-        System.out.println("Bienvenido a Bancandes \\n" + //
-                "Seleccione una de las siguientes opciones: \\n" + //
-                "1. Cajeros: \\n" + //
-                "2. Clientes \\n" + //
-                "3. Cuentas: \\n" + //
-                "4. Gerentes Generales \\n" + //
-                "5. Gerentes Oficinas \\n" + //
-                "6. Oficinas \\n" + //
-                "7. Operaciones Bancarias \\n" + //
-                "8. Puntos De Atencion");
+        System.out.println("Bienvenido a Bancandes " + 
+                "\n Seleccione una de las siguientes opciones: " + 
+                "\n1. Cajeros: " + 
+                "\n2. Clientes " +
+                "\n3. Cuentas: " + 
+                "\n4. Gerentes Generales: " + 
+                "\n5. Gerentes Oficinas: " + 
+                "\n6. Oficinas:" + 
+                "\n7. Operaciones Bancarias: " + 
+                "\n8. Puntos De Atencion");
     }
 
     void seleccionOpciones() {
@@ -328,17 +329,18 @@ public class BancandesApplication implements CommandLineRunner {
                         ", \nDireccion fisica: " + cliente.getDireccion_fisica() +
                         ", \nNacionalidad: " + cliente.getNacionalidad() +
                         ", \nTelefono: " + cliente.getTelefono() +
-                        ", \nDepartamento: " + cliente.getTipo_documento().toString());
+                        ", \nTipo Documento: " + cliente.getTipo_documento());
         return "";
     }
 
     void opcionesClientes(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Clientes");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un cliente \\n" + //
-                "2. Dar un cliente por su numero de documento \\n" + //
-                "3. Dar todos los clientes");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar un cliente " + 
+                "\n2. Dar un cliente por su numero de documento " + 
+                "\n3. Dar todos los clientes");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el numero de documento:");
             String num_documento = scanner.nextLine();
@@ -370,7 +372,7 @@ public class BancandesApplication implements CommandLineRunner {
                     direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero de documento:");
-            int num_documento = scanner.nextInt();
+            String num_documento = scanner.nextLine();
             ClienteEntity cliente = clienteRepository.darCliente(num_documento);
             obtenerInfoClientes(cliente);
         } else if (opcion == 3) {
@@ -402,7 +404,7 @@ public class BancandesApplication implements CommandLineRunner {
                         ", \nDireccion fisica: " + cajero.getDireccion_fisica() +
                         ", \nNacionalidad: " + cajero.getNacionalidad() +
                         ", \nTelefono: " + cajero.getTelefono() +
-                        ", \nDepartamento: " + cajero.getTipo_documento().toString());
+                        ", \nTipo Documento:" + cajero.getTipo_documento());
         return "";
     }
 
@@ -414,11 +416,12 @@ public class BancandesApplication implements CommandLineRunner {
 
     void opcionesCajeros(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Cajeros");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un cajero \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los cajeros");
+        System.out.println("Eliga una opcion: " + 
+                "\n1. Agregar un cajero " + 
+                "\n2. Dar un cajero por su numero de documento " + 
+                "\n3. Dar todos los cajeros");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el numero de documento:");
             String num_documento = scanner.nextLine();
@@ -426,7 +429,7 @@ public class BancandesApplication implements CommandLineRunner {
             String telefono = scanner.nextLine();
             System.out.println("Ingrese el nombre: ");
             String nombre = scanner.nextLine();
-            System.out.println("Ingrese el nacionalidad: ");
+            System.out.println("Ingrese la nacionalidad: ");
             String nacionalidad = scanner.nextLine();
             System.out.println("Ingrese la direccion fisica: ");
             String direccion_fisica = scanner.nextLine();
@@ -441,6 +444,7 @@ public class BancandesApplication implements CommandLineRunner {
             System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
             TipoDocumento tipoDocumento = TipoDocumento.CC;
             int opcion2 = scanner.nextInt();
+            scanner.nextLine();
             if (opcion2 == 1) {
                 tipoDocumento = TipoDocumento.CC;
             } else if (opcion2 == 2) {
@@ -450,7 +454,7 @@ public class BancandesApplication implements CommandLineRunner {
                     direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero de documento:");
-            int num_documento = scanner.nextInt();
+            String num_documento = scanner.nextLine();
             CajeroEntity cajero = cajeroRepository.darCajero(num_documento);
             obtenerInfoCajeros(cajero);
         } else if (opcion == 3) {
@@ -482,12 +486,12 @@ public class BancandesApplication implements CommandLineRunner {
                         ", \nDireccion fisica: " + general.getDireccion_fisica() +
                         ", \nNacionalidad: " + general.getNacionalidad() +
                         ", \nTelefono: " + general.getTelefono() +
-                        ", \nDepartamento: " + general.getTipo_documento().toString());
+                        ", \nTipo Documento: " + general.getTipo_documento());
         return "";
     }
 
     private void mostrarGerenteGeneral() {
-        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("Los gerentes generales almacenados en la base de datos son las siguientes -> ");
         System.out.println("----------------------------------------------------------------");
         gerenteGeneralRepository.darGerenteGenerales()
                 .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteGeneral(gerenteOficina)));
@@ -495,11 +499,12 @@ public class BancandesApplication implements CommandLineRunner {
 
     void opcionesGerenteGeneral(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Gerente General");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un gerente \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los gerentes");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar un gerente " + 
+                "\n2. Dar un cajero por su numero de documento " + 
+                "\n3. Dar todos los gerentes");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el numero de documento:");
             String num_documento = scanner.nextLine();
@@ -531,7 +536,7 @@ public class BancandesApplication implements CommandLineRunner {
                     direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero de documento:");
-            int num_documento = scanner.nextInt();
+            String num_documento = scanner.nextLine();
             GerenteGeneral general = gerenteGeneralRepository.darGerenteGeneral(num_documento);
             obtenerInfoGerenteGeneral(general);
         } else if (opcion == 3) {
@@ -564,24 +569,25 @@ public class BancandesApplication implements CommandLineRunner {
                         ", \nDireccion fisica: " + oficina.getDireccion_fisica() +
                         ", \nNacionalidad: " + oficina.getNacionalidad() +
                         ", \nTelefono: " + oficina.getTelefono() +
-                        ", \nDepartamento: " + oficina.getTipo_documento().toString());
+                        ", \nTipo Documento: " + oficina.getTipo_documento());
         return "";
     }
 
     private void mostrarGerenteOficina() {
-        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("Los gerentes almacenados en la base de datos son las siguientes -> ");
         System.out.println("----------------------------------------------------------------");
-        gerenteGeneralRepository.darGerenteGenerales()
-                .forEach(gerenteGeneral -> System.out.println(obtenerInfoGerenteGeneral(gerenteGeneral)));
+        gerenteOficinaRepository.darGerentesOficinas()
+                .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteOficina(gerenteOficina)));
     }
 
     void opcionesGerenteOficina(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Gerente Oficina");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un gerente \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los gerentes");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar un gerente " + 
+                "\n2. Dar un cajero por su numero de documento " + 
+                "\n3. Dar todos los gerentes");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el numero de documento:");
             String num_documento = scanner.nextLine();
@@ -613,7 +619,7 @@ public class BancandesApplication implements CommandLineRunner {
                     direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero de documento:");
-            int num_documento = scanner.nextInt();
+            String num_documento = scanner.nextLine();
             GerenteOficina oficina = gerenteOficinaRepository.darGerenteOficina(num_documento);
             obtenerInfoGerenteOficina(oficina);
         } else if (opcion == 3) {
@@ -653,16 +659,19 @@ public class BancandesApplication implements CommandLineRunner {
 
     void opcionesCuenta(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Cuenta");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar una cuenta \\n" + //
-                "2. Dar una cuenta por su numero \\n" + //
-                "3. Dar todas las cuentas");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar una cuenta " + 
+                "\n2. Dar una cuenta por su numero " + 
+                "\n3. Dar todas las cuentas");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el numero de cuenta:");
             Integer num_cuenta = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Ingrese el saldo: ");
             Integer saldo = scanner.nextInt();
+            scanner.nextLine();
             System.out.print("Ingrese la fecha de creacion en formato: (dd/MM/yyyy): ");
             String fechaString = scanner.nextLine();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -723,7 +732,7 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Creacion de Oficina empezada...");
         OficinaEntity nuevaOficina = new OficinaEntity(id_oficina, nombre, direccion, puntos_atencion);
         oficinaRepository.save(nuevaOficina);
-        System.out.println("Creacion de Gerente completada...");
+        System.out.println("Creacion de Oficina completada...");
     }
 
     private String obtenerInfoOficina(OficinaEntity oficina) {
@@ -736,33 +745,37 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
     private void mostrarOficina() {
-        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("Las oficinas almacenadas en la base de datos son las siguientes -> ");
         System.out.println("----------------------------------------------------------------");
         oficinaRepository.darOficinas()
                 .forEach(oficina -> System.out.println(obtenerInfoOficina(oficina)));
     }
 
     void opcionesOficina(Scanner scanner) {
-        System.out.println("Usted ha seleccionado: Gerente Oficina");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un gerente \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los gerentes");
+        System.out.println("Usted ha seleccionado: Oficina");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar una oficina " +
+                "\n2. Dar un cajero por su numero de documento " + 
+                "\n3. Dar todas las oficinas");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el ID:");
             Integer num_cuenta = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Ingrese el nombre: ");
             String nombre = scanner.nextLine();
             System.out.println("Ingrese la direccion: ");
             String direccion = scanner.nextLine();
             System.out.println("Ingrese la cantidad de puntos de atencion: ");
             Integer puntos_atencion = scanner.nextInt();
+            scanner.nextLine();
             
             insertarOficina(num_cuenta, nombre, direccion, puntos_atencion);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero ID:");
             int id_oficina = scanner.nextInt();
+            scanner.nextLine();
             OficinaEntity oficina = oficinaRepository.darOficina(id_oficina);
             obtenerInfoOficina(oficina);
         } else if (opcion == 3) {
@@ -784,47 +797,44 @@ public class BancandesApplication implements CommandLineRunner {
 
     void opcionesOperacionBancaria(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Operacion Bancaria");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un gerente \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los gerentes");
+        System.out.println("\nEliga una opcion: " + 
+                "\n1. Agregar una Operacion Bancaria " + 
+                "\n2. Dar una operacion Bancaria por su numero de documento " + 
+                "\n3. Dar todas las operaciones Bancarias");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el ID:");
             int id_operacion = scanner.nextInt();
-            System.out.println("Ingrese el nombre: ");
+            scanner.nextLine();
+            System.out.println("Ingrese el valor: ");
             int valor = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Ingrese la hora: ");
             String hora = scanner.nextLine();
 
-            System.out.println("Ingrese 1 si es CUENTA o 2 si es CDT o 3 si es PRESTAMO, si pone algo diferente la opcion por defecto es CUENTA");
+            System.out.println("Ingrese 1 si es CUENTA o 2 si es CDT , si pone algo diferente la opcion por defecto es CUENTA");
             Producto producto = Producto.CUENTA;
             int opcion3 = scanner.nextInt();
+            scanner.nextLine();
             if (opcion3 == 1) {
                 producto = Producto.CUENTA;
             } else if (opcion3 == 2) {
                 producto = Producto.CDT;
-            } else if (opcion3 == 3) {
-                producto = Producto.PRESTAMO;
             }
 
 
 
-            System.out.println("Ingrese 1 si es CONSIGNACION o 2 si es RETIRO o 3 si es PEDIR PRESTAMO o 4 si es PAGAR PRESTAMO o 5 si es CERRAR PRESTAMO o 6 si es transferencia,si pone algo diferente la opcion por defecto es CONSIGNACION");
+            System.out.println("Ingrese 1 si es CONSIGNACION o 2 si es RETIRO o 3 si es transferencia,si pone algo diferente la opcion por defecto es CONSIGNACION");
             Tipo tipo = Tipo.CONSIGNACION;
             int opcion4 = scanner.nextInt();
+            scanner.nextLine();
             if (opcion4 == 1) {
                 tipo = Tipo.CONSIGNACION;
             } else if (opcion4 == 2) {
                 tipo = Tipo.RETIRO;
             } else if (opcion4 == 3) {
-                tipo = Tipo.PEDIR_PRESTAMO;
-            } else if (opcion4 == 4) {
-                tipo = Tipo.PAGAR_PRESTAMO;
-            } else if (opcion4 == 5) {
-                tipo = Tipo.CERRAR_PRESTAMO;
-            } else if (opcion4 == 6) {
-                tipo = Tipo.RETIRO;
+                tipo = Tipo.TRANSFERENCIA;
             
             }
 
@@ -843,6 +853,7 @@ public class BancandesApplication implements CommandLineRunner {
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero ID:");
             int id_operacion = scanner.nextInt();
+            scanner.nextLine();
             OperacionBancariaEntity operacion = operacionBancariaRepository.darOperacionBancaria(id_operacion);
             obtenerInfoOperacionesBancarias(operacion);
         } else if (opcion == 3) {
@@ -856,27 +867,30 @@ public class BancandesApplication implements CommandLineRunner {
 
 
     void insertarPuntoAtencion(int id_punto_atencion, String localizacion, TipoPuntoAtencion tipo) {
-        System.out.println("Creacion de Oficina empezada...");
+        System.out.println("Creacion de Punto de Atencion empezada...");
         PuntoAtencionEntity nuevoPunto = new PuntoAtencionEntity(id_punto_atencion, localizacion, tipo);
         puntoAtencionRepository.save(nuevoPunto);
-        System.out.println("Creacion de Gerente completada...");
+        System.out.println("Creacion de Punto de Atencion completada...");
     }
 
     void opcionesPuntoAtencion(Scanner scanner) {
-        System.out.println("Usted ha seleccionado: Operacion Bancaria");
-        System.out.println("Eliga una opcion: \n" + //
-                "1. Agregar un gerente \\n" + //
-                "2. Dar un cajero por su numero de documento \\n" + //
-                "3. Dar todos los gerentes");
+        System.out.println("Usted ha seleccionado: Punto de Atencion");
+        System.out.println("\nEliga una opcion: " + //
+                "\n1. Agregar un Punto de Atencion " + //
+                "\n2. Dar un Punto de Atencion por su ID" + //
+                "\n3. Dar todos los Puntos de Atencion");
         int opcion = scanner.nextInt();
+        scanner.nextLine();
         if (opcion == 1) {
             System.out.println("Ingrese el ID:");
             int id_punto_atencion = scanner.nextInt();
-            System.out.println("Ingrese la hora: ");
+            scanner.nextLine();
+            System.out.println("Ingrese la localizacion: ");
             String localizacion = scanner.nextLine();
             System.out.println("Ingrese 1 si es ATENCION PERSONALIZADA o 2 si es CAJERO AUTOMATICO o 3 si es ATENCION DIGITAL, si pone algo diferente la opcion por defecto es ATENCION PERSONALIZADA");
             TipoPuntoAtencion tipo = TipoPuntoAtencion.ATENCION_PERSONALIZADA;
             int opcion4 = scanner.nextInt();
+            scanner.nextLine();
             if (opcion4 == 1) {
                 tipo = TipoPuntoAtencion.ATENCION_PERSONALIZADA;
             } else if (opcion4 == 2) {
@@ -889,6 +903,7 @@ public class BancandesApplication implements CommandLineRunner {
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero ID:");
             int id_punto_atencion = scanner.nextInt();
+            scanner.nextLine();
             PuntoAtencionEntity punto = puntoAtencionRepository.darPuntoAtencion(id_punto_atencion);
             obtenerInfoPuntosAtencion(punto);
         } else if (opcion == 3) {

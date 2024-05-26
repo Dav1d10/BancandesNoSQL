@@ -14,7 +14,7 @@ public interface CajeroRepository extends MongoRepository<CajeroEntity,String>{
 
 
     @Query("{ 'num_documento': ?0}")
-    CajeroEntity darCajero(int num_documento);
+    CajeroEntity darCajero(String num_documento);
     /* 
     @Query(value = "SELECT * FROM cajero",nativeQuery = true)
     Collection<CajeroEntity> darCajeros();

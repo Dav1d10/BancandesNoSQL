@@ -16,7 +16,7 @@ public interface GerenteGeneralRepository extends MongoRepository<GerenteGeneral
 
 
     @Query("{ 'num_documento': ?0}")
-    GerenteGeneral darGerenteGeneral(int num_documento);
+    GerenteGeneral darGerenteGeneral(String num_documento);
 
 
     /* 
