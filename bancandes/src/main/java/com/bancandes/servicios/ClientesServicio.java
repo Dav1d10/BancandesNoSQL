@@ -4,7 +4,7 @@ package com.bancandes.servicios;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bancandes.entities.ClienteEntity;
-import com.bancandes.entities.ClienteEntity.TipoDocumento;
+import com.bancandes.entities.PersonaEntity.TipoDocumento;
 import com.bancandes.repository.ClienteRepository;
 
 

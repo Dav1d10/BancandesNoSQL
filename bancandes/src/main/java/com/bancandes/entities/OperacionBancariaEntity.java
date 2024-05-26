@@ -1,4 +1,4 @@
-package com.bancandes.entities;
+    package com.bancandes.entities;
 
 import java.util.Date;
 import org.springframework.data.annotation.Id;

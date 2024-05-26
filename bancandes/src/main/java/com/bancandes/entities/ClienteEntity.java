@@ -2,6 +2,8 @@ package com.bancandes.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import com.bancandes.entities.PersonaEntity.TipoDocumento;
+
 
 
 
@@ -167,7 +169,16 @@ public class ClienteEntity {
 
 
 
-    
+    public TipoDocumento getTipo_documento() {
+        return tipo_documento;
+    }
+
+
+
+
+    public void setTipo_documento(TipoDocumento tipo_documento) {
+        this.tipo_documento = tipo_documento;
+    }
 
 
 
