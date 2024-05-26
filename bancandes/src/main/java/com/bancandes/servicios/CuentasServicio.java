@@ -49,6 +49,11 @@ public class CuentasServicio {
     }
 
 
+    public void actualizarEstadoCuenta(int numero_cuenta, EstadoCuenta nuevoEstado) {
+        cuentaRepository.actualizarEstadoCuenta(numero_cuenta, nuevoEstado);
+    }
+
+
     @Transactional
     public void consignacionCuenta(int numero_cuenta, int cantidad_consignacion) {
         int id = random.nextInt(Integer.MAX_VALUE);
