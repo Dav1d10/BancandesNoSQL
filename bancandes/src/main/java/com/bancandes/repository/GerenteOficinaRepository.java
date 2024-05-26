@@ -15,7 +15,7 @@ public interface GerenteOficinaRepository extends MongoRepository<GerenteOficina
 
 
     @Query("{ 'num_documento': ?0}")
-    GerenteOficina darGerenteOficina(int num_documento);
+    GerenteOficina darGerenteOficina(String num_documento);
     /* 
     @Query(value = "SELECT * FROM gerente_de_oficina",nativeQuery = true)
     Collection<GerenteOficina> darGerentesOficinas();
