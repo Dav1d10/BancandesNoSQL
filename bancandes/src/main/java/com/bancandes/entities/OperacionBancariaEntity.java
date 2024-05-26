@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class OperacionBancariaEntity {
 
     @Id
-    private Integer id;
+    private int id;
     private int valor;
     private String hora;
     private Date fecha;
@@ -18,7 +18,7 @@ public class OperacionBancariaEntity {
 
     
     
-    public OperacionBancariaEntity(Integer id, int valor, String hora, Date fecha, Producto producto, Tipo tipo) {
+    public OperacionBancariaEntity(int id, int valor, String hora, Date fecha, Producto producto, Tipo tipo) {
         this.id = id;
         this.valor = valor;
         this.hora = hora;

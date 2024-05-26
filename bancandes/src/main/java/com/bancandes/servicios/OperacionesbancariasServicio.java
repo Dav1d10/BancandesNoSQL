@@ -18,7 +18,7 @@ public class OperacionesbancariasServicio {
     @Autowired
     private OperacionBancariaRepository operacionBancariaRepository;
 
-    public OperacionBancariaEntity insertarOperacionBancaria(Integer id, int valor, String hora, Date fecha, OperacionBancariaEntity.Producto producto, OperacionBancariaEntity.Tipo tipo) {
+    public OperacionBancariaEntity insertarOperacionBancaria(int id, int valor, String hora, Date fecha, OperacionBancariaEntity.Producto producto, OperacionBancariaEntity.Tipo tipo) {
         OperacionBancariaEntity nuevaOperacionBancaria = new OperacionBancariaEntity(id, valor, hora, fecha, producto, tipo);
         return operacionBancariaRepository.save(nuevaOperacionBancaria);
     }

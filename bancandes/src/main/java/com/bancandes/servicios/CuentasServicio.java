@@ -2,9 +2,12 @@ package com.bancandes.servicios;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.entities.CuentaEntity.TipoCuenta;
+import com.bancandes.entities.OperacionBancariaEntity.Producto;
+import com.bancandes.entities.OperacionBancariaEntity.Tipo;
 import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.repository.OperacionBancariaRepository;
@@ -24,7 +29,10 @@ public class CuentasServicio {
     @Autowired
     private CuentaRepository cuentaRepository;
 
-    private OperacionBancariaRepository operacionBancariaRepository;
+    @Autowired
+    private OperacionesbancariasServicio operacionesbancariasServicio;
+
+    private Random random = new Random();
 
     //private HaceRepository haceRepository;
 
@@ -36,8 +44,54 @@ public class CuentasServicio {
     }
 
 
-    public void actualizarCuenta(int numero_cuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
+    public void actualizarCuenta(int numero_cuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
         cuentaRepository.actualizarCuenta(numero_cuenta, saldo, fechaUltimaTransaccion, fechaCreacion, tipoCuenta, estadoCuenta);
+    }
+
+
+    @Transactional
+    public void consignacionCuenta(int numero_cuenta, int cantidad_consignacion) {
+        int id = random.nextInt(Integer.MAX_VALUE);
+        LocalDate fechaActual = LocalDate.now();
+        LocalTime horaActual = LocalTime.now();
+        LocalDateTime fechaHoraActual = LocalDateTime.of(fechaActual, horaActual);
+        Date fecha = Date.from(fechaHoraActual.atZone(ZoneId.systemDefault()).toInstant());
+        CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
+        cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() + cantidad_consignacion, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta(), cuentaActual.getEstado_cuenta());
+        operacionesbancariasServicio.insertarOperacionBancaria(id, cantidad_consignacion, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fecha, Producto.CUENTA, Tipo.CONSIGNACION);
+    }
+
+
+    @Transactional
+    public void retiroCuenta(int numero_cuenta, int cantidad_retiro) {
+        int id = random.nextInt(Integer.MAX_VALUE);
+        LocalDate fechaActual = LocalDate.now();
+        LocalTime horaActual = LocalTime.now();
+        LocalDateTime fechaHoraActual = LocalDateTime.of(fechaActual, horaActual);
+        Date fecha = Date.from(fechaHoraActual.atZone(ZoneId.systemDefault()).toInstant());
+        CuentaEntity cuentaActual = cuentaRepository.darCuenta(numero_cuenta);
+        cuentaRepository.actualizarCuenta(numero_cuenta, cuentaActual.getSaldo() - cantidad_retiro, cuentaActual.getFecha_ultima_transaccion(), cuentaActual.getFecha_creacion(), cuentaActual.getTipo_cuenta(), cuentaActual.getEstado_cuenta());
+        operacionesbancariasServicio.insertarOperacionBancaria(id, cantidad_retiro, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fecha, Producto.CUENTA, Tipo.RETIRO);
+    }
+
+
+    @Transactional
+    public void transferenciaCuentas(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
+        int id = random.nextInt(Integer.MAX_VALUE);
+        LocalDate fechaActual = LocalDate.now();
+        LocalTime horaActual = LocalTime.now();
+        LocalDateTime fechaHoraActual = LocalDateTime.of(fechaActual, horaActual);
+        Date fecha = Date.from(fechaHoraActual.atZone(ZoneId.systemDefault()).toInstant());
+        CuentaEntity cuentaOrigen = cuentaRepository.darCuenta(numero_cuenta_origen);
+        CuentaEntity cuentaDestino = cuentaRepository.darCuenta(numero_cuenta_destino);
+        if (cuentaOrigen.getSaldo() >= cantidad_transferencia) {
+            cuentaRepository.actualizarCuenta(numero_cuenta_origen, cuentaOrigen.getSaldo() - cantidad_transferencia, cuentaOrigen.getFecha_ultima_transaccion(), cuentaOrigen.getFecha_creacion(), cuentaOrigen.getTipo_cuenta(), cuentaOrigen.getEstado_cuenta());
+            cuentaRepository.actualizarCuenta(numero_cuenta_destino, cuentaDestino.getSaldo() + cantidad_transferencia, cuentaDestino.getFecha_ultima_transaccion(), cuentaDestino.getFecha_creacion(), cuentaDestino.getTipo_cuenta(), cuentaDestino.getEstado_cuenta());
+            operacionesbancariasServicio.insertarOperacionBancaria(id, cantidad_transferencia, horaActual.format(DateTimeFormatter.ofPattern("HH:mm:ss")), fecha, Producto.CUENTA, Tipo.TRANSFERENCIA);
+        } else {
+            throw new SaldoInsuficienteException("No hay suficiente saldo en la cuenta origen.");
+        }
+       
     }
 
      

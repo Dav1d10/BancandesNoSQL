@@ -17,6 +17,7 @@ import com.bancandes.entities.CuentaEntity.TipoCuenta;
 import com.bancandes.entities.OperacionBancariaEntity.Producto;
 import com.bancandes.entities.OperacionBancariaEntity.Tipo;
 import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
+import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.repository.OficinaRepository;
 import com.bancandes.repository.OperacionBancariaRepository;
@@ -63,8 +64,9 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Bancandes fue inicializada correctamente...");
         //poblacionColecciones();
         //crearCuenta();
-        //mostrarCuentas();
-        borrarPuntoAtencion(10);
+        consignacionCuenta(2, 100);
+        mostrarCuentas();
+        //borrarPuntoAtencion(10);
     }
 
     void crearCuenta() {
@@ -217,6 +219,24 @@ public class BancandesApplication implements CommandLineRunner {
         ", \nTipo: " + operacionBancaria.getTipo()
         );
         return "";
+    }
+
+    void consignacionCuenta(int numero_cuenta, int cantidad_consignacion) {
+        System.out.println("Se inicio el proceso de consignar a la cuenta con id: " + numero_cuenta);
+        cuentasServicio.consignacionCuenta(numero_cuenta, cantidad_consignacion);
+        System.out.println("La consignacion a la cuenta fue exitosa");
+    }
+
+    void retiroCuenta(int numero_cuenta, int cantidad_retiro) {
+        System.out.println("Se inicio el proceso de retiro a la cuenta con id: " + numero_cuenta);
+        cuentasServicio.retiroCuenta(numero_cuenta, cantidad_retiro);
+        System.out.println("El retiro a la cuenta fue exitosa");
+    }
+
+    void transferenciaCuentas(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
+        System.out.println("Se inicio el proceso de transferencia...");
+        cuentasServicio.transferenciaCuentas(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+        System.out.println("El transferencia fue exitosa");
     }
     
 }

@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import com.bancandes.entities.CuentaEntity;
+import com.bancandes.entities.CuentaEntity.EstadoCuenta;
+import com.bancandes.entities.CuentaEntity.TipoCuenta;
 
 @Component
 public class CuentaRepositoryImpl implements CuentaRepositoryCustom {
@@ -18,7 +20,7 @@ public class CuentaRepositoryImpl implements CuentaRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void actualizarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, String tipoCuenta, String estadoCuenta) {
+    public void actualizarCuenta(int numeroCuenta, int saldo, Date fechaUltimaTransaccion, Date fechaCreacion, TipoCuenta tipoCuenta, EstadoCuenta estadoCuenta) {
         Query query = new Query(Criteria.where("numero_cuenta").is(numeroCuenta));
         Update update = new Update()
                 .set("saldo", saldo)
