@@ -17,7 +17,7 @@ public interface OperacionBancariaRepository extends MongoRepository<OperacionBa
     Collection<OperacionBancariaEntity> darOperacionesBancarias();
 
     @Query("{ 'id': ?0}")
-    OficinaEntity darOperacionBancaria(int id);
+    OperacionBancariaEntity darOperacionBancaria(int id);
 
     /* 
     @Query(value = "SELECT * FROM OPERACION_BANCARIA", nativeQuery = true)

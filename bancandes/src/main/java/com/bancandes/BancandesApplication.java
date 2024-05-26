@@ -14,42 +14,35 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.bancandes.entities.CajeroEntity;
 import com.bancandes.entities.ClienteEntity;
 import com.bancandes.entities.PersonaEntity.TipoDocumento;
-<<<<<<< HEAD
 
-=======
 import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
->>>>>>> main
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.entities.GerenteGeneral;
 import com.bancandes.entities.GerenteOficina;
 import com.bancandes.entities.OficinaEntity;
-<<<<<<< HEAD
+import com.bancandes.entities.OperacionBancariaEntity;
 import com.bancandes.entities.CuentaEntity.EstadoCuenta;
 import com.bancandes.entities.CuentaEntity.TipoCuenta;
-=======
 import com.bancandes.entities.PuntoAtencionEntity;
 import com.bancandes.entities.OperacionBancariaEntity.Producto;
 import com.bancandes.entities.OperacionBancariaEntity.Tipo;
-import com.bancandes.entities.CuentaEntity.EstadoCuenta;
-import com.bancandes.entities.CuentaEntity.TipoCuenta;
 
 
->>>>>>> main
 import com.bancandes.repository.CajeroRepository;
 import com.bancandes.repository.ClienteRepository;
 import com.bancandes.repository.CuentaRepository;
 import com.bancandes.repository.GerenteGeneralRepository;
 import com.bancandes.repository.GerenteOficinaRepository;
 import com.bancandes.repository.OficinaRepository;
+import com.bancandes.repository.OperacionBancariaRepository;
 import com.bancandes.repository.PuntoAtencionRepository;
 import com.bancandes.servicios.ClientesServicio;
 import com.bancandes.servicios.CuentasServicio;
+import com.bancandes.servicios.OficinasServicio;
 import com.bancandes.servicios.OperacionesbancariasServicio;
+import com.bancandes.servicios.PuntosAtencionServicio;
 
-import java.util.Date;
 
-
-import java.util.Date;
 
 
 @SpringBootApplication
@@ -63,7 +56,6 @@ public class BancandesApplication implements CommandLineRunner {
     CuentasServicio cuentasServicio;
 
     @Autowired
-<<<<<<< HEAD
     ClienteRepository clienteRepository;
 
     @Autowired
@@ -73,22 +65,11 @@ public class BancandesApplication implements CommandLineRunner {
     GerenteGeneralRepository gerenteGeneralRepository;
 
     @Autowired
-    PuntoAtencionRepository puntoAtencionRepository;
-=======
     PuntosAtencionServicio puntosAtencionServicio;
->>>>>>> main
 
     @Autowired
     OficinasServicio oficinasServicio;
 
-    @Autowired
-    ClienteRepository clienteRepository;
-
-    @Autowired
-    CajeroRepository cajeroRepository;
-
-    @Autowired
-    GerenteGeneralRepository gerenteGeneralRepository;
 
     @Autowired
     PuntoAtencionRepository puntoAtencionRepository;
@@ -101,6 +82,9 @@ public class BancandesApplication implements CommandLineRunner {
 
     @Autowired
     GerenteOficinaRepository gerenteOficinaRepository;
+
+    @Autowired
+    OperacionBancariaRepository operacionBancariaRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BancandesApplication.class, args);
@@ -148,11 +132,11 @@ public class BancandesApplication implements CommandLineRunner {
 
     void crearPuntosAtencion() {
         System.out.println("Creacion de puntos de atencion empezada...");
-        puntoAtencionServicio.insertarPuntoAtencion(1, "cll1", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntoAtencionServicio.insertarPuntoAtencion(2, "cll2", TipoPuntoAtencion.CAJERO_AUTOMATICO);
-        puntoAtencionServicio.insertarPuntoAtencion(3, "cll3", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntoAtencionServicio.insertarPuntoAtencion(4, "cll4", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
-        puntoAtencionServicio.insertarPuntoAtencion(5, "cll5", TipoPuntoAtencion.CAJERO_AUTOMATICO);
+        puntosAtencionServicio.insertarPuntoAtencion(1, "cll1", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntosAtencionServicio.insertarPuntoAtencion(2, "cll2", TipoPuntoAtencion.CAJERO_AUTOMATICO);
+        puntosAtencionServicio.insertarPuntoAtencion(3, "cll3", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntosAtencionServicio.insertarPuntoAtencion(4, "cll4", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
+        puntosAtencionServicio.insertarPuntoAtencion(5, "cll5", TipoPuntoAtencion.CAJERO_AUTOMATICO);
         puntosAtencionServicio.insertarPuntoAtencion(6, "cll6", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
         puntosAtencionServicio.insertarPuntoAtencion(7, "cll7", TipoPuntoAtencion.PUNTO_DE_ATENCION_DIGITAL);
         puntosAtencionServicio.insertarPuntoAtencion(8, "cll8", TipoPuntoAtencion.ATENCION_PERSONALIZADA);
@@ -182,21 +166,7 @@ public class BancandesApplication implements CommandLineRunner {
 
     }
 
-    void crearCuentas() {
-        System.out.println("Creacion de cuentas empezada...");
-        Date fecha = new Date();
-        cuentasServicio.insertarCuenta(1, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(2, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(3, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(4, 10, fecha, fecha, TipoCuenta.CORRIENTE, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(5, 10, fecha, fecha, TipoCuenta.CORRIENTE, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(6, 10, fecha, fecha, TipoCuenta.CORRIENTE, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(7, 10, fecha, fecha, TipoCuenta.AFC, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(8, 10, fecha, fecha, TipoCuenta.AFC, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(9, 10, fecha, fecha, TipoCuenta.AFC, EstadoCuenta.ACTIVA);
-        cuentasServicio.insertarCuenta(10, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
-        System.out.println("Creacion de cuentas completada...");
-    }
+    
 
     
 
@@ -252,7 +222,6 @@ public class BancandesApplication implements CommandLineRunner {
         return "";
     }
 
-<<<<<<< HEAD
     void crearCuentas() {
         System.out.println("Creacion de cuentas empezada...");
         Date fecha = new Date();
@@ -271,11 +240,9 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
     
-=======
     
 
     
->>>>>>> main
     
 
     void mostrarOpciones() {
@@ -320,10 +287,10 @@ public class BancandesApplication implements CommandLineRunner {
                     opcionesOficina(scanner);
                     break;
                 case 7:
-                    gestionarOperacionesBancarias(scanner);
+                    opcionesOperacionBancaria(scanner);
                     break;
                 case 8:
-                    gestionarPuntosDeAtencion(scanner);
+                    opcionesPuntoAtencion(scanner);
                     break;
                 case 9:
                     System.out.println("Saliendo del programa...");
@@ -522,13 +489,8 @@ public class BancandesApplication implements CommandLineRunner {
     private void mostrarGerenteGeneral() {
         System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
         System.out.println("----------------------------------------------------------------");
-<<<<<<< HEAD
-        gerenteOficinaRepository.darGerentesOficinas()
-                .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteOficina(gerenteOficina)));
-=======
         gerenteGeneralRepository.darGerenteGenerales()
                 .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteGeneral(gerenteOficina)));
->>>>>>> main
     }
 
     void opcionesGerenteGeneral(Scanner scanner) {
@@ -796,6 +758,7 @@ public class BancandesApplication implements CommandLineRunner {
             String direccion = scanner.nextLine();
             System.out.println("Ingrese la cantidad de puntos de atencion: ");
             Integer puntos_atencion = scanner.nextInt();
+            
             insertarOficina(num_cuenta, nombre, direccion, puntos_atencion);
         } else if (opcion == 2) {
             System.out.println("Ingrese el numero ID:");
@@ -811,4 +774,128 @@ public class BancandesApplication implements CommandLineRunner {
     }
     
 
+
+    void insertarOperacionBancaria(int id_operacion, int valor, String hora, Date fecha, Producto producto, Tipo tipo) {
+        System.out.println("Creacion de Operacion Bancaria empezada...");
+        OperacionBancariaEntity nuevaOperacion = new OperacionBancariaEntity(id_operacion, valor, hora, fecha, producto, tipo);
+        operacionBancariaRepository.save(nuevaOperacion);
+        System.out.println("Creacion de Operacion Bancaria completada...");
+    }
+
+    void opcionesOperacionBancaria(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Operacion Bancaria");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un gerente \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los gerentes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el ID:");
+            int id_operacion = scanner.nextInt();
+            System.out.println("Ingrese el nombre: ");
+            int valor = scanner.nextInt();
+            System.out.println("Ingrese la hora: ");
+            String hora = scanner.nextLine();
+
+            System.out.println("Ingrese 1 si es CUENTA o 2 si es CDT o 3 si es PRESTAMO, si pone algo diferente la opcion por defecto es CUENTA");
+            Producto producto = Producto.CUENTA;
+            int opcion3 = scanner.nextInt();
+            if (opcion3 == 1) {
+                producto = Producto.CUENTA;
+            } else if (opcion3 == 2) {
+                producto = Producto.CDT;
+            } else if (opcion3 == 3) {
+                producto = Producto.PRESTAMO;
+            }
+
+
+
+            System.out.println("Ingrese 1 si es CONSIGNACION o 2 si es RETIRO o 3 si es PEDIR PRESTAMO o 4 si es PAGAR PRESTAMO o 5 si es CERRAR PRESTAMO o 6 si es transferencia,si pone algo diferente la opcion por defecto es CONSIGNACION");
+            Tipo tipo = Tipo.CONSIGNACION;
+            int opcion4 = scanner.nextInt();
+            if (opcion4 == 1) {
+                tipo = Tipo.CONSIGNACION;
+            } else if (opcion4 == 2) {
+                tipo = Tipo.RETIRO;
+            } else if (opcion4 == 3) {
+                tipo = Tipo.PEDIR_PRESTAMO;
+            } else if (opcion4 == 4) {
+                tipo = Tipo.PAGAR_PRESTAMO;
+            } else if (opcion4 == 5) {
+                tipo = Tipo.CERRAR_PRESTAMO;
+            } else if (opcion4 == 6) {
+                tipo = Tipo.RETIRO;
+            
+            }
+
+            System.out.print("Ingrese la fecha de ultima transferencia en formato: (dd/MM/yyyy): ");
+            String fecha2String = scanner.nextLine();
+            SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
+            Date fecha = new Date();
+            try {
+                fecha = dateFormat2.parse(fecha2String);
+            } catch (ParseException e) {
+                System.out.println("Fecha inválida. Por favor, use el formato dd/MM/yyyy.");
+            }
+            insertarOperacionBancaria(id_operacion, valor, hora, fecha, producto, tipo);
+
+
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero ID:");
+            int id_operacion = scanner.nextInt();
+            OperacionBancariaEntity operacion = operacionBancariaRepository.darOperacionBancaria(id_operacion);
+            obtenerInfoOperacionesBancarias(operacion);
+        } else if (opcion == 3) {
+            mostrarOperacionesBancarias();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+
+
+    void insertarPuntoAtencion(int id_punto_atencion, String localizacion, TipoPuntoAtencion tipo) {
+        System.out.println("Creacion de Oficina empezada...");
+        PuntoAtencionEntity nuevoPunto = new PuntoAtencionEntity(id_punto_atencion, localizacion, tipo);
+        puntoAtencionRepository.save(nuevoPunto);
+        System.out.println("Creacion de Gerente completada...");
+    }
+
+    void opcionesPuntoAtencion(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Operacion Bancaria");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un gerente \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los gerentes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el ID:");
+            int id_punto_atencion = scanner.nextInt();
+            System.out.println("Ingrese la hora: ");
+            String localizacion = scanner.nextLine();
+            System.out.println("Ingrese 1 si es ATENCION PERSONALIZADA o 2 si es CAJERO AUTOMATICO o 3 si es ATENCION DIGITAL, si pone algo diferente la opcion por defecto es ATENCION PERSONALIZADA");
+            TipoPuntoAtencion tipo = TipoPuntoAtencion.ATENCION_PERSONALIZADA;
+            int opcion4 = scanner.nextInt();
+            if (opcion4 == 1) {
+                tipo = TipoPuntoAtencion.ATENCION_PERSONALIZADA;
+            } else if (opcion4 == 2) {
+                tipo = TipoPuntoAtencion.CAJERO_AUTOMATICO;
+            } else if (opcion4 == 3) {
+                tipo = TipoPuntoAtencion.PUNTO_DE_ATENCION_DIGITAL;
+            }
+
+            insertarPuntoAtencion(id_punto_atencion, localizacion, tipo);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero ID:");
+            int id_punto_atencion = scanner.nextInt();
+            PuntoAtencionEntity punto = puntoAtencionRepository.darPuntoAtencion(id_punto_atencion);
+            obtenerInfoPuntosAtencion(punto);
+        } else if (opcion == 3) {
+            mostrarPuntosAtencion();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
 }

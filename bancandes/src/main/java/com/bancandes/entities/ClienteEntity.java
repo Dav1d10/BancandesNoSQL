@@ -169,7 +169,16 @@ public class ClienteEntity {
 
 
 
-    
+    public TipoDocumento getTipo_documento() {
+        return tipo_documento;
+    }
+
+
+
+
+    public void setTipo_documento(TipoDocumento tipo_documento) {
+        this.tipo_documento = tipo_documento;
+    }
 
 
 
