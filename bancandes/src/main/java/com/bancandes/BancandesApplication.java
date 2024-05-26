@@ -1,6 +1,9 @@
 package com.bancandes;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,54 +11,75 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import com.bancandes.entities.CajeroEntity;
+import com.bancandes.entities.ClienteEntity;
+import com.bancandes.entities.PersonaEntity.TipoDocumento;
+import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
 import com.bancandes.entities.CuentaEntity;
+import com.bancandes.entities.GerenteGeneral;
+import com.bancandes.entities.GerenteOficina;
 import com.bancandes.entities.OficinaEntity;
-import com.bancandes.entities.OperacionBancariaEntity;
 import com.bancandes.entities.PuntoAtencionEntity;
-import com.bancandes.entities.CuentaEntity.EstadoCuenta;
-import com.bancandes.entities.CuentaEntity.TipoCuenta;
 import com.bancandes.entities.OperacionBancariaEntity.Producto;
 import com.bancandes.entities.OperacionBancariaEntity.Tipo;
-import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
-import com.bancandes.exceptions.SaldoInsuficienteException;
+import com.bancandes.entities.CuentaEntity.EstadoCuenta;
+import com.bancandes.entities.CuentaEntity.TipoCuenta;
+
+
+import com.bancandes.repository.CajeroRepository;
+import com.bancandes.repository.ClienteRepository;
 import com.bancandes.repository.CuentaRepository;
+import com.bancandes.repository.GerenteGeneralRepository;
+import com.bancandes.repository.GerenteOficinaRepository;
 import com.bancandes.repository.OficinaRepository;
-import com.bancandes.repository.OperacionBancariaRepository;
 import com.bancandes.repository.PuntoAtencionRepository;
+import com.bancandes.servicios.ClientesServicio;
 import com.bancandes.servicios.CuentasServicio;
 import com.bancandes.servicios.OficinasServicio;
 import com.bancandes.servicios.OperacionesbancariasServicio;
 import com.bancandes.servicios.PuntosAtencionServicio;
 
+import java.util.Date;
+
+
 @SpringBootApplication
 @EnableMongoRepositories
 public class BancandesApplication implements CommandLineRunner {
-
 
     @Autowired
     CuentaRepository cuentaRepository;
 
     @Autowired
-    OficinaRepository oficinaRepository;
-
-    @Autowired
-    PuntoAtencionRepository puntoAtencionRepository;
-
-    @Autowired
-    OperacionBancariaRepository operacionBancariaRepository;
-
-    @Autowired
     CuentasServicio cuentasServicio;
-
-    @Autowired
-    OficinasServicio oficinasServicio;
 
     @Autowired
     PuntosAtencionServicio puntosAtencionServicio;
 
     @Autowired
+    OficinasServicio oficinasServicio;
+
+    @Autowired
+    ClienteRepository clienteRepository;
+
+    @Autowired
+    CajeroRepository cajeroRepository;
+
+    @Autowired
+    GerenteGeneralRepository gerenteGeneralRepository;
+
+    @Autowired
+    PuntoAtencionRepository puntoAtencionRepository;
+
+    @Autowired
     OperacionesbancariasServicio operacionesbancariasServicio;
-    public static void main( String[] args ) {
+
+    @Autowired
+    OficinaRepository oficinaRepository;
+
+    @Autowired
+    GerenteOficinaRepository gerenteOficinaRepository;
+
+    public static void main(String[] args) {
         SpringApplication.run(BancandesApplication.class, args);
     }
 
@@ -64,9 +88,8 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Bancandes fue inicializada correctamente...");
         //poblacionColecciones();
         //crearCuenta();
-        consignacionCuenta(2, 100);
-        mostrarCuentas();
-        //borrarPuntoAtencion(10);
+        //mostrarCuentas();
+        borrarPuntoAtencion(10);
     }
 
     void crearCuenta() {
@@ -152,11 +175,7 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Creacion de cuentas completada...");
     }
 
-    public void mostrarCuentas() {
-        System.out.println("Las cuentas almacenadas en la base de datos son las siguientes -> ");
-        System.out.println("----------------------------------------------------------------");
-        cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(obtenerInfoCuentas(cuenta)));
-    }
+    
 
     public void mostrarOficinas() {
         System.out.println("Las oficinas almacenadas en la base de datos son las siguientes -> ");
@@ -178,17 +197,6 @@ public class BancandesApplication implements CommandLineRunner {
 
     
 
-    public String obtenerInfoCuentas(CuentaEntity cuenta) {
-        System.out.println(
-            "Numero cuenta: " + cuenta.getNumero_cuenta() +
-            ", \nSaldo: " + cuenta.getSaldo() +
-            ", \nFecha de la ultima transaccion: " + cuenta.getFecha_ultima_transaccion() +
-            ", \nFecha de creacion: " + cuenta.getFecha_creacion() +
-            ", \nTipo de cuenta: " + cuenta.getTipo_cuenta() +
-            ", \nEstado de cuenta: " + cuenta.getEstado_cuenta()
-        );
-        return "";
-    }
 
     public String obtenerInfoOficinas(OficinaEntity oficina) {
         System.out.println(
@@ -221,22 +229,537 @@ public class BancandesApplication implements CommandLineRunner {
         return "";
     }
 
-    void consignacionCuenta(int numero_cuenta, int cantidad_consignacion) {
-        System.out.println("Se inicio el proceso de consignar a la cuenta con id: " + numero_cuenta);
-        cuentasServicio.consignacionCuenta(numero_cuenta, cantidad_consignacion);
-        System.out.println("La consignacion a la cuenta fue exitosa");
+    
+
+    
+    
+
+    void mostrarOpciones() {
+        System.out.println("Bienvenido a Bancandes \\n" + //
+                "Seleccione una de las siguientes opciones: \\n" + //
+                "1. Cajeros: \\n" + //
+                "2. Clientes \\n" + //
+                "3. Cuentas: \\n" + //
+                "4. Gerentes Generales \\n" + //
+                "5. Gerentes Oficinas \\n" + //
+                "6. Oficinas \\n" + //
+                "7. Operaciones Bancarias \\n" + //
+                "8. Puntos De Atencion");
     }
 
-    void retiroCuenta(int numero_cuenta, int cantidad_retiro) {
-        System.out.println("Se inicio el proceso de retiro a la cuenta con id: " + numero_cuenta);
-        cuentasServicio.retiroCuenta(numero_cuenta, cantidad_retiro);
-        System.out.println("El retiro a la cuenta fue exitosa");
+    void seleccionOpciones() {
+        Scanner scanner = new Scanner(System.in);
+        int opcion = 0;
+
+        while (opcion != 9) {
+            System.out.print("Ingrese el número de la opción que desea seleccionar: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer
+
+            switch (opcion) {
+                case 1:
+                    opcionesCajeros(scanner);
+                    break;
+                case 2:
+                    opcionesClientes(scanner);
+                    break;
+                case 3:
+                    opcionesCuenta(scanner);
+                    break;
+                case 4:
+                    opcionesGerenteGeneral(scanner);
+                    break;
+                case 5:
+                    opcionesGerenteOficina(scanner);
+                    break;
+                case 6:
+                    opcionesOficina(scanner);
+                    break;
+                case 7:
+                    gestionarOperacionesBancarias(scanner);
+                    break;
+                case 8:
+                    gestionarPuntosDeAtencion(scanner);
+                    break;
+                case 9:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción del 1 al 9.");
+            }
+        }
     }
 
-    void transferenciaCuentas(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) throws SaldoInsuficienteException {
-        System.out.println("Se inicio el proceso de transferencia...");
-        cuentasServicio.transferenciaCuentas(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
-        System.out.println("El transferencia fue exitosa");
+    private void mostrarClientes() {
+        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        clienteRepository.darClientes().forEach(cliente -> System.out.println(obtenerInfoClientes(cliente)));
+    }
+
+    void insertarCliente(String num_documento, String telefono, String nombre, String nacionalidad,
+            String direccion_fisica, String direccion_electronica,
+            String departamento, String codigo_postal, String ciudad, TipoDocumento tipo_documento) {
+        System.out.println("Creacion de cliente empezada...");
+        ClienteEntity nuevoCliente = new ClienteEntity(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                direccion_electronica, departamento,
+                codigo_postal, ciudad, tipo_documento);
+        clienteRepository.save(nuevoCliente);
+        System.out.println("Creacion de cliente completada...");
+    }
+
+    private String obtenerInfoClientes(ClienteEntity cliente) {
+        System.out.println(
+                "Numero documento: " + cliente.getNum_documento() +
+                        ", \nNombre: " + cliente.getNombre() +
+                        ", \nCiudad: " + cliente.getCiudad() +
+                        ", \nDepartamento: " + cliente.getDepartamento() +
+                        ", \nDireccion Electronica: " + cliente.getDireccion_electronica() +
+                        ", \nDireccion fisica: " + cliente.getDireccion_fisica() +
+                        ", \nNacionalidad: " + cliente.getNacionalidad() +
+                        ", \nTelefono: " + cliente.getTelefono() +
+                        ", \nDepartamento: " + cliente.getTipo_documento().toString());
+        return "";
+    }
+
+    void opcionesClientes(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Clientes");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un cliente \\n" + //
+                "2. Dar un cliente por su numero de documento \\n" + //
+                "3. Dar todos los clientes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el numero de documento:");
+            String num_documento = scanner.nextLine();
+            System.out.println("Ingrese el telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el nacionalidad: ");
+            String nacionalidad = scanner.nextLine();
+            System.out.println("Ingrese la direccion fisica: ");
+            String direccion_fisica = scanner.nextLine();
+            System.out.println("Ingrese la direccion electronica: ");
+            String direccion_electronica = scanner.nextLine();
+            System.out.println("Ingrese el departamento: ");
+            String departamento = scanner.nextLine();
+            System.out.println("Ingrese el codigo postal: ");
+            String codigo_postal = scanner.nextLine();
+            System.out.println("Ingrese la ciudad: ");
+            String ciudad = scanner.nextLine();
+            System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
+            TipoDocumento tipoDocumento = TipoDocumento.CC;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                tipoDocumento = TipoDocumento.CC;
+            } else if (opcion2 == 2) {
+                tipoDocumento = TipoDocumento.NIT;
+            }
+            insertarCliente(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                    direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero de documento:");
+            int num_documento = scanner.nextInt();
+            ClienteEntity cliente = clienteRepository.darCliente(num_documento);
+            obtenerInfoClientes(cliente);
+        } else if (opcion == 3) {
+            mostrarClientes();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+    void insertarCajero(String num_documento, String telefono, String nombre, String nacionalidad,
+            String direccion_fisica, String direccion_electronica,
+            String departamento, String codigo_postal, String ciudad, TipoDocumento tipo_documento) {
+        System.out.println("Creacion de cajero empezada...");
+        CajeroEntity nuevoCajero = new CajeroEntity(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                direccion_electronica, departamento,
+                codigo_postal, ciudad, tipo_documento);
+        cajeroRepository.save(nuevoCajero);
+        System.out.println("Creacion de cajero completada...");
+    }
+
+    private String obtenerInfoCajeros(CajeroEntity cajero) {
+        System.out.println(
+                "Numero documento: " + cajero.getNum_documento() +
+                        ", \nNombre: " + cajero.getNombre() +
+                        ", \nCiudad: " + cajero.getCiudad() +
+                        ", \nDepartamento: " + cajero.getDepartamento() +
+                        ", \nDireccion Electronica: " + cajero.getDireccion_electronica() +
+                        ", \nDireccion fisica: " + cajero.getDireccion_fisica() +
+                        ", \nNacionalidad: " + cajero.getNacionalidad() +
+                        ", \nTelefono: " + cajero.getTelefono() +
+                        ", \nDepartamento: " + cajero.getTipo_documento().toString());
+        return "";
+    }
+
+    private void mostrarCajeros() {
+        System.out.println("Los cajeros almacenados en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        cajeroRepository.darCajeros().forEach(cajero -> System.out.println(obtenerInfoCajeros(cajero)));
+    }
+
+    void opcionesCajeros(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Cajeros");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un cajero \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los cajeros");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el numero de documento:");
+            String num_documento = scanner.nextLine();
+            System.out.println("Ingrese el telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el nacionalidad: ");
+            String nacionalidad = scanner.nextLine();
+            System.out.println("Ingrese la direccion fisica: ");
+            String direccion_fisica = scanner.nextLine();
+            System.out.println("Ingrese la direccion electronica: ");
+            String direccion_electronica = scanner.nextLine();
+            System.out.println("Ingrese el departamento: ");
+            String departamento = scanner.nextLine();
+            System.out.println("Ingrese el codigo postal: ");
+            String codigo_postal = scanner.nextLine();
+            System.out.println("Ingrese la ciudad: ");
+            String ciudad = scanner.nextLine();
+            System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
+            TipoDocumento tipoDocumento = TipoDocumento.CC;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                tipoDocumento = TipoDocumento.CC;
+            } else if (opcion2 == 2) {
+                tipoDocumento = TipoDocumento.NIT;
+            }
+            insertarCajero(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                    direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero de documento:");
+            int num_documento = scanner.nextInt();
+            CajeroEntity cajero = cajeroRepository.darCajero(num_documento);
+            obtenerInfoCajeros(cajero);
+        } else if (opcion == 3) {
+            mostrarCajeros();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+    void insertarGerentesGenerales(String num_documento, String telefono, String nombre, String nacionalidad,
+            String direccion_fisica, String direccion_electronica,
+            String departamento, String codigo_postal, String ciudad, TipoDocumento tipo_documento) {
+        System.out.println("Creacion de Gerente empezada...");
+        GerenteGeneral nuevoGeneral = new GerenteGeneral(num_documento, telefono, nombre, nacionalidad,
+                direccion_fisica, direccion_electronica, departamento,
+                codigo_postal, ciudad, tipo_documento);
+        gerenteGeneralRepository.save(nuevoGeneral);
+        System.out.println("Creacion de Gerente completada...");
+    }
+
+    private String obtenerInfoGerenteGeneral(GerenteGeneral general) {
+        System.out.println(
+                "Numero documento: " + general.getNum_documento() +
+                        ", \nNombre: " + general.getNombre() +
+                        ", \nCiudad: " + general.getCiudad() +
+                        ", \nDepartamento: " + general.getDepartamento() +
+                        ", \nDireccion Electronica: " + general.getDireccion_electronica() +
+                        ", \nDireccion fisica: " + general.getDireccion_fisica() +
+                        ", \nNacionalidad: " + general.getNacionalidad() +
+                        ", \nTelefono: " + general.getTelefono() +
+                        ", \nDepartamento: " + general.getTipo_documento().toString());
+        return "";
+    }
+
+    private void mostrarGerenteGeneral() {
+        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        gerenteGeneralRepository.darGerenteGenerales()
+                .forEach(gerenteOficina -> System.out.println(obtenerInfoGerenteGeneral(gerenteOficina)));
+    }
+
+    void opcionesGerenteGeneral(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Gerente General");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un gerente \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los gerentes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el numero de documento:");
+            String num_documento = scanner.nextLine();
+            System.out.println("Ingrese el telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el nacionalidad: ");
+            String nacionalidad = scanner.nextLine();
+            System.out.println("Ingrese la direccion fisica: ");
+            String direccion_fisica = scanner.nextLine();
+            System.out.println("Ingrese la direccion electronica: ");
+            String direccion_electronica = scanner.nextLine();
+            System.out.println("Ingrese el departamento: ");
+            String departamento = scanner.nextLine();
+            System.out.println("Ingrese el codigo postal: ");
+            String codigo_postal = scanner.nextLine();
+            System.out.println("Ingrese la ciudad: ");
+            String ciudad = scanner.nextLine();
+            System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
+            TipoDocumento tipoDocumento = TipoDocumento.CC;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                tipoDocumento = TipoDocumento.CC;
+            } else if (opcion2 == 2) {
+                tipoDocumento = TipoDocumento.NIT;
+            }
+            insertarGerentesGenerales(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                    direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero de documento:");
+            int num_documento = scanner.nextInt();
+            GerenteGeneral general = gerenteGeneralRepository.darGerenteGeneral(num_documento);
+            obtenerInfoGerenteGeneral(general);
+        } else if (opcion == 3) {
+            mostrarGerenteGeneral();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+
+    void insertarGerentesOficina(String num_documento, String telefono, String nombre, String nacionalidad,
+            String direccion_fisica, String direccion_electronica,
+            String departamento, String codigo_postal, String ciudad, TipoDocumento tipo_documento) {
+        System.out.println("Creacion de Gerente empezada...");
+        GerenteOficina nuevoOficina = new GerenteOficina(num_documento, telefono, nombre, nacionalidad,
+                direccion_fisica, direccion_electronica, departamento,
+                codigo_postal, ciudad, tipo_documento);
+        gerenteOficinaRepository.save(nuevoOficina);
+        System.out.println("Creacion de Gerente completada...");
+    }
+
+    private String obtenerInfoGerenteOficina(GerenteOficina oficina) {
+        System.out.println(
+                "Numero documento: " + oficina.getNum_documento() +
+                        ", \nNombre: " + oficina.getNombre() +
+                        ", \nCiudad: " + oficina.getCiudad() +
+                        ", \nDepartamento: " + oficina.getDepartamento() +
+                        ", \nDireccion Electronica: " + oficina.getDireccion_electronica() +
+                        ", \nDireccion fisica: " + oficina.getDireccion_fisica() +
+                        ", \nNacionalidad: " + oficina.getNacionalidad() +
+                        ", \nTelefono: " + oficina.getTelefono() +
+                        ", \nDepartamento: " + oficina.getTipo_documento().toString());
+        return "";
+    }
+
+    private void mostrarGerenteOficina() {
+        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        gerenteGeneralRepository.darGerenteGenerales()
+                .forEach(gerenteGeneral -> System.out.println(obtenerInfoGerenteGeneral(gerenteGeneral)));
+    }
+
+    void opcionesGerenteOficina(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Gerente Oficina");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un gerente \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los gerentes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el numero de documento:");
+            String num_documento = scanner.nextLine();
+            System.out.println("Ingrese el telefono: ");
+            String telefono = scanner.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el nacionalidad: ");
+            String nacionalidad = scanner.nextLine();
+            System.out.println("Ingrese la direccion fisica: ");
+            String direccion_fisica = scanner.nextLine();
+            System.out.println("Ingrese la direccion electronica: ");
+            String direccion_electronica = scanner.nextLine();
+            System.out.println("Ingrese el departamento: ");
+            String departamento = scanner.nextLine();
+            System.out.println("Ingrese el codigo postal: ");
+            String codigo_postal = scanner.nextLine();
+            System.out.println("Ingrese la ciudad: ");
+            String ciudad = scanner.nextLine();
+            System.out.println("Ingrese 1 si es CC o 2 si es NIT, si pone algo diferente la opcion por defecto es CC");
+            TipoDocumento tipoDocumento = TipoDocumento.CC;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                tipoDocumento = TipoDocumento.CC;
+            } else if (opcion2 == 2) {
+                tipoDocumento = TipoDocumento.NIT;
+            }
+            insertarGerentesOficina(num_documento, telefono, nombre, nacionalidad, direccion_fisica,
+                    direccion_electronica, departamento, codigo_postal, ciudad, tipoDocumento);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero de documento:");
+            int num_documento = scanner.nextInt();
+            GerenteOficina oficina = gerenteOficinaRepository.darGerenteOficina(num_documento);
+            obtenerInfoGerenteOficina(oficina);
+        } else if (opcion == 3) {
+            mostrarGerenteOficina();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+
+
+    void crearCuenta(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion, TipoCuenta tipo_cuenta, EstadoCuenta estadoCuenta) {
+        System.out.println("Creacion de cuentas empezada...");
+        CuentaEntity nuevaCuenta = new CuentaEntity(numero_cuenta, saldo, fecha_ultima_transaccion, fecha_creacion,tipo_cuenta , estadoCuenta);
+        cuentaRepository.save(nuevaCuenta);
+        System.out.println("Creacion de cuentas completada...");
+    }
+
+
+    private void mostrarCuentas() {
+            System.out.println("Las cuentas almacenadas en la base de datos son las siguientes -> ");
+            System.out.println("----------------------------------------------------------------");
+            cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(obtenerInfoCuentas(cuenta)));
+        }
+
+    private String obtenerInfoCuentas(CuentaEntity cuenta) {
+        System.out.println(
+                "Numero cuenta: " + cuenta.getNumero_cuenta() +
+                        ", \nSaldo: " + cuenta.getSaldo() +
+                        ", \nFecha de la ultima transaccion: " + cuenta.getFecha_ultima_transaccion() +
+                        ", \nFecha de creacion: " + cuenta.getFecha_creacion() +
+                        ", \nTipo de cuenta: " + cuenta.getTipo_cuenta() +
+                        ", \nEstado de cuenta: " + cuenta.getEstado_cuenta());
+        return "";
+    }
+
+    void opcionesCuenta(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Cuenta");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar una cuenta \\n" + //
+                "2. Dar una cuenta por su numero \\n" + //
+                "3. Dar todas las cuentas");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el numero de cuenta:");
+            Integer num_cuenta = scanner.nextInt();
+            System.out.println("Ingrese el saldo: ");
+            Integer saldo = scanner.nextInt();
+            System.out.print("Ingrese la fecha de creacion en formato: (dd/MM/yyyy): ");
+            String fechaString = scanner.nextLine();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date fechaC = new Date();
+            Date fechaU = new Date();
+            try {
+                fechaC = dateFormat.parse(fechaString);
+            } catch (ParseException e) {
+                System.out.println("Fecha inválida. Por favor, use el formato dd/MM/yyyy.");
+            }
+            System.out.print("Ingrese la fecha de ultima transferencia en formato: (dd/MM/yyyy): ");
+            String fecha2String = scanner.nextLine();
+            SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                fechaU = dateFormat2.parse(fecha2String);
+            } catch (ParseException e) {
+                System.out.println("Fecha inválida. Por favor, use el formato dd/MM/yyyy.");
+            }
+
+            System.out.println("Ingrese 1 si es ACTIVA o 2 si es CERRADA o 3 si es DESACTIVADA, si pone algo diferente la opcion por defecto es ACTIVA");
+            EstadoCuenta estadoCuenta = EstadoCuenta.ACTIVA;
+            int opcion2 = scanner.nextInt();
+            if (opcion2 == 1) {
+                estadoCuenta = EstadoCuenta.ACTIVA;
+            } else if (opcion2 == 2) {
+                estadoCuenta = EstadoCuenta.CERRADA;
+            } else if (opcion2 == 3) {
+                estadoCuenta = EstadoCuenta.DESACTIVADA;
+            }
+
+            System.out.println("Ingrese 1 si es AHORROS o 2 si es CORRIENTE o 3 si es AFC, si pone algo diferente la opcion por defecto es AHORROS");
+            TipoCuenta tipoCuenta = TipoCuenta.AHORROS;
+            int opcion3 = scanner.nextInt();
+            if (opcion3 == 1) {
+                tipoCuenta = TipoCuenta.AHORROS;
+            } else if (opcion3 == 2) {
+                tipoCuenta = TipoCuenta.CORRIENTE;
+            } else if (opcion3 == 3) {
+                tipoCuenta = TipoCuenta.AFC;
+            }
+
+            crearCuenta(num_cuenta, saldo, fechaC, fechaU, tipoCuenta, estadoCuenta);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero de cuenta:");
+            int num_cuenta = scanner.nextInt();
+            CuentaEntity cuenta = cuentaRepository.darCuenta(num_cuenta);
+            obtenerInfoCuentas(cuenta);
+        } else if (opcion == 3) {
+            mostrarCuentas();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
+    }
+
+
+    void insertarOficina(Integer id_oficina, String nombre, String direccion, Integer puntos_atencion) {
+        System.out.println("Creacion de Oficina empezada...");
+        OficinaEntity nuevaOficina = new OficinaEntity(id_oficina, nombre, direccion, puntos_atencion);
+        oficinaRepository.save(nuevaOficina);
+        System.out.println("Creacion de Gerente completada...");
+    }
+
+    private String obtenerInfoOficina(OficinaEntity oficina) {
+        System.out.println(
+                "ID: " + oficina.getId_oficina() +
+                        ", \nNombre: " + oficina.getNombre() +
+                        ", \nDireccion: " + oficina.getDireccion() +
+                        ", \nPuntos de Atencion: " + oficina.getPuntos_atencion());
+        return "";
+    }
+
+    private void mostrarOficina() {
+        System.out.println("Los clientes almacenados en la base de datos son las siguientes -> ");
+        System.out.println("----------------------------------------------------------------");
+        oficinaRepository.darOficinas()
+                .forEach(oficina -> System.out.println(obtenerInfoOficina(oficina)));
+    }
+
+    void opcionesOficina(Scanner scanner) {
+        System.out.println("Usted ha seleccionado: Gerente Oficina");
+        System.out.println("Eliga una opcion: \n" + //
+                "1. Agregar un gerente \\n" + //
+                "2. Dar un cajero por su numero de documento \\n" + //
+                "3. Dar todos los gerentes");
+        int opcion = scanner.nextInt();
+        if (opcion == 1) {
+            System.out.println("Ingrese el ID:");
+            Integer num_cuenta = scanner.nextInt();
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese la direccion: ");
+            String direccion = scanner.nextLine();
+            System.out.println("Ingrese la cantidad de puntos de atencion: ");
+            Integer puntos_atencion = scanner.nextInt();
+            insertarOficina(num_cuenta, nombre, direccion, puntos_atencion);
+        } else if (opcion == 2) {
+            System.out.println("Ingrese el numero ID:");
+            int id_oficina = scanner.nextInt();
+            OficinaEntity oficina = oficinaRepository.darOficina(id_oficina);
+            obtenerInfoOficina(oficina);
+        } else if (opcion == 3) {
+            mostrarOficina();
+        }
+        else {
+            System.out.println("NO EXISTE ESA OPCION!");
+        }
     }
     
+
 }
