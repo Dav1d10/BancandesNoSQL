@@ -16,6 +16,7 @@ import com.bancandes.entities.ClienteEntity;
 import com.bancandes.entities.PersonaEntity.TipoDocumento;
 
 import com.bancandes.entities.PuntoAtencionEntity.TipoPuntoAtencion;
+import com.bancandes.exceptions.SaldoInsuficienteException;
 import com.bancandes.entities.CuentaEntity;
 import com.bancandes.entities.GerenteGeneral;
 import com.bancandes.entities.GerenteOficina;
@@ -266,8 +267,7 @@ public class BancandesApplication implements CommandLineRunner {
         while (opcion != 9) {
             System.out.print("Ingrese el número de la opción que desea seleccionar: ");
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
-
+            scanner.nextLine(); 
             switch (opcion) {
                 case 1:
                     opcionesCajeros(scanner);
@@ -631,7 +631,6 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
 
-
     void crearCuenta(Integer numero_cuenta, Integer saldo, Date fecha_ultima_transaccion, Date fecha_creacion, TipoCuenta tipo_cuenta, EstadoCuenta estadoCuenta) {
         System.out.println("Creacion de cuentas empezada...");
         CuentaEntity nuevaCuenta = new CuentaEntity(numero_cuenta, saldo, fecha_ultima_transaccion, fecha_creacion,tipo_cuenta , estadoCuenta);
@@ -646,6 +645,7 @@ public class BancandesApplication implements CommandLineRunner {
             cuentaRepository.darCuentas().forEach(cuenta -> System.out.println(obtenerInfoCuentas(cuenta)));
         }
 
+
     private String obtenerInfoCuentas(CuentaEntity cuenta) {
         System.out.println(
                 "Numero cuenta: " + cuenta.getNumero_cuenta() +
@@ -657,12 +657,41 @@ public class BancandesApplication implements CommandLineRunner {
         return "";
     }
 
+
+    void consignacionCuenta(int numero_cuenta, int cantidad_consignacion) {
+        System.out.println("Se ha iniciado proceso de consignacion de cuenta con id: " + numero_cuenta);
+        cuentasServicio.consignacionCuenta(numero_cuenta, cantidad_consignacion);
+        System.out.println("Ha finalizado proceso de consignacion de cuenta exitosamente");
+    }
+
+
+    void retiroCuenta(int numero_cuenta, int cantidad_retiro) {
+        System.out.println("Se ha empezado proceso de retiro de cuenta con id: " + numero_cuenta);
+        cuentasServicio.retiroCuenta(numero_cuenta, cantidad_retiro);
+        System.out.println("Ha finalizado proceso de retiro de cuenta exitosamente");
+    }
+
+
+    void transferenciaCuentas(int numero_cuenta_origen, int numero_cuenta_destino, int cantidad_transferencia) {
+        System.out.println("Se ha iniciado proceso de transferencia entre cuentas");
+        try {
+            cuentasServicio.transferenciaCuentas(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
+        } catch (SaldoInsuficienteException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Se ha finalizado exitosamente proceso de transferencia entre cuentas");
+    }
+
+
     void opcionesCuenta(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Cuenta");
         System.out.println("\nEliga una opcion: " + 
                 "\n1. Agregar una cuenta " + 
                 "\n2. Dar una cuenta por su numero " + 
-                "\n3. Dar todas las cuentas");
+                "\n3. Dar todas las cuentas" +
+                "\n4. Realizar Consignacion" +
+                "\n5. Realizar Retiro" +
+                "\n6. Realizar Transferencia");
         int opcion = scanner.nextInt();
         scanner.nextLine();
         if (opcion == 1) {
@@ -721,6 +750,26 @@ public class BancandesApplication implements CommandLineRunner {
             obtenerInfoCuentas(cuenta);
         } else if (opcion == 3) {
             mostrarCuentas();
+        } else if (opcion == 4) {
+            System.out.println("Ingrese el numero de cuenta al que desea hacer la consignacion: ");
+            int num_cuenta = scanner.nextInt();
+            System.out.println("Ingrese la cantidad que desea consignar a la cuenta");
+            int cantidad_consignacion = scanner.nextInt();
+            consignacionCuenta(num_cuenta, cantidad_consignacion);
+        } else if (opcion == 5) {
+            System.out.println("Ingrese el numero de cuenta al que desea hacer el retiro: ");
+            int num_cuenta = scanner.nextInt();
+            System.out.println("Ingrese la cantidad que desea retirar de la cuenta");
+            int cantidad_retiro = scanner.nextInt();
+            retiroCuenta(num_cuenta, cantidad_retiro);
+        } else if (opcion == 6) {
+            System.out.println("Ingrese el numero de cuenta de la cuenta origen: ");
+            int numero_cuenta_origen = scanner.nextInt();
+            System.out.println("Ingrese el numero de cuenta de la cuenta destino: ");
+            int numero_cuenta_destino = scanner.nextInt();
+            System.out.println("Ingrese la cantidad de transferencia: ");
+            int cantidad_transferencia = scanner.nextInt();
+            transferenciaCuentas(numero_cuenta_origen, numero_cuenta_destino, cantidad_transferencia);
         }
         else {
             System.out.println("NO EXISTE ESA OPCION!");
@@ -865,7 +914,6 @@ public class BancandesApplication implements CommandLineRunner {
     }
 
 
-
     void insertarPuntoAtencion(int id_punto_atencion, String localizacion, TipoPuntoAtencion tipo) {
         System.out.println("Creacion de Punto de Atencion empezada...");
         PuntoAtencionEntity nuevoPunto = new PuntoAtencionEntity(id_punto_atencion, localizacion, tipo);
@@ -873,12 +921,21 @@ public class BancandesApplication implements CommandLineRunner {
         System.out.println("Creacion de Punto de Atencion completada...");
     }
 
+
+    void eliminarPuntoAtencion(int id_punto_atencion) {
+        System.out.println("Eliminacion del Punto de Atencion con id" + id_punto_atencion + " empezada...");
+        puntosAtencionServicio.eliminarPuntoAtencion(id_punto_atencion);
+        System.out.println("Eliminacion de Punto de Atencion completada...");
+    }
+
+
     void opcionesPuntoAtencion(Scanner scanner) {
         System.out.println("Usted ha seleccionado: Punto de Atencion");
         System.out.println("\nEliga una opcion: " + //
                 "\n1. Agregar un Punto de Atencion " + //
                 "\n2. Dar un Punto de Atencion por su ID" + //
-                "\n3. Dar todos los Puntos de Atencion");
+                "\n3. Dar todos los Puntos de Atencion" + 
+                "\n4. Eliminar un Punto de Atencion");
         int opcion = scanner.nextInt();
         scanner.nextLine();
         if (opcion == 1) {
@@ -908,6 +965,11 @@ public class BancandesApplication implements CommandLineRunner {
             obtenerInfoPuntosAtencion(punto);
         } else if (opcion == 3) {
             mostrarPuntosAtencion();
+        } else if (opcion == 4) {
+            System.out.println("Ingrese el id del punto de atencion que desea borrar: ");
+            int id_punto_atencion = scanner.nextInt();
+            scanner.nextLine();
+            eliminarPuntoAtencion(id_punto_atencion);
         }
         else {
             System.out.println("NO EXISTE ESA OPCION!");
