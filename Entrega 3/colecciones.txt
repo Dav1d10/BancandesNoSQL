@@ -1,0 +1,106 @@
+db.createCollection("cuentas", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["saldo", "fecha_ultima_transaccion", "fecha_creacion", "tipo_cuenta", "estado_cuenta"],
+properties: {
+saldo:{bsonType:"int"},
+fecha_ultima_transaccion:{bsonType:"date"},
+fecha_creacion:{bsonType:"date"},
+tipo_cuenta:{bsonType:"string", enum: ["AHORROS","CORRIENTE", "AFC"]},
+estado_cuenta:{bsonType:"string", enum: ["ACTIVA", "CERRADA", "DESACTIVADA"]}}}}});
+
+db.createCollection("clientes", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["telefono", "nombre", "nacionalidad", "direccion_fisica", "direccion_electronica", "departamento", "codigo_postal", "ciudad", "tipo_documento"],
+properties: {
+telefono:{bsonType:"string"},
+nombre:{bsonType:"string"},
+nacionalidad:{bsonType:"string"},
+direccion_fisica:{bsonType:"string"},
+direccion_electronica:{bsonType:"string"},
+departamento:{bsonType:"string"},
+codigo_postal:{bsonType:"string"},
+ciudad:{bsonType:"string"},
+tipo_documento:{bsonType:"string", enum: ["NIT", "CC"]}}}}});
+
+db.createCollection("cajeros", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["telefono", "nombre", "nacionalidad", "direccion_fisica", "direccion_electronica", "departamento", "codigo_postal", "ciudad", "tipo_documento"],
+properties: {
+telefono:{bsonType:"string"},
+nombre:{bsonType:"string"},
+nacionalidad:{bsonType:"string"},
+direccion_fisica:{bsonType:"string"},
+direccion_electronica:{bsonType:"string"},
+departamento:{bsonType:"string"},
+codigo_postal:{bsonType:"string"},
+ciudad:{bsonType:"string"},
+tipo_documento:{bsonType:"string", enum: ["NIT", "CC"]}}}}});
+
+db.createCollection("gerentes_de_oficina", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["telefono", "nombre", "nacionalidad", "direccion_fisica", "direccion_electronica", "departamento", "codigo_postal", "ciudad", "tipo_documento"],
+properties: {
+telefono:{bsonType:"string"},
+nombre:{bsonType:"string"},
+nacionalidad:{bsonType:"string"},
+direccion_fisica:{bsonType:"string"},
+direccion_electronica:{bsonType:"string"},
+departamento:{bsonType:"string"},
+codigo_postal:{bsonType:"string"},
+ciudad:{bsonType:"string"},
+tipo_documento:{bsonType:"string", enum: ["NIT", "CC"]}}}}});
+
+db.createCollection("gerentes_generales", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["telefono", "nombre", "nacionalidad", "direccion_fisica", "direccion_electronica", "departamento", "codigo_postal", "ciudad", "tipo_documento"],
+properties: {
+telefono:{bsonType:"string"},
+nombre:{bsonType:"string"},
+nacionalidad:{bsonType:"string"},
+direccion_fisica:{bsonType:"string"},
+direccion_electronica:{bsonType:"string"},
+departamento:{bsonType:"string"},
+codigo_postal:{bsonType:"string"},
+ciudad:{bsonType:"string"},
+tipo_documento:{bsonType:"string", enum: ["NIT", "CC"]}}}}});
+
+db.createCollection("puntos_de_atencion", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["localizacion", "tipo_punto_atencion"],
+properties: {
+localizacion:{bsonType:"string"},
+tipo_punto_atencion:{bsonType:"string", enum: ["ATENCION_PERSONALIZADA", "CAJERO_AUTOMATICO", "PUNTO_DE_ATENCION_DIGITAL"]}}}}});
+
+db.createCollection("oficinas", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["nombre", "direccion", "puntos_atencion"],
+properties: {
+nombre:{bsonType:"string"},
+direccion:{bsonType:"string"},
+puntos_atencion:{bsonType:"int"}}}}});
+
+db.createCollection("operaciones_bancarias", {
+validator: {
+$jsonSchema: {
+bsonType: "object",
+required: ["valor", "hora", "fecha", "producto", "tipo"],
+properties: {
+valor:{bsonType:"int"},
+hora:{bsonType:"string"},
+fecha:{bsonType:"date"},
+producto:{bsonType:"string", enum: ["CUENTA", "CDT"]},
+tipo:{bsonType:"string", enum: ["CONSIGNACION", "RETIRO", "TRANSFERENCIA"]}}}}});
