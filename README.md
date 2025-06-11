@@ -7,6 +7,7 @@ This Java application project was developed as part of the **ISIS2034 Sistemas T
 ## Project Documentation
 
 - [UML Diagram](docs/UML_BancAndes.pdf)
+- [Database Documents Creation](docs/colecciones.txt)
 
 ## Tech Stack
 
