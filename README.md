@@ -45,13 +45,13 @@ spring.data.mongodb.uri=mongodb://<user>:<password>@<host>:<port>/<dbname>
 ## How to run
 
 1. Open a terminal and navigate to the `main project folder`:
-   ```bash
-    cd bancandes
-    ```
+```bash
+  cd bancandes
+  ```
 2. Build and run the application via Maven:
-    ```bash
-    mvn clean spring-boot:run
-    ```
+```bash
+  mvn clean spring-boot:run
+  ```
 ## Collaborators
 
 - Alejandro Abril
