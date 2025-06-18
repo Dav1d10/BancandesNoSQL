@@ -94,9 +94,7 @@ public class BancandesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         System.out.println("Bancandes fue inicializada correctamente...");
-        //poblacionColecciones();
-        //crearCuenta();
-        //mostrarCuentas();
+        poblacionColecciones();
         mostrarOpciones();
         seleccionOpciones();
     }
@@ -227,8 +225,6 @@ public class BancandesApplication implements CommandLineRunner {
     void crearCuentas() {
         System.out.println("Creacion de cuentas empezada...");
         Date fecha = new Date();
-        // cuentasServicio.insertarCuenta(1, 10, fecha, fecha, TipoCuenta.AHORROS,
-        // EstadoCuenta.ACTIVA);
         cuentasServicio.insertarCuenta(2, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
         cuentasServicio.insertarCuenta(3, 10, fecha, fecha, TipoCuenta.AHORROS, EstadoCuenta.ACTIVA);
         cuentasServicio.insertarCuenta(4, 10, fecha, fecha, TipoCuenta.CORRIENTE, EstadoCuenta.ACTIVA);
