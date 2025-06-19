@@ -44,7 +44,7 @@ spring.data.mongodb.uri=mongodb://<user>:<password>@<host>:<port>/<dbname>
 
 ## How to run
 
-1. Open a terminal and navigate to the `main project folder`:
+1. Open a terminal and navigate to the `main directory`:
 ```bash
   cd bancandes
   ```
